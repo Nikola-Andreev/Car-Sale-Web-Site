@@ -38,6 +38,7 @@ namespace Car_Sale_Web_Site.Controllers
 
         // GET: PostCars/Create
         [Authorize]
+
         public ActionResult Create()
         {
             return View();
@@ -49,18 +50,29 @@ namespace Car_Sale_Web_Site.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CarModel,CarDescription")] PostCar postCar)
+        public ActionResult Create(PostCar model)
         {
-            if (ModelState.IsValid)
+            if (model != null && ModelState.IsValid)
             {
-                postCar.Author = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
-                db.PostCar.Add(postCar);
+                var c = new PostCar()
+                {
+                    CarModel = model.CarModel,
+                    Author = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name),
+                    CarDescription = model.CarDescription,
+                    Town = model.Town
+                };
+                //postCar.Author = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
+                
+                db.PostCar.Add(c);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(postCar);
+            return View(model);
         }
+
+       
+
 
         // GET: PostCars/Edit/5
         [Authorize]

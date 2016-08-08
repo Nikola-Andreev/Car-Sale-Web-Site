@@ -20,6 +20,12 @@ namespace Car_Sale_Web_Site.Models
         [StringLength(50)]
         public string CarModel { get; set; }
 
+        //ADD PRICE, CAR IMAGE
+
+       // [Required]
+        [StringLength(50)]
+        public string Town { get; set; }
+
         [Required]
         [StringLength(500)]
         public string CarDescription { get; set; }
