@@ -151,7 +151,7 @@ namespace Car_Sale_Web_Site.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FullName = model.FullName, phoneNumber = model.phoneNumber };
+                var user = new ApplicationUser { UserName = model.userName, Email = model.Email, PhoneNumber = model.phoneNumber };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

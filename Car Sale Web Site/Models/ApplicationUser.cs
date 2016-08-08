@@ -10,12 +10,6 @@ namespace Car_Sale_Web_Site.Models
     public class ApplicationUser : IdentityUser
     {
 
-        [StringLength(100)]
-        public string FullName { get; set; }
-
-        [StringLength(20)]
-        public string phoneNumber { get; set; }
-
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

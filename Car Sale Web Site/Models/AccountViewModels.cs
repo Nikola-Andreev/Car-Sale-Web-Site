@@ -80,8 +80,8 @@ namespace Car_Sale_Web_Site.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        [Display(Name = "Full Name")]
-        public string FullName { get; set; }
+        [Display(Name = "User Name")]
+        public string userName { get; set; }
 
         [Display(Name = "Phone number")]
         public string phoneNumber { get; set; }

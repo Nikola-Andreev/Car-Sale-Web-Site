@@ -26,5 +26,12 @@ namespace Car_Sale_Web_Site.Controllers
 
             return View();
         }
+
+        public ActionResult Search()
+        {
+            ViewBag.Message = "Your search page.";
+
+            return View();
+        }
     }
 }
