@@ -49,9 +49,8 @@ namespace Car_Sale_Web_Site.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -85,6 +84,10 @@ namespace Car_Sale_Web_Site.Models
 
         [Display(Name = "Phone number")]
         public string phoneNumber { get; set; }
+
+        [Required]
+        [Display(Name = "Full Name")]
+        public string FullName { get; set; }
     }
 
     public class ResetPasswordViewModel

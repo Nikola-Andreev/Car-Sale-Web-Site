@@ -9,6 +9,8 @@ namespace Car_Sale_Web_Site.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        [Required]
+        public string FullName { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
