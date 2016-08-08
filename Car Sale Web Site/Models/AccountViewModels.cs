@@ -82,6 +82,9 @@ namespace Car_Sale_Web_Site.Models
 
         [Display(Name = "Full Name")]
         public string FullName { get; set; }
+
+        [Display(Name = "Phone number")]
+        public string phoneNumber { get; set; }
     }
 
     public class ResetPasswordViewModel

@@ -10,6 +10,7 @@ using Car_Sale_Web_Site.Models;
 
 namespace Car_Sale_Web_Site.Controllers
 {
+    [ValidateInput(false)]
     public class PostCarsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -17,7 +18,7 @@ namespace Car_Sale_Web_Site.Controllers
         // GET: PostCars
         public ActionResult Index()
         {
-            return View(db.PostCar.ToList());
+            return View(db.PostCar.Include(p => p.Author).ToList());
         }
 
         // GET: PostCars/Details/5
@@ -36,6 +37,7 @@ namespace Car_Sale_Web_Site.Controllers
         }
 
         // GET: PostCars/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -45,11 +47,13 @@ namespace Car_Sale_Web_Site.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CarModel,CarDescription,Date")] PostCar postCar)
+        public ActionResult Create([Bind(Include = "Id,CarModel,CarDescription")] PostCar postCar)
         {
             if (ModelState.IsValid)
             {
+                postCar.Author = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
                 db.PostCar.Add(postCar);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -59,6 +63,7 @@ namespace Car_Sale_Web_Site.Controllers
         }
 
         // GET: PostCars/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,6 +83,7 @@ namespace Car_Sale_Web_Site.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Edit([Bind(Include = "Id,CarModel,CarDescription,Date")] PostCar postCar)
         {
             if (ModelState.IsValid)
@@ -90,6 +96,7 @@ namespace Car_Sale_Web_Site.Controllers
         }
 
         // GET: PostCars/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -105,6 +112,7 @@ namespace Car_Sale_Web_Site.Controllers
         }
 
         // POST: PostCars/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

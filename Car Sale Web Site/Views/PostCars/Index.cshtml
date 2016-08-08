@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>All Cars</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,15 +12,26 @@
 <table class="table">
     <tr>
         <th>
+            Car Image
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.CarModel)
         </th>
         <th>
+            Price
+        </th>
+        <th>
+            Year
+        </th>
+        @*<th>
             @Html.DisplayNameFor(model => model.CarDescription)
+        </th>*@
+        <th>
+            Town
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th></th>
+        </th>        
     </tr>
 
 @foreach (var item in Model) {
@@ -28,9 +39,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.CarModel)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.CarDescription)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Date)
         </td>
