@@ -111,4 +111,65 @@ C:\Users\Nikola\Documents\Visual Studio 2013\Projects\Car Sale Web Site\Car Sale
 C:\Users\Nikola\Documents\Visual Studio 2013\Projects\Car Sale Web Site\Car Sale Web Site\bin\PagedList.Mvc.dll
 C:\Users\Nikola\Documents\Visual Studio 2013\Projects\Car Sale Web Site\Car Sale Web Site\bin\PagedList.xml
 C:\Users\Nikola\Documents\Visual Studio 2013\Projects\Car Sale Web Site\Car Sale Web Site\bin\PagedList.Mvc.xml
+<<<<<<< HEAD
 C:\Users\Nikola\Documents\Visual Studio 2013\Projects\Car Sale Web Site\Car Sale Web Site\obj\Debug\Car Sale Web Site.csprojResolveAssemblyReference.cache
+=======
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Car Sale Web Site.dll.config
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Car Sale Web Site.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Car Sale Web Site.pdb
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Antlr3.Runtime.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\EntityFramework.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\EntityFramework.SqlServer.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.AspNet.Identity.Core.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.Facebook.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.Google.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.OAuth.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.Twitter.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Web.Infrastructure.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Newtonsoft.Json.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Owin.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\PagedList.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\PagedList.Mvc.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.Helpers.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.Mvc.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.Optimization.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.Razor.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.WebPages.Deployment.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.WebPages.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.WebPages.Razor.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\WebGrease.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\PagedList.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\PagedList.Mvc.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.Helpers.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.Mvc.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.Optimization.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.Razor.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.WebPages.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.WebPages.Deployment.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.WebPages.Razor.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Antlr3.Runtime.pdb
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Newtonsoft.Json.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\EntityFramework.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\EntityFramework.SqlServer.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.Facebook.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.Google.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.Twitter.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Car-Sale-Web-Site\Car Sale Web Site\obj\Debug\Car Sale Web Site.dll
+E:\Car-Sale-Web-Site\Car Sale Web Site\obj\Debug\Car Sale Web Site.pdb
+>>>>>>> origin/master

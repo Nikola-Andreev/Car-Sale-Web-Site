@@ -22,16 +22,16 @@ namespace Car_Sale_Web_Site.Models
         [StringLength(50)]
         public string CarModel { get; set; }
 
-        //ADD PRICE, CAR IMAGE
 
-       // [Required]
+        //[Required]
         [StringLength(50)]
         public string Town { get; set; }
 
         [Required]
-        [StringLength(500)]
+        [DataType(DataType.MultilineText)]
         public string CarDescription { get; set; }
 
+<<<<<<< HEAD
         public DateTime Date { get; set; }
 
         [ForeignKey("AuthorId")]
@@ -40,5 +40,21 @@ namespace Car_Sale_Web_Site.Models
         public DateTime EditedDate { get; set; }
 
         public string AuthorId { get; set; }
+=======
+       
+        public DateTime Date { get; set; }
+
+        [ForeignKey("Author_Id")]
+        public ApplicationUser Author { get; set; }
+
+        public string Author_Id { get; set; }
+        public string Author_UserName { get; set; }
+
+        [Required]
+        public int Price { get; set; }
+
+        public DateTime CarYear { get; set; }
+
+>>>>>>> origin/master
     }
 }

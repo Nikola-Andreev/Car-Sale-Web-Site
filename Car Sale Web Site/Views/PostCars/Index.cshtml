@@ -39,6 +39,9 @@
         </th>
         <th>
            Date
+        </th>     
+        <th>
+            User
         </th>        
     </tr>
 
@@ -51,12 +54,38 @@
         <td>
             @Html.DisplayFor(modelItem => item.CarModel)
         </td>
+<<<<<<< HEAD
         <td></td>
         <td></td>
         <td></td>
         <td>
             @Html.DisplayFor(modelItem => item.Date)
         </td>
+=======
+        @*<td>
+            @Html.DisplayFor(modelItem => item.CarDescription)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarYear)
+        </td>
+        <td >
+            @Html.DisplayFor(modelItem => item.Town)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Author_UserName)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>*@
+>>>>>>> origin/master
     </tr>
 }
    
