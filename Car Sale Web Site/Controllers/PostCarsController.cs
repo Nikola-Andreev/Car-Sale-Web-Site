@@ -47,34 +47,23 @@ namespace Car_Sale_Web_Site.Controllers
             return View();
         }
 
-        // POST: PostCars/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(PostCar model)
+        public ActionResult Create([Bind(Include = "Id,CarModel,CarDescription,Town,Author_UserName,Price,CarYear,Date")] PostCar model)
         {
-            if (model != null && ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                var c = new PostCar()
-                {
-                    CarModel = model.CarModel,
-                    Author = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name),
-                    CarDescription = model.CarDescription,
-                    Town = model.Town
-                };
-                //postCar.Author = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
-                
-                db.PostCar.Add(c);
+                model.Author = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
+                model.Date = DateTime.Now;
+                model.Author_UserName = User.Identity.Name;
+                db.PostCar.Add(model);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(model);
         }
-
-       
 
 
         // GET: PostCars/Edit/5
