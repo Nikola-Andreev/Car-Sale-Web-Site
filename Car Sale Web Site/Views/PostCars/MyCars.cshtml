@@ -1,0 +1,65 @@
+﻿@*@model IEnumerable<Car_Sale_Web_Site.Models.PostCar>*@
+@using Microsoft.AspNet.Identity;
+@{
+    ViewBag.Title = "MyCars";
+}
+
+
+@model PagedList.IPagedList<Car_Sale_Web_Site.Models.PostCar>
+@using PagedList.Mvc;
+
+<h2>My Cars</h2>
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<table class="table">
+    <tr>
+        <th>
+            Car Image
+        </th>
+        <th>
+            Car Model
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Year
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.CarDescription)
+            </th>*@
+        <th>
+            Town
+        </th>
+        <th>
+            Date
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        //if (User.Identity.GetUserId() == item.AuthorId)
+        //{           
+        <tr>
+            <td>
+                @Html.ActionLink("Image", "Details", new { id = item.Id })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarModel)
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+        </tr>
+       // }
+    }
+
+</table>
+   @Html.PagedListPager(Model, page => Url.Action("Index", new { page, pageSize = Model.PageSize }))
+    Showing @Model.FirstItemOnPage to @Model.LastItemOnPage of @Model.TotalItemCount PostCars
+

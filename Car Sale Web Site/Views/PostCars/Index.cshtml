@@ -42,34 +42,21 @@
         </th>        
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>
-            
+            @Html.ActionLink("Image", "Details", new { id = item.Id })
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CarModel)
         </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.CarDescription)
-        </td>*@
-        <td>
-
-        </td>
-        <td>
-
-        </td>
-        <td >
-
-        </td>
+        <td></td>
+        <td></td>
+        <td></td>
         <td>
             @Html.DisplayFor(modelItem => item.Date)
         </td>
-        @*<td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>*@
     </tr>
 }
    

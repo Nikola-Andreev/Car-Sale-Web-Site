@@ -1,4 +1,5 @@
-﻿@model Car_Sale_Web_Site.Models.PostCar
+﻿@using Microsoft.AspNet.Identity;
+@model Car_Sale_Web_Site.Models.PostCar
 
 @{
     ViewBag.Title = "Details";
@@ -37,6 +38,10 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @if (User.IsInRole("Administrators") || User.Identity.GetUserId() == Model.AuthorId)
+    { 
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) @:|
+    @Html.ActionLink("Delete", "Delete", new { id = Model.Id }) @:|
+    }
     @Html.ActionLink("Back to List", "Index")
 </p>

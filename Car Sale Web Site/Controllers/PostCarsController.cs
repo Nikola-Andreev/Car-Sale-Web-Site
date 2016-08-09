@@ -16,6 +16,13 @@ namespace Car_Sale_Web_Site.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public ActionResult MyCars(int page = 1, int pageSize = 5)
+        {
+            List<PostCar> listCars = db.PostCar.ToList();
+            PagedList<PostCar> model = new PagedList<PostCar>(listCars, page, pageSize);
+            return View(model);
+        }
+
         // GET: PostCars
         public ActionResult Index(int page = 1,int pageSize=5)
         {
@@ -90,6 +97,8 @@ namespace Car_Sale_Web_Site.Controllers
             {
                 return HttpNotFound();
             }
+            var authors = db.Users.ToList();
+            ViewBag.Authors = authors;
             return View(postCar);
         }
 
