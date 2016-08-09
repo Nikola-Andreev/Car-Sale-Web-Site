@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Car_Sale_Web_Site.Models;
+using PagedList;
 
 namespace Car_Sale_Web_Site.Controllers
 {
@@ -16,9 +17,11 @@ namespace Car_Sale_Web_Site.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: PostCars
-        public ActionResult Index()
+        public ActionResult Index(int page = 1,int pageSize=5)
         {
-            return View(db.PostCar.Include(p => p.Author).ToList());
+            List<PostCar> listCars = db.PostCar.ToList();
+            PagedList<PostCar> model = new PagedList<PostCar>(listCars, page, pageSize);
+            return View(model);
         }
 
         // GET: PostCars/Details/5

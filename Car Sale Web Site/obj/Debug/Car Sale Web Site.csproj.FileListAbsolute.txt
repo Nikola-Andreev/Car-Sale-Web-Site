@@ -108,3 +108,7 @@ C:\Users\Simeon\Desktop\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.S
 C:\Users\Simeon\Desktop\Car-Sale-Web-Site\Car Sale Web Site\obj\Debug\Car Sale Web Site.csprojResolveAssemblyReference.cache
 C:\Users\Simeon\Desktop\Car-Sale-Web-Site\Car Sale Web Site\obj\Debug\Car Sale Web Site.dll
 C:\Users\Simeon\Desktop\Car-Sale-Web-Site\Car Sale Web Site\obj\Debug\Car Sale Web Site.pdb
+C:\Users\Nikola\Documents\Visual Studio 2013\Projects\Car Sale Web Site\Car Sale Web Site\bin\PagedList.dll
+C:\Users\Nikola\Documents\Visual Studio 2013\Projects\Car Sale Web Site\Car Sale Web Site\bin\PagedList.Mvc.dll
+C:\Users\Nikola\Documents\Visual Studio 2013\Projects\Car Sale Web Site\Car Sale Web Site\bin\PagedList.xml
+C:\Users\Nikola\Documents\Visual Studio 2013\Projects\Car Sale Web Site\Car Sale Web Site\bin\PagedList.Mvc.xml
