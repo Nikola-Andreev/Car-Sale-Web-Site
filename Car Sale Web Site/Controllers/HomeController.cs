@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Car_Sale_Web_Site.Models;
 
 namespace Car_Sale_Web_Site.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
-            return View();
+            var cars = db.PostCar.OrderByDescending(p => p.Date).Take(3);
+            return View(cars.ToList());
         }
 
         public ActionResult About()
