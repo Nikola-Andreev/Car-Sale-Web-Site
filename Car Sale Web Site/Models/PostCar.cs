@@ -31,23 +31,15 @@ namespace Car_Sale_Web_Site.Models
         [DataType(DataType.MultilineText)]
         public string CarDescription { get; set; }
 
-<<<<<<< HEAD
-        public DateTime Date { get; set; }
-
         [ForeignKey("AuthorId")]
         public ApplicationUser Author { get; set; }
 
         public DateTime EditedDate { get; set; }
 
         public string AuthorId { get; set; }
-=======
        
         public DateTime Date { get; set; }
 
-        [ForeignKey("Author_Id")]
-        public ApplicationUser Author { get; set; }
-
-        public string Author_Id { get; set; }
         public string Author_UserName { get; set; }
 
         [Required]
@@ -55,6 +47,5 @@ namespace Car_Sale_Web_Site.Models
 
         public DateTime CarYear { get; set; }
 
->>>>>>> origin/master
     }
 }
