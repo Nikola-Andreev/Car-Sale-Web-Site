@@ -1,83 +1,193 @@
-﻿@model Car_Sale_Web_Site.Models.PostCar
+﻿@using Car_Sale_Web_Site.Models
+@model Car_Sale_Web_Site.Models.PostCar
 
 @{
     ViewBag.Title = "Create New Ad";
 }
 
-<h2>Create</h2>
+<h2>Create new car ad</h2>
 
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
+      <b>Car Type</b><br>
+  
+      @Html.DropDownListFor(m => m.CategoryId,
+      new SelectList(Enum.GetValues(typeof(PostCar.Category))),
+      "")
+
+    <br><br>
+  <b>Doors number</b><br>
+  @Html.DropDownListFor(m => m.DoorId,
+      new SelectList(Enum.GetValues(typeof(PostCar.Door))),
+      "")
+
+
+    <br><br>
+  <b>Manufacturer</b><br>
+  @Html.EditorFor(model => model.Manufacturer, new { htmlAttributes = new { @class = "form-control" } })
+
+    <br>
+  <b>Model</b><br>
+  
+      @Html.EditorFor(model => model.CarModel, new { htmlAttributes = new { @class = "form-control" } })
+
+    <br>
+
+    <b>Town</b><br>
+
+    @Html.EditorFor(model => model.Town, new { htmlAttributes = new { @class = "form-control" } })
+
+    <br>
+
+    <b>Description</b><br>
+
+    @Html.EditorFor(model => model.CarDescription, new { htmlAttributes = new { @class = "form-control" } })
+
+    <br>
+
+  <b>Fuel type</b><br>
+  @Html.DropDownListFor(m => m.FuelId,
+      new SelectList(Enum.GetValues(typeof(PostCar.Fuel))),
+      "")
+    <br> <br>   
+  <b>Transmission</b><br>
+  @Html.DropDownListFor(m => m.GearId,
+      new SelectList(Enum.GetValues(typeof(PostCar.Gear))),
+      "")
+    <br><br>
+
+  <strong>Year</strong><br>
+  @Html.DropDownListFor(m => m.YearId,
+      new SelectList(Enum.GetValues(typeof(PostCar.Year))),
+      "")
+
+    <br>    <br>
+  <b>Price</b><br>
+  @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+
+    <br>
+    <b>Horse power</b><br>
+    @Html.EditorFor(model => model.HorsePower, new { htmlAttributes = new { @class = "form-control" } })
+    <br>
+  <b>Color</b>
+  @Html.DropDownListFor(m => m.ColorId,
+      new SelectList(Enum.GetValues(typeof(PostCar.Color))),
+      "")
+    <br><br>
+
+
+        @Html.LabelFor(model => model.Climatronic, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("Climatronic", false)
+        <br><br>
+        @Html.LabelFor(model => model.Climatic, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("Climatic", false)
+        <br><br>
+        @Html.LabelFor(model => model.Leather, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("Leather", false)
+        <br><br>
+        @Html.LabelFor(model => model.ElWindows, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("ElWindows", false)
+        <br><br>
+        @Html.LabelFor(model => model.ElMirrors, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("ElMirrors", false)
+        <br><br>
+        @Html.LabelFor(model => model.ElSeats, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("ElSeats", false)
+        <br><br>
+        @Html.LabelFor(model => model.SeatsHeat, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("SeatsHeat", false)
+        <br><br>
+        @Html.LabelFor(model => model.Audio, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("Audio", false)
+        <br><br>
+        @Html.LabelFor(model => model.Retro, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("Retro", false)
+        <br><br>
+        @Html.LabelFor(model => model.AllowWeels, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("AllowWeels", false)
+        <br><br>
+        @Html.LabelFor(model => model.DVDTV, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("DVDTV", false)
+        <br><br>
+        @Html.LabelFor(model => model.Airbag, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("Airbag", false)
+        <br><br>
+        @Html.LabelFor(model => model.FourByFour, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("FourByFour", false)
+        <br><br>
+        @Html.LabelFor(model => model.ABS, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("ABS", false)
+        <br><br>
+        @Html.LabelFor(model => model.ESP, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("ESP", false)
+        <br><br>
+        @Html.LabelFor(model => model.HallogenLights, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("HallogenLights", false)
+        <br><br>
+        @Html.LabelFor(model => model.NavigationSystem, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("NavigationSystem", false)
+        <br><br>
+        @Html.LabelFor(model => model.SevenSeats, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("SevenSeats", false)
+        <br><br>
+        @Html.LabelFor(model => model.ASRTractionControl, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("ASRTractionControl", false)
+        <br><br>
+        @Html.LabelFor(model => model.Parktronic, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("Parktronic", false)
+        <br><br>
+        @Html.LabelFor(model => model.Alarm, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("Alarm", false)
+        <br><br>
+        @Html.LabelFor(model => model.Imobilazer, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("Imobilazer", false)
+        <br><br>
+        @Html.LabelFor(model => model.CentralLocking, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("CentralLocking", false)
+        <br><br>
+        @Html.LabelFor(model => model.Insurance, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("Insurance", false)
+        <br><br>
+        @Html.LabelFor(model => model.Typetronic, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("Typetronic", false)
+        <br><br>
+        @Html.LabelFor(model => model.Autopilot, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("Autopilot", false)
+        <br><br>
+        @Html.LabelFor(model => model.TAXI, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("TAXI", false)
+        <br><br>
+        @Html.LabelFor(model => model.Computer, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("Computer", false)
+        <br><br>
+        @Html.LabelFor(model => model.ServiceHistory, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("ServiceHistory", false)
+        <br><br>
+        @Html.LabelFor(model => model.Tunning, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("Tunning", false)
+        <br><br>
+        @Html.LabelFor(model => model.BrandNew, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("BrandNew", false)
+        <br><br>
+        @Html.LabelFor(model => model.SecondHand, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("SecondHand", false)
+        <br><br>
+        @Html.LabelFor(model => model.Damaged, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.CheckBox("Damaged", false)
     
-    <div class="form-horizontal">
-        <h4>PostCar</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.CarModel, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CarModel, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CarModel, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CarDescription, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CarDescription, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CarDescription, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Town, htmlAttributes: new {@class = "control-label col-md-2"})
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Town, new {htmlAttributes = new {@class = "form-control"}})
-                @Html.ValidationMessageFor(model => model.Town, "", new {@class = "text-danger"})
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Price, htmlAttributes: new {@class = "control-label col-md-2"})
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Price, new {htmlAttributes = new {@class = "form-control"}})
-                @Html.ValidationMessageFor(model => model.Price, "", new {@class = "text-danger"})
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CarYear, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CarYear, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CarYear, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-        
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default"/>
-
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
 
+        }
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
 
-    </div>
-}
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

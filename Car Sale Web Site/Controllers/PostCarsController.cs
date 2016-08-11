@@ -58,7 +58,7 @@ namespace Car_Sale_Web_Site.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CarModel,CarDescription,Town,Author_UserName,Price,CarYear,Date")] PostCar model)
+        public ActionResult Create([Bind(Include = "Id,CarModel,CarDescription,Town,Author_UserName,Price,Date,CategoryId,DoorId,Manufacturer,FuelId,GearId,YearId,HorsePower,ColorId,Climatronic,Climatic,Leather,ElWindows,ElMirrors,ElSeats,SeatsHeat,Audio,Retro,AllowWeels,DVDTV,Airbag,FourByFour,ABS,ESP,HallogenLights,NavigationSystem,SevenSeats,ASRTractionControl,Parktronic,Alarm,Imobilazer,CentralLocking,Insurance,Typetronic,Autopilot,TAXI,Computer,ServiceHistory,Tunning,BrandNew,SecondHand,Damaged")] PostCar model)
         {
             if (ModelState.IsValid)
             {
@@ -99,13 +99,12 @@ namespace Car_Sale_Web_Site.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult Edit([Bind(Include = "Id,AuthorId,CarModel,CarDescription,Date")] PostCar postCar)
+        public ActionResult Edit([Bind(Include = "Id,CarModel,CarDescription,Town,Author_UserName,Price,Date,CategoryId,DoorId,Manufacturer,FuelId,GearId,YearId,HorsePower,ColorId,Climatronic,Climatic,Leather,ElWindows,ElMirrors,ElSeats,SeatsHeat,Audio,Retro,AllowWeels,DVDTV,Airbag,FourByFour,ABS,ESP,HallogenLights,NavigationSystem,SevenSeats,ASRTractionControl,Parktronic,Alarm,Imobilazer,CentralLocking,Insurance,Typetronic,Autopilot,TAXI,Computer,ServiceHistory,Tunning,BrandNew,SecondHand,Damaged")] PostCar postCar)
         {
             if (ModelState.IsValid)
             {
                 postCar.AuthorId = db.PostCar.Find(postCar.Id).AuthorId;
                 postCar.Author_UserName = User.Identity.Name;
-                postCar.CarYear = db.PostCar.Find(postCar.Id).CarYear;
                 postCar.Date = db.PostCar.Find(postCar.Id).Date;
                 postCar.EditedDate = DateTime.Now;
                 var local = db.Set<PostCar>().Local.FirstOrDefault(f => f.Id == postCar.Id);
