@@ -26,7 +26,10 @@
                     <li>@Html.ActionLink("All Cars", "Index", "PostCars")</li>
                     <li>@Html.ActionLink("Search Cars", "Search", "Home")</li>
                     <li>@Html.ActionLink("Contact us", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("MyCars", "MyCars", "PostCars")</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("My Cars", "MyCars", "PostCars")</li>
+                    }                    
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

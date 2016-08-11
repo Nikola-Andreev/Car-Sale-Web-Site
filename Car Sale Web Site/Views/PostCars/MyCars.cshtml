@@ -27,9 +27,6 @@
         <th>
             Year
         </th>
-        @*<th>
-                @Html.DisplayNameFor(model => model.CarDescription)
-            </th>*@
         <th>
             Town
         </th>
@@ -39,9 +36,7 @@
     </tr>
 
     @foreach (var item in Model)
-    {
-        //if (User.Identity.GetUserId() == item.AuthorId)
-        //{           
+    {        
         <tr>
             <td>
                 @Html.ActionLink("Image", "Details", new { id = item.Id })
@@ -49,17 +44,22 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CarModel)
             </td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price) €
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarYear.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Town)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
         </tr>
-       // }
     }
 
 </table>
-   @Html.PagedListPager(Model, page => Url.Action("Index", new { page, pageSize = Model.PageSize }))
+   @Html.PagedListPager(Model, page => Url.Action("MyCars", new { page, pageSize = Model.PageSize }))
     Showing @Model.FirstItemOnPage to @Model.LastItemOnPage of @Model.TotalItemCount PostCars
 

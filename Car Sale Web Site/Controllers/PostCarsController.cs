@@ -16,9 +16,10 @@ namespace Car_Sale_Web_Site.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        [Authorize]
         public ActionResult MyCars(int page = 1, int pageSize = 5)
         {
-            List<PostCar> listCars = db.PostCar.ToList();
+            List<PostCar> listCars = db.PostCar.Where(a => a.Author_UserName == User.Identity.Name).ToList();
             PagedList<PostCar> model = new PagedList<PostCar>(listCars, page, pageSize);
             return View(model);
         }
@@ -61,6 +62,7 @@ namespace Car_Sale_Web_Site.Controllers
         {
             if (ModelState.IsValid)
             {
+                model.EditedDate = DateTime.Now;
                 model.Author = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
                 model.Date = DateTime.Now;
                 model.Author_UserName = User.Identity.Name;
@@ -97,13 +99,23 @@ namespace Car_Sale_Web_Site.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult Edit([Bind(Include = "Id,CarModel,CarDescription,Date")] PostCar postCar)
+        public ActionResult Edit([Bind(Include = "Id,AuthorId,CarModel,CarDescription,Date")] PostCar postCar)
         {
             if (ModelState.IsValid)
             {
+                postCar.AuthorId = db.PostCar.Find(postCar.Id).AuthorId;
+                postCar.Author_UserName = User.Identity.Name;
+                postCar.CarYear = db.PostCar.Find(postCar.Id).CarYear;
+                postCar.Date = db.PostCar.Find(postCar.Id).Date;
+                postCar.EditedDate = DateTime.Now;
+                var local = db.Set<PostCar>().Local.FirstOrDefault(f => f.Id == postCar.Id);
+                if (local != null)
+                {
+                    db.Entry(local).State = EntityState.Detached;
+                }
                 db.Entry(postCar).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("MyCars");
             }
             return View(postCar);
         }
