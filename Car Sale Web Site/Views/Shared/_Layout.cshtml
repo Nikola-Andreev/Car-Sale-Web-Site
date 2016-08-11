@@ -28,6 +28,7 @@
                     <li>@Html.ActionLink("Contact us", "Contact", "Home")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
+                        <li>@Html.ActionLink("Create Ad", "Create", "PostCars")</li>
                         <li>@Html.ActionLink("My Cars", "MyCars", "PostCars")</li>
                     }                    
                 </ul>
