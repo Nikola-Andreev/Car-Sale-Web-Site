@@ -213,7 +213,7 @@ namespace Car_Sale_Web_Site.Models
         public bool SecondHand { get; set; }
         public bool Damaged { get; set; }
         //NEW
-
+        public virtual ICollection<File> Files { get; set; }
 
     }
 }

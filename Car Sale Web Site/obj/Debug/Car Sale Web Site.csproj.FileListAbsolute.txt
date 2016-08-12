@@ -115,3 +115,5 @@ E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.Twitter.xml
 E:\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 E:\Car-Sale-Web-Site\Car Sale Web Site\obj\Debug\Car Sale Web Site.dll
 E:\Car-Sale-Web-Site\Car Sale Web Site\obj\Debug\Car Sale Web Site.pdb
+E:\Car-Sale-Web-Site\Car Sale Web Site\obj\Debug\Car_Sale_Web_Site.Migrations.Files.resources
+E:\Car-Sale-Web-Site\Car Sale Web Site\obj\Debug\Car Sale Web Site.csproj.GenerateResource.Cache
