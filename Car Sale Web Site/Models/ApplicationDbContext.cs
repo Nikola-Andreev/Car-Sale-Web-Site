@@ -9,6 +9,7 @@ namespace Car_Sale_Web_Site.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<PostCar> PostCar { get; set; }
+        public DbSet<File> Files { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
