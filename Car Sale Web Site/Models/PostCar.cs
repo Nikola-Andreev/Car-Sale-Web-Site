@@ -45,6 +45,7 @@ namespace Car_Sale_Web_Site.Models
 
         public string Author_UserName { get; set; }
 
+
         [Required]
         public int Price { get; set; }
 

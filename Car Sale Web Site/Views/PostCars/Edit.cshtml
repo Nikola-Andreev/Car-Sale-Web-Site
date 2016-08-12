@@ -14,174 +14,297 @@
     
     <div class="form-horizontal">
         <h4>PostCar</h4>
-        <hr/>
-        <b>Car Type</b><br>
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
-
-        @Html.DropDownListFor(m => m.CategoryId,
-      new SelectList(Enum.GetValues(typeof(PostCar.Category))),
-      "")
-
-        <br><br>
-        <b>Doors number</b><br>
-        @Html.DropDownListFor(m => m.DoorId,
-      new SelectList(Enum.GetValues(typeof(PostCar.Door))),
-      "")
+        <table id="createTable">
+            <tbody>
+                <tr>
+                    <td width="500"><b>Basic Details</b></td>
+                    <td width="500"><b>Features and Characteristics</b></td>
+                </tr>
+            </tbody>
+        </table>
 
 
-        <br><br>
-        <b>Manufacturer</b><br>
-        @Html.EditorFor(model => model.Manufacturer, new { htmlAttributes = new { @class = "form-control" } })
+        <table id="createTable">
 
-        <br>
-        <b>Model</b><br>
+            <tbody>
 
-        @Html.EditorFor(model => model.CarModel, new { htmlAttributes = new { @class = "form-control" } })
+                <tr>
+                    <td width="300">
+                        Car Type
+                        @Html.DropDownListFor(m => m.CategoryId,
+              new SelectList(Enum.GetValues(typeof(PostCar.Category))),
+              "")
+                        @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                    </td>
 
-        <br>
+                    <td width="250">
+                        @Html.LabelFor(model => model.Climatronic, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("Climatronic", false)
+                    </td>
 
-        <b>Town</b><br>
+                    <td width="250">
+                        @Html.LabelFor(model => model.Climatic, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("Climatic", false)
+                    </td>
 
-        @Html.EditorFor(model => model.Town, new { htmlAttributes = new { @class = "form-control" } })
+                    <td width="250">
+                        @Html.LabelFor(model => model.Insurance, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("Insurance", false)
+                    </td>
 
-        <br>
-
-        <b>Description</b><br>
-
-        @Html.EditorFor(model => model.CarDescription, new { htmlAttributes = new { @class = "form-control" } })
-
-        <br>
-
-        <b>Fuel type</b><br>
-        @Html.DropDownListFor(m => m.FuelId,
-      new SelectList(Enum.GetValues(typeof(PostCar.Fuel))),
-      "")
-        <br> <br>
-        <b>Transmission</b><br>
-        @Html.DropDownListFor(m => m.GearId,
-      new SelectList(Enum.GetValues(typeof(PostCar.Gear))),
-      "")
-        <br><br>
-
-        <strong>Year</strong><br>
-        @Html.DropDownListFor(m => m.YearId,
-      new SelectList(Enum.GetValues(typeof(PostCar.Year))),
-      "")
-
-        <br>    <br>
-        <b>Price</b><br>
-        @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
-
-        <br>
-        <b>Horse power</b><br>
-        @Html.EditorFor(model => model.HorsePower, new { htmlAttributes = new { @class = "form-control" } })
-        <br>
-        <b>Color</b>
-        @Html.DropDownListFor(m => m.ColorId,
-      new SelectList(Enum.GetValues(typeof(PostCar.Color))),
-      "")
-        <br><br>
+                </tr>
 
 
-        @Html.LabelFor(model => model.Climatronic, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("Climatronic", false)
-        <br><br>
-        @Html.LabelFor(model => model.Climatic, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("Climatic", false)
-        <br><br>
-        @Html.LabelFor(model => model.Leather, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("Leather", false)
-        <br><br>
-        @Html.LabelFor(model => model.ElWindows, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("ElWindows", false)
-        <br><br>
-        @Html.LabelFor(model => model.ElMirrors, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("ElMirrors", false)
-        <br><br>
-        @Html.LabelFor(model => model.ElSeats, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("ElSeats", false)
-        <br><br>
-        @Html.LabelFor(model => model.SeatsHeat, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("SeatsHeat", false)
-        <br><br>
-        @Html.LabelFor(model => model.Audio, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("Audio", false)
-        <br><br>
-        @Html.LabelFor(model => model.Retro, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("Retro", false)
-        <br><br>
-        @Html.LabelFor(model => model.AllowWeels, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("AllowWeels", false)
-        <br><br>
-        @Html.LabelFor(model => model.DVDTV, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("DVDTV", false)
-        <br><br>
-        @Html.LabelFor(model => model.Airbag, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("Airbag", false)
-        <br><br>
-        @Html.LabelFor(model => model.FourByFour, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("FourByFour", false)
-        <br><br>
-        @Html.LabelFor(model => model.ABS, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("ABS", false)
-        <br><br>
-        @Html.LabelFor(model => model.ESP, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("ESP", false)
-        <br><br>
-        @Html.LabelFor(model => model.HallogenLights, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("HallogenLights", false)
-        <br><br>
-        @Html.LabelFor(model => model.NavigationSystem, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("NavigationSystem", false)
-        <br><br>
-        @Html.LabelFor(model => model.SevenSeats, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("SevenSeats", false)
-        <br><br>
-        @Html.LabelFor(model => model.ASRTractionControl, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("ASRTractionControl", false)
-        <br><br>
-        @Html.LabelFor(model => model.Parktronic, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("Parktronic", false)
-        <br><br>
-        @Html.LabelFor(model => model.Alarm, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("Alarm", false)
-        <br><br>
-        @Html.LabelFor(model => model.Imobilazer, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("Imobilazer", false)
-        <br><br>
-        @Html.LabelFor(model => model.CentralLocking, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("CentralLocking", false)
-        <br><br>
-        @Html.LabelFor(model => model.Insurance, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("Insurance", false)
-        <br><br>
-        @Html.LabelFor(model => model.Typetronic, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("Typetronic", false)
-        <br><br>
-        @Html.LabelFor(model => model.Autopilot, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("Autopilot", false)
-        <br><br>
-        @Html.LabelFor(model => model.TAXI, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("TAXI", false)
-        <br><br>
-        @Html.LabelFor(model => model.Computer, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("Computer", false)
-        <br><br>
-        @Html.LabelFor(model => model.ServiceHistory, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("ServiceHistory", false)
-        <br><br>
-        @Html.LabelFor(model => model.Tunning, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("Tunning", false)
-        <br><br>
-        @Html.LabelFor(model => model.BrandNew, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("BrandNew", false)
-        <br><br>
-        @Html.LabelFor(model => model.SecondHand, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("SecondHand", false)
-        <br><br>
-        @Html.LabelFor(model => model.Damaged, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.CheckBox("Damaged", false)
+                <tr>
+                    <td width="300">
+                        Doors number
+                        @Html.DropDownListFor(m => m.DoorId,
+              new SelectList(Enum.GetValues(typeof(PostCar.Door))),
+              "")
+                        @Html.ValidationMessageFor(model => model.DoorId, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td width="250">
+                        @Html.LabelFor(model => model.Leather, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("Leather", false)
+                    </td>
+
+                    <td width="250">
+                        @Html.LabelFor(model => model.ElWindows, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("ElWindows", false)
+                    </td>
+                    <td width="250">
+                        @Html.LabelFor(model => model.Typetronic, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("Typetronic", false)
+                    </td>
+
+                </tr>
+
+
+                <tr>
+                    <td width="300">
+                        Manufacturer
+                        @Html.EditorFor(model => model.Manufacturer, new { htmlAttributes = new { @class = "form-inline" } })
+                        @Html.ValidationMessageFor(model => model.Manufacturer, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td width="250">
+                        @Html.LabelFor(model => model.ElSeats, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("ElSeats", false)
+                    </td>
+
+                    <td width="250">
+                        @Html.LabelFor(model => model.SeatsHeat, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("SeatsHeat", false)
+                    </td>
+                    <td width="250">
+                        @Html.LabelFor(model => model.Autopilot, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("Autopilot", false)
+                    </td>
+
+                </tr>
+
+
+
+                <tr>
+                    <td width="300">
+                        Model
+                        @Html.EditorFor(model => model.CarModel, new { htmlAttributes = new { @class = "form-inline" } })
+                        @Html.ValidationMessageFor(model => model.CarModel, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td width="250">
+                        @Html.LabelFor(model => model.Audio, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("Audio", false)
+                    </td>
+
+                    <td width="250">
+                        @Html.LabelFor(model => model.Retro, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("Retro", false)
+                    </td>
+                    <td width="250">
+                        @Html.LabelFor(model => model.TAXI, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("TAXI", false)
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td width="300">
+                        Town
+                        @Html.EditorFor(model => model.Town, new { htmlAttributes = new { @class = "form-inline" } })
+                        @Html.ValidationMessageFor(model => model.Town, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td width="250">
+                        @Html.LabelFor(model => model.AllowWeels, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("AllowWeels", false)
+                    </td>
+
+                    <td width="250">
+                        @Html.LabelFor(model => model.DVDTV, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("DVDTV", false)
+                    </td>
+                    <td width="250">
+                        @Html.LabelFor(model => model.Computer, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("Computer", false)
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td width="300">
+                        Fuel type
+                        @Html.DropDownListFor(m => m.FuelId,
+              new SelectList(Enum.GetValues(typeof(PostCar.Fuel))),
+              "")
+                        @Html.ValidationMessageFor(model => model.FuelId, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td width="250">
+                        @Html.LabelFor(model => model.Airbag, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("Airbag", false)
+                    </td>
+
+                    <td width="250">
+                        @Html.LabelFor(model => model.FourByFour, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("FourByFour", false)
+                    </td>
+                    <td width="250">
+                        @Html.LabelFor(model => model.ServiceHistory, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("ServiceHistory", false)
+                    </td>
+
+                </tr>
+
+
+                <tr>
+                    <td width="300">
+                        Transmission
+                        @Html.DropDownListFor(m => m.GearId,
+              new SelectList(Enum.GetValues(typeof(PostCar.Gear))),
+              "")
+                        @Html.ValidationMessageFor(model => model.GearId, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td width="250">
+                        @Html.LabelFor(model => model.ABS, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("ABS", false)
+                    </td>
+
+                    <td width="250">
+                        @Html.LabelFor(model => model.ESP, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("ESP", false)
+                    </td>
+                    <td width="250">
+                        @Html.LabelFor(model => model.Tunning, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("Tunning", false)
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td width="300">
+                        Year
+                        @Html.DropDownListFor(m => m.YearId,
+              new SelectList(Enum.GetValues(typeof(PostCar.Year))),
+              "")
+                        @Html.ValidationMessageFor(model => model.YearId, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td width="250">
+                        @Html.LabelFor(model => model.HallogenLights, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("HallogenLights", false)
+                    </td>
+
+                    <td width="250">
+                        @Html.LabelFor(model => model.NavigationSystem, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("NavigationSystem", false)
+                    </td>
+                    <td width="250">
+                        @Html.LabelFor(model => model.ElMirrors, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("ElMirrors", false)
+                    </td>
+                </tr>
+
+
+
+                <tr>
+                    <td width="300">
+                        Price
+                        @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-inline" } })
+                        @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td width="250">
+                        @Html.LabelFor(model => model.SevenSeats, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("SevenSeats", false)
+                    </td>
+
+                    <td width="250">
+                        @Html.LabelFor(model => model.ASRTractionControl, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("ASRTractionControl", false)
+                    </td>
+                    <td width="250">
+                        @Html.LabelFor(model => model.BrandNew, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("BrandNew", false)
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td width="300">
+                        Horse power
+                        @Html.EditorFor(model => model.HorsePower, new { htmlAttributes = new { @class = "form-inline" } })
+                        @Html.ValidationMessageFor(model => model.HorsePower, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td width="250">
+                        @Html.LabelFor(model => model.Parktronic, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("Parktronic", false)
+                    </td>
+
+                    <td width="250">
+                        @Html.LabelFor(model => model.Alarm, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("Alarm", false)
+                    </td>
+                    <td width="250">
+                        @Html.LabelFor(model => model.SecondHand, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("SecondHand", false)
+                    </td>
+                </tr>
+                <tr>
+                    <td width="300">
+                        Color
+                        @Html.DropDownListFor(m => m.ColorId,
+              new SelectList(Enum.GetValues(typeof(PostCar.Color))),
+              "")
+                        @Html.ValidationMessageFor(model => model.ColorId, "", new { @class = "text-danger" })
+                    </td>
+
+                    <td width="250">
+                        @Html.LabelFor(model => model.Imobilazer, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("Imobilazer", false)
+                    </td>
+
+                    <td width="250">
+                        @Html.LabelFor(model => model.CentralLocking, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("CentralLocking", false)
+                    </td>
+                    <td width="250">
+                        @Html.LabelFor(model => model.Damaged, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.CheckBox("Damaged", false)
+                    </td>
+
+                </tr>
+
+
+            </tbody>
+        </table>
+
+        Description <br>
+        @Html.EditorFor(model => model.CarDescription, new { htmlAttributes = new { @class = "form-control" }, @rows = "15", @cols = "15" })
+        @Html.ValidationMessageFor(model => model.CarDescription, "", new { @class = "text-danger" })
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

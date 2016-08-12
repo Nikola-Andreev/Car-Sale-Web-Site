@@ -20,5 +20,20 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 150px;
 }
+
+#createTable {
+   border-collapse:separate; 
+    border-spacing:0.3em;
+}
+
+#headerTable {
+    color: royalblue;
+}
+
+select, input {
+    float: right;
+    width: 150px;
+}
+
