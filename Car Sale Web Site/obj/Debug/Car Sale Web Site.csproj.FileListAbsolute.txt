@@ -115,3 +115,62 @@ C:\Users\Nikola\Documents\Visual Studio 2013\Projects\Car Sale Web Site\Car Sale
 C:\Users\Nikola\Documents\Visual Studio 2013\Projects\Car Sale Web Site\Car Sale Web Site\obj\Debug\Car Sale Web Site.csprojResolveAssemblyReference.cache
 C:\Users\Nikola\Documents\Visual Studio 2013\Projects\Car Sale Web Site\Car Sale Web Site\obj\Debug\Car Sale Web Site.dll
 C:\Users\Nikola\Documents\Visual Studio 2013\Projects\Car Sale Web Site\Car Sale Web Site\obj\Debug\Car Sale Web Site.pdb
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Car Sale Web Site.dll.config
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Car Sale Web Site.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Car Sale Web Site.pdb
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Antlr3.Runtime.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\EntityFramework.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\EntityFramework.SqlServer.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Newtonsoft.Json.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Owin.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\PagedList.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\PagedList.Mvc.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.Helpers.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.Mvc.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.Optimization.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.Razor.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.WebPages.Deployment.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.WebPages.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.WebPages.Razor.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\WebGrease.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\PagedList.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\PagedList.Mvc.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.Helpers.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.Mvc.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.Optimization.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.Razor.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.WebPages.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.WebPages.Deployment.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\System.Web.WebPages.Razor.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Antlr3.Runtime.pdb
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Newtonsoft.Json.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\EntityFramework.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\EntityFramework.SqlServer.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\obj\Debug\Car Sale Web Site.csprojResolveAssemblyReference.cache
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\obj\Debug\Car Sale Web Site.dll
+C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\obj\Debug\Car Sale Web Site.pdb

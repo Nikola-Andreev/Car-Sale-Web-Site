@@ -24,7 +24,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("All Cars", "Index", "PostCars")</li>
-                    <li>@Html.ActionLink("Search Cars", "Search", "Home")</li>
+                    <li>@Html.ActionLink("Search Cars", "Search", "PostCars")</li>
                     <li>@Html.ActionLink("Contact us", "Contact", "Home")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
@@ -40,7 +40,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - SoftUni</p>
+            <p>&copy; @DateTime.Now.Year &nbsp; - &nbsp; SoftUni &nbsp;- &nbsp; Car Sales</p>
         </footer>
     </div>
 

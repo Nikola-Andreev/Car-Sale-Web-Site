@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Car_Sale_Web_Site.Models;
+using PagedList;
 
 namespace Car_Sale_Web_Site.Controllers
 {
@@ -16,13 +17,6 @@ namespace Car_Sale_Web_Site.Controllers
             return View(cars.ToList());
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
@@ -30,11 +24,5 @@ namespace Car_Sale_Web_Site.Controllers
             return View();
         }
 
-        public ActionResult Search()
-        {
-            ViewBag.Message = "Your search page.";
-
-            return View();
-        }
     }
 }

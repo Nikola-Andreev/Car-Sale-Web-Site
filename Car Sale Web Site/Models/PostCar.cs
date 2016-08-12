@@ -18,19 +18,19 @@ namespace Car_Sale_Web_Site.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        //[Required]
+        //[StringLength(50)]
         public string CarModel { get; set; }
 
         //[Required]
         [StringLength(50)]
         public string Manufacturer { get; set; }
 
-        [Required]
+        //[Required]
         [StringLength(50)]
         public string Town { get; set; }
 
-        [Required]
+        //[Required]
         [DataType(DataType.MultilineText)]
         public string CarDescription { get; set; }
 
@@ -45,10 +45,10 @@ namespace Car_Sale_Web_Site.Models
 
         public string Author_UserName { get; set; }
 
-        [Required]
+        ////[Required]
         public int Price { get; set; }
 
-        [Required]
+        //[Required]
         public int HorsePower { get; set; }
 
 

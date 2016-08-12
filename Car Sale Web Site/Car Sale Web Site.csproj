@@ -178,6 +178,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\SearchCar.cs" />
     <Compile Include="Models\PostCar.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -247,8 +248,9 @@
     <Content Include="Views\PostCars\Details.cshtml" />
     <Content Include="Views\PostCars\Edit.cshtml" />
     <Content Include="Views\PostCars\Index.cshtml" />
-    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\PostCars\Search.cshtml" />
     <Content Include="Views\PostCars\MyCars.cshtml" />
+    <Content Include="Views\PostCars\SearchedCars.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

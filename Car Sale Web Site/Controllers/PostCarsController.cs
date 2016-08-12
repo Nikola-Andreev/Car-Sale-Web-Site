@@ -16,6 +16,27 @@ namespace Car_Sale_Web_Site.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public ActionResult Search( )
+        {           
+            return View();
+        }
+
+        public ActionResult SearchedCars([Bind(Include = "Id,CarModel,CarDescription,Town,Author_UserName,Price,Date,CategoryId,DoorId,Manufacturer,FuelId,GearId,YearId,HorsePower,ColorId,Climatronic,Climatic,Leather,ElWindows,ElMirrors,ElSeats,SeatsHeat,Audio,Retro,AllowWeels,DVDTV,Airbag,FourByFour,ABS,ESP,HallogenLights,NavigationSystem,SevenSeats,ASRTractionControl,Parktronic,Alarm,Imobilazer,CentralLocking,Insurance,Typetronic,Autopilot,TAXI,Computer,ServiceHistory,Tunning,BrandNew,SecondHand,Damaged")] PostCar values)
+        {
+            if (ModelState.IsValid)
+            { 
+                var s = values;
+            var e = values.Manufacturer;
+
+            List<PostCar> listCars = db.PostCar.Where(a => a.Manufacturer == values.Manufacturer).ToList();
+            return View(listCars);
+            }
+            else
+            {
+                return View();
+            }
+        }
+
         [Authorize]
         public ActionResult MyCars(int page = 1, int pageSize = 5)
         {
@@ -62,6 +83,7 @@ namespace Car_Sale_Web_Site.Controllers
         {
             if (ModelState.IsValid)
             {
+                var a = model;
                 model.EditedDate = DateTime.Now;
                 model.Author = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
                 model.Date = DateTime.Now;
