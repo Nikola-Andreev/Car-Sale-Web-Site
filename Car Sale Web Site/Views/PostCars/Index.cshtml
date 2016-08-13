@@ -23,6 +23,9 @@
             Car Image
         </th>
         <th>
+            Car Make
+        </th>
+        <th>
             Car Model
         </th>
         <th>
@@ -49,7 +52,10 @@
 {
     <tr>
         <td>
-            @Html.ActionLink("Image", "Details", new { id = item.Id })
+            @Html.ActionLink("Image", "Details", new { id = item.Id })                      
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Manufacturer)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CarModel)

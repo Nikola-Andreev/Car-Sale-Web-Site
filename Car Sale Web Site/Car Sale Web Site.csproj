@@ -192,9 +192,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\Car sales.png" />
     <Content Include="fonts\contactUs.png" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="fonts\site_logo.jpg" />
+    <Content Include="fonts\opel-corsa.jpg" />
+    <Content Include="Controllers\site_logo.jpg" />
     <Content Include="fonts\vector-car.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

@@ -18,19 +18,19 @@ namespace Car_Sale_Web_Site.Models
         [Key]
         public int Id { get; set; }
 
-        //[Required]
-        //[StringLength(50)]
+        [Required]
+        [StringLength(50)]
         public string CarModel { get; set; }
 
-        //[Required]
+        [Required]
         [StringLength(50)]
         public string Manufacturer { get; set; }
 
-        //[Required]
+        [Required]
         [StringLength(50)]
         public string Town { get; set; }
 
-        //[Required]
+        [Required]
         [DataType(DataType.MultilineText)]
         public string CarDescription { get; set; }
 
@@ -45,12 +45,15 @@ namespace Car_Sale_Web_Site.Models
 
         public string Author_UserName { get; set; }
 
-        //[Required]
+        [Required]
         public int Price { get; set; }
 
-        //[Required]
+        public int PriceMax { get; set; }
+
+        [Required]
         public int HorsePower { get; set; }
 
+        public int HorsePowerMax{ get; set; }
 
         //DROPDOWN
         public Category CategoryId { get; set; }
@@ -90,6 +93,57 @@ namespace Car_Sale_Web_Site.Models
 
         public Year YearId { get; set; }
         public enum Year
+        {
+            Y2016 = 2016,
+            Y2015 = 2015,
+            Y2014 = 2014,
+            Y2013 = 2013,
+            Y2012 = 2012,
+            Y2011 = 2011,
+            Y2010 = 2010,
+            Y2009 = 2009,
+            Y2008 = 2008,
+            Y2007 = 2007,
+            Y2006 = 2006,
+            Y2005 = 2005,
+            Y2004 = 2004,
+            Y2003 = 2003,
+            Y2002 = 2002,
+            Y2001 = 2001,
+            Y2000 = 2000,
+            Y1999 = 1999,
+            Y1998 = 1998,
+            Y1997 = 1997,
+            Y1996 = 1996,
+            Y1995 = 1995,
+            Y1994 = 1994,
+            Y1993 = 1993,
+            Y1992 = 1992,
+            Y1991 = 1991,
+            Y1990 = 1990,
+            Y1989 = 1989,
+            Y1988 = 1988,
+            Y1987 = 1987,
+            Y1986 = 1986,
+            Y1985 = 1985,
+            Y1984 = 1984,
+            Y1983 = 1983,
+            Y1982 = 1982,
+            Y1981 = 1981,
+            Y1980 = 1980,
+            Y1979 = 1979,
+            Y1978 = 1978,
+            Y1977 = 1977,
+            Y1976 = 1976,
+            Y1975 = 1975,
+            Y1974 = 1974,
+            Y1973 = 1973,
+            Y1972 = 1972,
+            Y1971 = 1971
+        }
+
+        public YearMax YearMaximum { get; set; }
+        public enum YearMax
         {
             Y2016 = 2016,
             Y2015 = 2015,
