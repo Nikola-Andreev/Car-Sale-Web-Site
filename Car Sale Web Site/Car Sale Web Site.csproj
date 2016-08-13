@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostCarsController.cs" />
@@ -178,6 +179,8 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\File.cs" />
+    <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\SearchCar.cs" />
     <Compile Include="Models\PostCar.cs" />
     <Compile Include="Models\ManageViewModels.cs" />

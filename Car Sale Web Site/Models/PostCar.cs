@@ -45,7 +45,7 @@ namespace Car_Sale_Web_Site.Models
 
         public string Author_UserName { get; set; }
 
-        ////[Required]
+        //[Required]
         public int Price { get; set; }
 
         //[Required]
@@ -54,7 +54,6 @@ namespace Car_Sale_Web_Site.Models
 
         //DROPDOWN
         public Category CategoryId { get; set; }
-
         public enum Category
         {
             Sedan = 1,
@@ -64,9 +63,7 @@ namespace Car_Sale_Web_Site.Models
             Van = 9
         }
 
-
         public Door DoorId { get; set; }
-
         public enum Door
         {
             TwoThree = 1,
@@ -74,7 +71,6 @@ namespace Car_Sale_Web_Site.Models
         }
 
         public Fuel FuelId { get; set; }
-
         public enum Fuel
         {
             Petrol = 1,
@@ -85,9 +81,7 @@ namespace Car_Sale_Web_Site.Models
             Electric = 7
         }
 
-
         public Gear GearId { get; set; }
-
         public enum Gear
         {
             Hand = 1,
@@ -95,7 +89,6 @@ namespace Car_Sale_Web_Site.Models
         }
 
         public Year YearId { get; set; }
-
         public enum Year
         {
             Y2016 = 2016,
@@ -146,7 +139,6 @@ namespace Car_Sale_Web_Site.Models
             Y1971 = 1971
         }
 
-
         public Color ColorId { get; set; }
 
         public enum Color
@@ -170,7 +162,6 @@ namespace Car_Sale_Web_Site.Models
             Wellow = 2
         }
 
-
         //CHECKBOX
         public bool Climatronic { get; set; }
         public bool Climatic { get; set; }
@@ -184,15 +175,11 @@ namespace Car_Sale_Web_Site.Models
         public bool AllowWeels { get; set; }
         public bool DVDTV { get; set; }
         public bool Airbag { get; set; }
-
         public bool FourByFour { get; set; }
         public bool ABS { get; set; }
         public bool ESP { get; set; }
-
         public bool HallogenLights { get; set; }
-
         public bool NavigationSystem { get; set; }
-
         public bool SevenSeats { get; set; }
         public bool ASRTractionControl { get; set; }
         public bool Parktronic { get; set; }
@@ -211,8 +198,7 @@ namespace Car_Sale_Web_Site.Models
         public bool BrandNew { get; set; }
         public bool SecondHand { get; set; }
         public bool Damaged { get; set; }
-        //NEW
 
-
+        public virtual ICollection<File> Files { get; set; }
     }
 }

@@ -18,9 +18,12 @@
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
-select,
+select {
+    max-width: 280px;
+}
+
 textarea {
-    max-width: 150px;
+    max-width: 380px;
 }
 
 #createTable {
@@ -32,8 +35,11 @@ textarea {
     color: royalblue;
 }
 
-select, input {
+#createTable select {
     float: right;
     width: 150px;
 }
-
+#createTable input {
+    float: right;
+    width: 150px;
+}
