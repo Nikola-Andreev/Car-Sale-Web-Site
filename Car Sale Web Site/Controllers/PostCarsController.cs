@@ -23,7 +23,7 @@ namespace Car_Sale_Web_Site.Controllers
         }
 
         [HttpPost]
-        public ActionResult SearchedCars([Bind(Include = "PriceMax,HorsePowerMax,YearMaximum,Id,CarModel,CarDescription,Town,Author_UserName,Price,Date,CategoryId,DoorId,Manufacturer,FuelId,GearId,YearId,HorsePower,ColorId,Climatronic,Climatic,Leather,ElWindows,ElMirrors,ElSeats,SeatsHeat,Audio,Retro,AllowWeels,DVDTV,Airbag,FourByFour,ABS,ESP,HallogenLights,NavigationSystem,SevenSeats,ASRTractionControl,Parktronic,Alarm,Imobilazer,CentralLocking,Insurance,Typetronic,Autopilot,TAXI,Computer,ServiceHistory,Tunning,BrandNew,SecondHand,Damaged")] PostCar values)
+        public ActionResult SearchedCars([Bind(Include = "PriceMax,HorsePowerMax,YearMaximum,Id,CarModel,CarDescription,Town,Author_UserName,Price,Date,CategoryId,DoorId,Manufacturer,FuelId,GearId,YearId,HorsePower,ColorId,Climatronic,Climatic,Leather,ElWindows,ElMirrors,ElSeats,SeatsHeat,Audio,Retro,AllowWeels,DVDTV,Airbag,FourByFour,ABS,ESP,HallogenLights,NavigationSystem,SevenSeats,ASRTractionControl,Parktronic,Alarm,Imobilazer,CentralLocking,Insurance,Typetronic,Autopilot,TAXI,Computer,ServiceHistory,Tunning,BrandNew,SecondHand,Damaged")] PostCar values, int page = 1, int pageSize = 5)
         {
             List<PostCar> result = new List<PostCar>();
             if (values.Manufacturer!=null)
@@ -976,7 +976,9 @@ namespace Car_Sale_Web_Site.Controllers
                 }
             }
 
-            return View(result);
+            PagedList<PostCar> model = new PagedList<PostCar>(result, page, pageSize);
+
+            return View(model);
         }
 
         [Authorize]

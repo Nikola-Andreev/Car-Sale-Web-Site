@@ -17,20 +17,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img src="~/fonts/Car sales.png"width="100" height="50" />
+                <img src="~/fonts/site_logo.jpg" width="100" height="50"/>
                 @*@Html.ActionLink("Car sales", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("All Cars", "Index", "PostCars")</li>
-                    <li>@Html.ActionLink("Search Cars", "Search", "PostCars")</li>
-                    <li>@Html.ActionLink("Contact us", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Search Cars", "Search", "PostCars")</li>                 
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Create Ad", "Create", "PostCars")</li>
                         <li>@Html.ActionLink("My Cars", "MyCars", "PostCars")</li>
                     }                    
+                    <li>@Html.ActionLink("Contact us", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
