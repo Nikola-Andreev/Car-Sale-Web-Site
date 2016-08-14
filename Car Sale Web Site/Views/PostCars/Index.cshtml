@@ -77,8 +77,11 @@
         <td style="padding-top:40px; text-align:center">
             @Html.DisplayFor(modelItem => item.Price) €
         </td>
-        <td style="padding-top:40px; text-align:center">
-            @Html.DisplayFor(modelItem => item.YearId)
+        <td style="padding-top: 40px; text-align: center">
+            @{
+                int yearInt = (int)item.YearId;
+            }
+            @yearInt
         </td>
         <td style="padding-top:40px; text-align:center">
         @Html.DisplayFor(modelItem => item.FuelId)

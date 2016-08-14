@@ -7,8 +7,11 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Car_Sale_Web_Site.Extensions;
 using Car_Sale_Web_Site.Models;
 using PagedList;
+
+
 
 namespace Car_Sale_Web_Site.Controllers
 {
@@ -1048,6 +1051,7 @@ namespace Car_Sale_Web_Site.Controllers
                 model.Author_UserName = User.Identity.Name;
                 db.PostCar.Add(model);
                 db.SaveChanges();
+                this.AddNotification("Success! You just added a new listing!", NotificationType.INFO);
                 return RedirectToAction("Index");
             }
 
@@ -1095,6 +1099,7 @@ namespace Car_Sale_Web_Site.Controllers
                 }
                 db.Entry(postCar).State = EntityState.Modified;
                 db.SaveChanges();
+                this.AddNotification("Success! Your Ad is edited.", NotificationType.INFO);
                 return RedirectToAction("MyCars");
                 }
                 

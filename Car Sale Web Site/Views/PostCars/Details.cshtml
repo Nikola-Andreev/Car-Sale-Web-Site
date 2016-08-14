@@ -17,7 +17,7 @@
             Photo
         </dt>
         <dd>
-            <img src="~/File?id=@Model.Files.First(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo).FileId" alt="photo" width="100" height="100"/>
+            <img src="~/File?id=@Model.Files.First(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo).FileId" alt="photo" width="320" height="200"/>
         </dd>
        }
         <dt>
@@ -47,7 +47,10 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.YearId)
+            @{
+                int yearInt = (int)Model.YearId;
+            }
+            @yearInt
         </dd>
 
 
@@ -55,7 +58,7 @@
             @Html.DisplayNameFor(model => model.Price)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Price)
+            @Html.DisplayFor(model => model.Price) €
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Town)
@@ -77,5 +80,5 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) @:|
     @Html.ActionLink("Delete", "Delete", new { id = Model.Id }) @:|
     }
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to My Cars", "MyCars")
 </p>

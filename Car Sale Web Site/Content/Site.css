@@ -43,3 +43,7 @@ textarea {
     float: right;
     width: 150px;
 }
+
+.alert {
+    margin-top: 10px;
+}
