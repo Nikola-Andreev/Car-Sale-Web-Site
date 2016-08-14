@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Car_Sale_Web_Site.Extensions;
 using Car_Sale_Web_Site.Models;
 using PagedList;
 
@@ -1048,6 +1049,7 @@ namespace Car_Sale_Web_Site.Controllers
                 model.Author_UserName = User.Identity.Name;
                 db.PostCar.Add(model);
                 db.SaveChanges();
+                this.AddNotification("Success! You just created new listing for your car!", NotificationType.INFO);
                 return RedirectToAction("Index");
             }
 
@@ -1095,6 +1097,7 @@ namespace Car_Sale_Web_Site.Controllers
                 }
                 db.Entry(postCar).State = EntityState.Modified;
                 db.SaveChanges();
+                this.AddNotification("Success! You just edited your car details!", NotificationType.INFO);
                 return RedirectToAction("MyCars");
                 }
                 
@@ -1124,6 +1127,10 @@ namespace Car_Sale_Web_Site.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             PostCar postCar = db.PostCar.Find(id);
+            if (postCar.Files.Any(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo))
+            {
+                db.Files.RemoveRange(postCar.Files);
+            }
             db.PostCar.Remove(postCar);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -8,7 +8,6 @@
 <h2>Details</h2>
 
 <div>
-    <h4>PostCar</h4>
     <hr />
     <dl class="dl-horizontal">
        @if (Model.Files.Any(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo))
@@ -17,7 +16,7 @@
             Photo
         </dt>
         <dd>
-            <img src="~/File?id=@Model.Files.First(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo).FileId" alt="photo" width="100" height="100"/>
+            <img src="~/File?id=@Model.Files.First(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo).FileId" alt="photo" width="320" height="200"/>
         </dd>
        }
         <dt>
@@ -55,7 +54,7 @@
             @Html.DisplayNameFor(model => model.Price)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Price)
+            @Html.DisplayFor(model => model.Price) €
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Town)
@@ -64,10 +63,10 @@
             @Html.DisplayFor(model => model.Town)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.HorsePower)
+            @Html.DisplayNameFor(model => model.HorsePower) 
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.HorsePower)
+            @Html.DisplayFor(model => model.HorsePower) hp
         </dd>
     </dl>
 </div>
@@ -77,5 +76,5 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) @:|
     @Html.ActionLink("Delete", "Delete", new { id = Model.Id }) @:|
     }
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to My Cars", "MyCars")
 </p>
