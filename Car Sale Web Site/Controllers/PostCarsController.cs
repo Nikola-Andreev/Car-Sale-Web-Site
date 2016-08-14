@@ -1120,7 +1120,7 @@ namespace Car_Sale_Web_Site.Controllers
                 }
 
 
-                db.Entry(db.PostCar.Find(postCar.Id)).State = EntityState.Modified;
+                db.Entry(postCar).State = EntityState.Modified;
                 db.SaveChanges();
                 this.AddNotification("Success! Your Ad is edited.", NotificationType.INFO);
                 return RedirectToAction("MyCars");
