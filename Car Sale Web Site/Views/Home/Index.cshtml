@@ -2,19 +2,95 @@
     ViewBag.Title = "Home Page";
 }
 
-@model List<Car_Sale_Web_Site.Models.PostCar>
+@model Car_Sale_Web_Site.Models.Home
 
 <div class="jumbotron" style="text-align:center">
-    <h2>Recent Ads</h2>
+    <h3>Welcome to car sales ofiicial web</h3>
 </div>
 
+@{ Html.EnableClientValidation(false); }
+@using (Html.BeginForm("QuickSearch", "Home", FormMethod.Post))
+{
+
+    <table style="background-color:azure" id="headerTable">
+        <tbody>
+            <tr style="height:8px"></tr>
+            <tr>
+                <td width="470" style="padding-left:195px"><b>Quick Search</b></td>
+            </tr>
+            <tr style="height:8px"></tr>
+        </tbody>
+    </table>
+
+    <table style="background-color:azure" id="createTable">
+
+        <tbody>
+            <tr>
+                <td >
+                    Manufacturer
+                    @Html.EditorFor(model => model.Car.Manufacturer, new { htmlAttributes = new { @class = "form-inline" } })
+                </td>               
+                <td width="225">
+                    Model
+                    @Html.EditorFor(model => model.Car.CarModel, new { htmlAttributes = new { @class = "form-inline" } })
+                </td>
+            </tr>
+            <tr> </tr>
+            <tr>
+                <td>
+                    Town
+                    @Html.EditorFor(model => model.Car.Town, new { htmlAttributes = new { @class = "form-inline" } })
+                </td>
+                <td>
+                    Car Type
+                    @Html.DropDownListFor(model => model.Car.CategoryId, new SelectList(Enum.GetValues(typeof(PostCar.Category))), "")
+                </td>
+            </tr>
+            <tr> </tr>
+            <tr>
+                <td >
+                    Min price
+                    @Html.EditorFor(model => model.Car.Price, new { htmlAttributes = new { @class = "form-inline" } })
+                </td>
+                <td>
+                    Max price
+                    @Html.EditorFor(model => model.Car.PriceMax, new { htmlAttributes = new { @class = "form-inline" } })
+                </td>
+            </tr>
+            <tr> </tr>
+            <tr>
+                <td>
+                    Year min
+                    @Html.EditorFor(model => model.Car.YearMin, new { htmlAttributes = new { @class = "form-inline" } })
+                </td>
+                <td>
+                    Year max
+                    @Html.EditorFor(model => model.Car.YearMax, new { htmlAttributes = new { @class = "form-inline" } })
+                </td>
+            </tr>
+            <tr style="height:8px"></tr>
+        </tbody>
+    </table>
+    <br>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Search" class="btn btn-default" style="border-color:blue" />
+        </div>
+    </div>
+    <br><br>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
 <section class="row">
-    @foreach (var carAd in Model)
-    {
+    @foreach (var carAd in Model.lastThreePosts)
+            {
         <article class="post col-md-4">
             <div class="car-model">@carAd.CarModel</div>
             <div class="car-price">Price @carAd.Price</div>
-            <div class="car-year">Year @carAd.YearId</div>
+            <div class="car-year">Year @carAd.YearMin</div>
             <div class="about">
                 Posted on <i>@carAd.Date</i>
                 @if (carAd.Author != null)
@@ -27,11 +103,20 @@
                         Photo
                     </dt>
                     <dd>
-                        <img src="~/File?id=@carAd.Files.First(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo).FileId" alt="photo" width="100" height="100" />
+                        <a href='@Url.Action("Details", "PostCars", new { id = carAd.Id })'>
+                            <img src="~/File?id=@carAd.Files.First(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo).FileId" alt="photo" width="160" height="100" />
+                        </a>
                     </dd>
+                }
+                else
+                {
+                    <a href='@Url.Action("Details", "PostCars", new { id = carAd.Id })'>
+                        <img src="~/fonts/noImage.png" alt="photo" width="160" height="100" />
+                    </a>
                 }
             </div>
 
         </article>
     }
 </section>
+

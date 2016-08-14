@@ -23,12 +23,12 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("All Cars", "Index", "PostCars")</li>
-                    <li>@Html.ActionLink("Search Cars", "Search", "PostCars")</li>                 
+                    <li>@Html.ActionLink("All cars", "Index", "PostCars")</li>
+                    <li>@Html.ActionLink("Search cars", "Search", "PostCars")</li>                 
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Create Ad", "Create", "PostCars")</li>
-                        <li>@Html.ActionLink("My Cars", "MyCars", "PostCars")</li>
+                        <li>@Html.ActionLink("Sell car", "Create", "PostCars")</li>
+                        <li>@Html.ActionLink("My cars", "MyCars", "PostCars")</li>
                     }                    
                     <li>@Html.ActionLink("Contact us", "Contact", "Home")</li>
                 </ul>

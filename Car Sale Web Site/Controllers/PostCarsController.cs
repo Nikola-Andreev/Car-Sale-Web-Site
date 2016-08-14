@@ -23,7 +23,7 @@ namespace Car_Sale_Web_Site.Controllers
         }
 
         [HttpPost]
-        public ActionResult SearchedCars([Bind(Include = "PriceMax,HorsePowerMax,YearMaximum,Id,CarModel,CarDescription,Town,Author_UserName,Price,Date,CategoryId,DoorId,Manufacturer,FuelId,GearId,YearId,HorsePower,ColorId,Climatronic,Climatic,Leather,ElWindows,ElMirrors,ElSeats,SeatsHeat,Audio,Retro,AllowWeels,DVDTV,Airbag,FourByFour,ABS,ESP,HallogenLights,NavigationSystem,SevenSeats,ASRTractionControl,Parktronic,Alarm,Imobilazer,CentralLocking,Insurance,Typetronic,Autopilot,TAXI,Computer,ServiceHistory,Tunning,BrandNew,SecondHand,Damaged")] PostCar values, int page = 1, int pageSize = 5)
+        public ActionResult SearchedCars([Bind(Include = "PriceMax,HorsePowerMax,YearMax,Id,CarModel,CarDescription,Town,Author_UserName,Price,Date,CategoryId,DoorId,Manufacturer,FuelId,GearId,YearMin,HorsePower,ColorId,Climatronic,Climatic,Leather,ElWindows,ElMirrors,ElSeats,SeatsHeat,Audio,Retro,AllowWeels,DVDTV,Airbag,FourByFour,ABS,ESP,HallogenLights,NavigationSystem,SevenSeats,ASRTractionControl,Parktronic,Alarm,Imobilazer,CentralLocking,Insurance,Typetronic,Autopilot,TAXI,Computer,ServiceHistory,Tunning,BrandNew,SecondHand,Damaged")] PostCar values, int page = 1, int pageSize = 5)
         {
             List<PostCar> result = new List<PostCar>();
             if (values.Manufacturer!=null)
@@ -163,9 +163,9 @@ namespace Car_Sale_Web_Site.Controllers
                 }
             }
 
-            if (values.YearId != 0 || values.YearMaximum != 0)
+            if (values.YearMin != 0 || values.YearMax != 0)
             {
-                List<PostCar> cars = db.PostCar.Where(a => a.YearId.ToString().CompareTo(values.YearId.ToString()) != -1 && a.YearId.ToString().CompareTo(values.YearMaximum.ToString()) !=1).ToList();
+                List<PostCar> cars = db.PostCar.Where(a => a.YearMin >= values.YearMin && a.YearMin <= values.YearMax).ToList();
                 if (result.Count == 0)
                 {
                     result.AddRange(cars);
@@ -992,7 +992,7 @@ namespace Car_Sale_Web_Site.Controllers
         // GET: PostCars
         public ActionResult Index(int page = 1,int pageSize=5)
         {
-            List<PostCar> listCars = db.PostCar.ToList();
+            List<PostCar> listCars = db.PostCar.OrderByDescending(a => a.Date).ThenBy(b => b.Manufacturer).ToList();
             PagedList<PostCar> model = new PagedList<PostCar>(listCars, page, pageSize);
             return View(model);
         }
@@ -1023,7 +1023,7 @@ namespace Car_Sale_Web_Site.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CarModel,CarDescription,Town,Author_UserName,Price,Date,CategoryId,DoorId,Manufacturer,FuelId,GearId,YearId,HorsePower,ColorId,Climatronic,Climatic,Leather,ElWindows,ElMirrors,ElSeats,SeatsHeat,Audio,Retro,AllowWeels,DVDTV,Airbag,FourByFour,ABS,ESP,HallogenLights,NavigationSystem,SevenSeats,ASRTractionControl,Parktronic,Alarm,Imobilazer,CentralLocking,Insurance,Typetronic,Autopilot,TAXI,Computer,ServiceHistory,Tunning,BrandNew,SecondHand,Damaged")] PostCar model, HttpPostedFileBase upload)
+        public ActionResult Create([Bind(Include = "Id,CarModel,CarDescription,Town,Author_UserName,Price,Date,CategoryId,DoorId,Manufacturer,FuelId,GearId,YearMin,HorsePower,ColorId,Climatronic,Climatic,Leather,ElWindows,ElMirrors,ElSeats,SeatsHeat,Audio,Retro,AllowWeels,DVDTV,Airbag,FourByFour,ABS,ESP,HallogenLights,NavigationSystem,SevenSeats,ASRTractionControl,Parktronic,Alarm,Imobilazer,CentralLocking,Insurance,Typetronic,Autopilot,TAXI,Computer,ServiceHistory,Tunning,BrandNew,SecondHand,Damaged")] PostCar model, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
@@ -1079,7 +1079,7 @@ namespace Car_Sale_Web_Site.Controllers
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult Edit([Bind(Include = "Id,CarModel,CarDescription,Town,Author_UserName,Price,Date,CategoryId,DoorId,Manufacturer,FuelId,GearId,YearId,HorsePower,ColorId,Climatronic,Climatic,Leather,ElWindows,ElMirrors,ElSeats,SeatsHeat,Audio,Retro,AllowWeels,DVDTV,Airbag,FourByFour,ABS,ESP,HallogenLights,NavigationSystem,SevenSeats,ASRTractionControl,Parktronic,Alarm,Imobilazer,CentralLocking,Insurance,Typetronic,Autopilot,TAXI,Computer,ServiceHistory,Tunning,BrandNew,SecondHand,Damaged")] PostCar postCar)
+        public ActionResult Edit([Bind(Include = "Id,CarModel,CarDescription,Town,Author_UserName,Price,Date,CategoryId,DoorId,Manufacturer,FuelId,GearId,YearMin,HorsePower,ColorId,Climatronic,Climatic,Leather,ElWindows,ElMirrors,ElSeats,SeatsHeat,Audio,Retro,AllowWeels,DVDTV,Airbag,FourByFour,ABS,ESP,HallogenLights,NavigationSystem,SevenSeats,ASRTractionControl,Parktronic,Alarm,Imobilazer,CentralLocking,Insurance,Typetronic,Autopilot,TAXI,Computer,ServiceHistory,Tunning,BrandNew,SecondHand,Damaged")] PostCar postCar)
         {
             if (ModelState.IsValid)
             {

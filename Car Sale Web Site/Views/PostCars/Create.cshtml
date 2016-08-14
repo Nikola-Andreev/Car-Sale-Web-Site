@@ -205,10 +205,8 @@
             <tr>
                 <td width="300">
                     Year
-                    @Html.DropDownListFor(m => m.YearId,
-              new SelectList(Enum.GetValues(typeof(PostCar.Year))),
-              "")
-                    @Html.ValidationMessageFor(model => model.YearId, "", new { @class = "text-danger" })
+                    @Html.EditorFor(m => m.YearMin, new { htmlAttributes = new { @class = "form-inline" } })
+                    @Html.ValidationMessageFor(model => model.YearMin, "", new { @class = "text-danger" })
                 </td>
 
                 <td width="250">

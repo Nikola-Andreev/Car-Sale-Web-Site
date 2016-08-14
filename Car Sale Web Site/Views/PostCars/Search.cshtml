@@ -1,5 +1,4 @@
-﻿@using Car_Sale_Web_Site.Models
-@model Car_Sale_Web_Site.Models.PostCar
+﻿@model Car_Sale_Web_Site.Models.PostCar
 
 @{
     ViewBag.Title = "Search cars";
@@ -10,8 +9,6 @@
 @{ Html.EnableClientValidation(false); }
 @using (Html.BeginForm("SearchedCars", "PostCars", FormMethod.Post))
 {
-
-    @Html.AntiForgeryToken()
 
 <br>
     <table id="headerTable">
@@ -31,10 +28,7 @@
             <tr>
                 <td width="300">
                     Car Type
-                    @Html.DropDownListFor(m => m.CategoryId,
-              new SelectList(Enum.GetValues(typeof(PostCar.Category))),
-              "")
-                    @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                    @Html.DropDownListFor(model => model.CategoryId, new SelectList(Enum.GetValues(typeof(PostCar.Category))),"")
                 </td>
 
                 <td width="250">
@@ -58,10 +52,7 @@
             <tr>
                 <td width="300">
                     Doors number
-                    @Html.DropDownListFor(m => m.DoorId,
-              new SelectList(Enum.GetValues(typeof(PostCar.Door))),
-              "")
-                    @Html.ValidationMessageFor(model => model.DoorId, "", new { @class = "text-danger" })
+                    @Html.DropDownListFor(m => m.DoorId,new SelectList(Enum.GetValues(typeof(PostCar.Door))),"")
                 </td>
 
                 <td width="250">
@@ -85,7 +76,6 @@
                 <td width="300">
                     Manufacturer
                     @Html.EditorFor(model => model.Manufacturer, new { htmlAttributes = new { @class = "form-inline" } })
-                    @Html.ValidationMessageFor(model => model.Manufacturer, "", new { @class = "text-danger" })
                 </td>
 
                 <td width="250">
@@ -110,7 +100,6 @@
                 <td width="300">
                     Model
                     @Html.EditorFor(model => model.CarModel, new { htmlAttributes = new { @class = "form-inline" } })
-                    @Html.ValidationMessageFor(model => model.CarModel, "", new { @class = "text-danger" })
                 </td>
 
                 <td width="250">
@@ -128,12 +117,10 @@
                 </td>
             </tr>
 
-
             <tr>
                 <td width="300">
                     Town
                     @Html.EditorFor(model => model.Town, new { htmlAttributes = new { @class = "form-inline" } })
-                    @Html.ValidationMessageFor(model => model.Town, "", new { @class = "text-danger" })
                 </td>
 
                 <td width="250">
@@ -151,14 +138,10 @@
                 </td>
             </tr>
 
-
             <tr>
                 <td width="300">
                     Fuel type
-                    @Html.DropDownListFor(m => m.FuelId,
-              new SelectList(Enum.GetValues(typeof(PostCar.Fuel))),
-              "")
-                    @Html.ValidationMessageFor(model => model.FuelId, "", new { @class = "text-danger" })
+                    @Html.DropDownListFor(m => m.FuelId,new SelectList(Enum.GetValues(typeof(PostCar.Fuel))),"")
                 </td>
 
                 <td width="250">
@@ -181,10 +164,7 @@
             <tr>
                 <td width="300">
                     Transmission
-                    @Html.DropDownListFor(m => m.GearId,
-              new SelectList(Enum.GetValues(typeof(PostCar.Gear))),
-              "")
-                    @Html.ValidationMessageFor(model => model.GearId, "", new { @class = "text-danger" })
+                    @Html.DropDownListFor(m => m.GearId,new SelectList(Enum.GetValues(typeof(PostCar.Gear))),"")
                 </td>
 
                 <td width="250">
@@ -202,14 +182,10 @@
                 </td>
             </tr>
 
-
             <tr>
                 <td width="300">
                     Year min
-                    @Html.DropDownListFor(m => m.YearId,
-              new SelectList(Enum.GetValues(typeof(PostCar.Year))),
-              "")
-                    @Html.ValidationMessageFor(model => model.YearId, "", new { @class = "text-danger" })
+                    @Html.EditorFor(m => m.YearMin, new { htmlAttributes = new { @class = "form-inline" } })
                 </td>
 
                 <td width="250">
@@ -232,10 +208,7 @@
             <tr>
                 <td width="300">
                     Year max
-                    @Html.DropDownListFor(m => m.YearMaximum,
-              new SelectList(Enum.GetValues(typeof(PostCar.YearMax))),
-              "")
-                    @Html.ValidationMessageFor(model => model.YearMaximum, "", new { @class = "text-danger" })
+                    @Html.EditorFor(m => m.YearMax, new { htmlAttributes = new { @class = "form-inline" } })
                 </td>
 
                 <td width="250">
@@ -258,7 +231,6 @@
                 <td width="300">
                     Price min
                     @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-inline" } })
-                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
                 </td>
 
                 <td width="250">
@@ -279,7 +251,6 @@
                 <td width="300">
                     Price max
                     @Html.EditorFor(model => model.PriceMax, new { htmlAttributes = new { @class = "form-inline" } })
-                    @Html.ValidationMessageFor(model => model.PriceMax, "", new { @class = "text-danger" })
                 </td>
                 
                 <td width="250">
@@ -302,22 +273,18 @@
                 <td width="300">
                     Horse power Min
                     @Html.EditorFor(model => model.HorsePower, new { htmlAttributes = new { @class = "form-inline" } })
-                    @Html.ValidationMessageFor(model => model.HorsePower, "", new { @class = "text-danger" })
                 </td>
             </tr>
             <tr>
                 <td width="300">
                     Horse power Max
                     @Html.EditorFor(model => model.HorsePowerMax, new { htmlAttributes = new { @class = "form-inline" } })
-                    @Html.ValidationMessageFor(model => model.HorsePowerMax, "", new { @class = "text-danger" })
                 </td>
             </tr>
             <tr>
                 <td width="300">
                     Color
-                    @Html.DropDownListFor(m => m.ColorId,
-                    new SelectList(Enum.GetValues(typeof(PostCar.Color))),"")
-                    @Html.ValidationMessageFor(model => model.ColorId, "", new { @class = "text-danger" })                   
+                    @Html.DropDownListFor(m => m.ColorId,new SelectList(Enum.GetValues(typeof(PostCar.Color))),"")                
                 </td>                
             </tr>                            
         </tbody>     

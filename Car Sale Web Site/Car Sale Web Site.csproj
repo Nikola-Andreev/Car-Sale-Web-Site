@@ -180,6 +180,7 @@
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\File.cs" />
+    <Compile Include="Models\Home.cs" />
     <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\PostCar.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -255,6 +256,7 @@
     <Content Include="Views\PostCars\Search.cshtml" />
     <Content Include="Views\PostCars\MyCars.cshtml" />
     <Content Include="Views\PostCars\SearchedCars.cshtml" />
+    <Content Include="Views\Home\QuickSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
