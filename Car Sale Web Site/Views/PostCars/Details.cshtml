@@ -72,6 +72,14 @@
         <dd>
             @Html.DisplayFor(model => model.HorsePower)
         </dd>
+        @if (Model.Climatic == true)
+        {
+            <dt>
+                Climatic
+            </dt>
+        }
+        
+
     </dl>
 </div>
 <p>

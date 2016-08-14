@@ -1068,6 +1068,7 @@ namespace Car_Sale_Web_Site.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             PostCar postCar = db.PostCar.Include(s => s.Files).SingleOrDefault(s => s.Id == id);
+           
             if (postCar == null)
             {
                 return HttpNotFound();
@@ -1083,7 +1084,7 @@ namespace Car_Sale_Web_Site.Controllers
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult Edit([Bind(Include = "Id,CarModel,CarDescription,Town,Author_UserName,Price,Date,CategoryId,DoorId,Manufacturer,FuelId,GearId,YearId,HorsePower,ColorId,Climatronic,Climatic,Leather,ElWindows,ElMirrors,ElSeats,SeatsHeat,Audio,Retro,AllowWeels,DVDTV,Airbag,FourByFour,ABS,ESP,HallogenLights,NavigationSystem,SevenSeats,ASRTractionControl,Parktronic,Alarm,Imobilazer,CentralLocking,Insurance,Typetronic,Autopilot,TAXI,Computer,ServiceHistory,Tunning,BrandNew,SecondHand,Damaged")] PostCar postCar)
+        public ActionResult Edit([Bind(Include = "Id,CarModel,CarDescription,Town,Author_UserName,Price,Date,CategoryId,DoorId,Manufacturer,FuelId,GearId,YearId,HorsePower,ColorId,Climatronic,Climatic,Leather,ElWindows,ElMirrors,ElSeats,SeatsHeat,Audio,Retro,AllowWeels,DVDTV,Airbag,FourByFour,ABS,ESP,HallogenLights,NavigationSystem,SevenSeats,ASRTractionControl,Parktronic,Alarm,Imobilazer,CentralLocking,Insurance,Typetronic,Autopilot,TAXI,Computer,ServiceHistory,Tunning,BrandNew,SecondHand,Damaged")] PostCar postCar, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
@@ -1097,7 +1098,29 @@ namespace Car_Sale_Web_Site.Controllers
                 {
                     db.Entry(local).State = EntityState.Detached;
                 }
-                db.Entry(postCar).State = EntityState.Modified;
+
+
+                    if (upload != null && upload.ContentLength > 0)
+                {
+                    if (db.PostCar.Find(postCar.Id).Files.Any(f => f.FileType == FileType.Photo))
+                    {
+                        db.Files.Remove(db.PostCar.Find(postCar.Id).Files.First(f => f.FileType == FileType.Photo));
+                    }
+                    var avatar = new File
+                    {
+                        FileName = System.IO.Path.GetFileName(upload.FileName),
+                        FileType = FileType.Photo,
+                        ContentType = upload.ContentType
+                    };
+                    using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                    {
+                        avatar.Content = reader.ReadBytes(upload.ContentLength);
+                    }
+                    db.PostCar.Find(postCar.Id).Files = new List<File> { avatar };
+                }
+
+
+                db.Entry(db.PostCar.Find(postCar.Id)).State = EntityState.Modified;
                 db.SaveChanges();
                 this.AddNotification("Success! Your Ad is edited.", NotificationType.INFO);
                 return RedirectToAction("MyCars");
