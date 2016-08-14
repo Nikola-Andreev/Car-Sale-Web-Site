@@ -305,22 +305,24 @@
     <br>
     <table>
         <tr>
-            <td width="100">@Html.Label("Photo1", new { @class = "control-label col-md-2" })<td>
-           <td width="200"><input type="file" id="Photo" name="upload" /></td>
+            <td width="100">@Html.Label("Photo", new { @class = "control-label col-md-2" })<td>
+        <td width="200"><input type="file" id="Photo" name="upload"/></td>
+            
         <tr>
     </table>
         
 
-        <div class="form-group">
+        <div style="margin-left:450px" class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-default" style="border-color:blue" />
+                @Html.ActionLink("Cancel", "MyCars", null, htmlAttributes: new { @class = "btn"})
             </div>
         </div>
 
 }
-<div>
+@*<div>
     @Html.ActionLink("Back to List", "Index")
-</div>
+</div>*@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
