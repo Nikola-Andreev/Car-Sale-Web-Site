@@ -8,9 +8,9 @@
 <h2>Create new car ad</h2>
 
 
-@using (Html.BeginForm("Create", "PostCars",FormMethod.Post))
+@using (Html.BeginForm("Create", "PostCars", FormMethod.Post))
 {
-
+    @Html.AntiForgeryToken()
 
     <table id="headerTable">
         <tbody>

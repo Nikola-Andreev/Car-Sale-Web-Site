@@ -117,28 +117,55 @@ namespace Car_Sale_Web_Site.Controllers
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult Edit([Bind(Include = "Id,CarModel,CarDescription,Town,Author_UserName,Price,Date,CategoryId,DoorId,Manufacturer,FuelId,GearId,YearMin,HorsePower,ColorId,Climatronic,Climatic,Leather,ElWindows,ElMirrors,ElSeats,SeatsHeat,Audio,Retro,AllowWeels,DVDTV,Airbag,FourByFour,ABS,ESP,HallogenLights,NavigationSystem,SevenSeats,ASRTractionControl,Parktronic,Alarm,Imobilazer,CentralLocking,Insurance,Typetronic,Autopilot,TAXI,Computer,ServiceHistory,Tunning,BrandNew,SecondHand,Damaged")] PostCar postCar)
+        public ActionResult Post(int? id, HttpPostedFileBase upload)
         {
-            if (ModelState.IsValid)
+            if (id == null)
             {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var carToUpdate = db.PostCar.Find(id);
 
-                postCar.AuthorId = db.PostCar.Find(postCar.Id).AuthorId;
-                postCar.Author_UserName = User.Identity.Name;
-                postCar.Date = db.PostCar.Find(postCar.Id).Date;
-                postCar.EditedDate = DateTime.Now;
-                var local = db.Set<PostCar>().Local.FirstOrDefault(f => f.Id == postCar.Id);
-                if (local != null)
+            carToUpdate.Author_UserName = User.Identity.Name;
+            carToUpdate.EditedDate = DateTime.Now;
+
+            if (TryUpdateModel(carToUpdate, "",
+               new string[] { "Id", "CarModel", "CarDescription", "Town", "Author_UserName", "Price", "Date", "CategoryId", "DoorId", "Manufacturer", "FuelId", "GearId", "YearMin", "HorsePower", "ColorId", "Climatronic", "Climatic", "Leather", "ElWindows", "ElMirrors", "ElSeats", "SeatsHeat", "Audio", "Retro", "AllowWeels", "DVDTV", "Airbag", "FourByFour", "ABS", "ESP", "HallogenLights", "NavigationSystem", "SevenSeats", "ASRTractionControl", "Parktronic", "Alarm", "Imobilazer", "CentralLocking", "Insurance", "Typetronic", "Autopilot", "TAXI", "Computer", "ServiceHistory", "Tunning", "BrandNew", "SecondHand", "Damaged" }))
+            {
+                try
                 {
-                    db.Entry(local).State = EntityState.Detached;
+
+                    if (upload != null && upload.ContentLength > 0)
+                    {
+                        if (carToUpdate.Files.Any(f => f.FileType == FileType.Photo))
+                        {
+                            db.Files.Remove(carToUpdate.Files.First(f => f.FileType == FileType.Photo));
+                        }
+                        var avatar = new File
+                        {
+                            FileName = System.IO.Path.GetFileName(upload.FileName),
+                            FileType = FileType.Photo,
+                            ContentType = upload.ContentType
+                        };
+                        using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                        {
+                            avatar.Content = reader.ReadBytes(upload.ContentLength);
+                        }
+                        carToUpdate.Files = new List<File> { avatar };
+                    }
+                    db.Entry(carToUpdate).State = EntityState.Modified;
+                    db.SaveChanges();
+                    this.AddNotification("Success! Your Ad is edited.", NotificationType.INFO);
+                    return RedirectToAction("MyCars");
                 }
-                db.Entry(postCar).State = EntityState.Modified;
-                db.SaveChanges();
-                this.AddNotification("Success! You just edited your car details!", NotificationType.INFO);
-                return RedirectToAction("MyCars");
+                catch (RetryLimitExceededException /* dex */)
+                {
+                    //Log the error (uncomment dex variable name and add a line here to write a log.
+                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
                 }
-                
-            return View(postCar);
+            }
+            return View(carToUpdate);
         }
+
 
         // GET: PostCars/Delete/5
         [Authorize]

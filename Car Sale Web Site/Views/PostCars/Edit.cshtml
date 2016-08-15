@@ -304,7 +304,26 @@
         @Html.EditorFor(model => model.CarDescription, new { htmlAttributes = new { @class = "form-control" }, @rows = "15", @cols = "15" })
         @Html.ValidationMessageFor(model => model.CarDescription, "", new { @class = "text-danger" })
 
-        <div style="margin-left:400px" class="form-group">
+        <br>
+        @if (Model.Files.Any(f => f.FileType == FileType.Photo))
+        {
+            <div class="form-group">
+                <span class="control-label col-md-2"><strong>Current Photo</strong></span>
+                <div class="col-md-10">
+                    <img src="~/File?id=@Model.Files.First(f => f.FileType == FileType.Photo).FileId" alt="avatar" width="320" height="200" />
+                </div>
+            </div>
+        }
+
+        <div class="form-group">
+            @Html.Label("Change Photo", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" id="Avatar" name="upload" />
+            </div>
+        </div>
+
+
+    <div style="margin-left:400px" class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" style="border-color:blue"/>
                 @Html.ActionLink("Cancel", "MyCars", null, htmlAttributes: new { @class = "btn" })
