@@ -151,7 +151,7 @@ namespace Car_Sale_Web_Site.Controllers
                 model = new PagedList<PostCar>(result, page, pageSize);
             }
 
-            if (carModel.Count > 0 && flag == false)
+           else if (carModel.Count > 0 && flag == false)
             {
                 flag = true;
                                 
@@ -202,7 +202,7 @@ namespace Car_Sale_Web_Site.Controllers
                 model = new PagedList<PostCar>(carModel, page, pageSize);
             }
 
-            if (carTown.Count > 0 && flag == false)
+           else if (carTown.Count > 0 && flag == false)
             {
                 flag = true;
 
@@ -243,7 +243,7 @@ namespace Car_Sale_Web_Site.Controllers
                 model = new PagedList<PostCar>(carTown, page, pageSize);
             }
 
-            if (carCategory.Count > 0 && flag == false)
+           else if (carCategory.Count > 0 && flag == false)
             {
                 flag = true;
 
@@ -272,7 +272,7 @@ namespace Car_Sale_Web_Site.Controllers
                 model = new PagedList<PostCar>(carCategory, page, pageSize);
             }
 
-            if (carPrice.Count > 0 && flag == false)
+           else if (carPrice.Count > 0 && flag == false)
             {
                 flag = true;
                 
@@ -290,7 +290,7 @@ namespace Car_Sale_Web_Site.Controllers
                 model = new PagedList<PostCar>(carPrice, page, pageSize);
             }
 
-            if (carYear.Count > 0 && flag == false)
+           else if (carYear.Count > 0 && flag == false)
             {
                 flag = true;                
                 model = new PagedList<PostCar>(carYear, page, pageSize);

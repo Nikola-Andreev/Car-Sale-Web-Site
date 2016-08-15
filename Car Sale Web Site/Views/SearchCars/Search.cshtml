@@ -1,0 +1,305 @@
+﻿@model Car_Sale_Web_Site.Models.Home
+
+@{
+    ViewBag.Title = "Search cars";
+}
+
+<h2>Make Search</h2>
+
+@{ Html.EnableClientValidation(false); }
+@using (Html.BeginForm("SearchedCars", "SearchCars", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<br>
+    <table id="headerTable">
+        <tbody>
+            <tr>
+                <td width="550" style="padding-left:100px"><b>Basic Details</b></td>
+                <td width="500"><b>Features and Characteristics</b></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <table id="createTable">
+
+        <tbody>
+
+            <tr>
+                <td width="300">
+                    Car Type
+                    @Html.DropDownListFor(model => model.Car.CategoryId, new SelectList(Enum.GetValues(typeof(PostCar.Category))),"")
+                </td>
+
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.Climatronic, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.Climatronic", false)
+                </td>
+
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.Climatic, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.Climatic", false)
+                </td>
+
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.Insurance, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.Insurance", false)
+                </td>
+
+            </tr>
+
+
+            <tr>
+                <td width="300">
+                    Doors number
+                    @Html.DropDownListFor(model => model.Car.DoorId,new SelectList(Enum.GetValues(typeof(PostCar.Door))),"")
+                </td>
+
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.Leather, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.Leather", false)
+                </td>
+
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.ElWindows, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.ElWindows", false)
+                </td>
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.Typetronic, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.Typetronic", false)
+                </td>
+
+            </tr>
+
+
+            <tr>
+                <td width="300">
+                    Manufacturer
+                    @Html.EditorFor(model => model.Car.Manufacturer, new { htmlAttributes = new { @class = "form-inline" } })
+                </td>
+
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.ElSeats, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.ElSeats", false)
+                </td>
+
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.SeatsHeat, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.SeatsHeat", false)
+                </td>
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.Autopilot, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.Autopilot", false)
+                </td>
+
+            </tr>
+
+            <tr>
+                <td width="300">
+                    Model
+                    @Html.EditorFor(model => model.Car.CarModel, new { htmlAttributes = new { @class = "form-inline" } })
+                </td>
+
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.Audio, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.Audio", false)
+                </td>
+
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.Retro, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.Retro", false)
+                </td>
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.TAXI, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.TAXI", false)
+                </td>
+            </tr>
+
+            <tr>
+                <td width="300">
+                    Town
+                    @Html.EditorFor(model => model.Car.Town, new { htmlAttributes = new { @class = "form-inline" } })
+                </td>
+
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.AllowWeels, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.AllowWeels", false)
+                </td>
+
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.DVDTV, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.DVDTV", false)
+                </td>
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.Computer, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.Computer", false)
+                </td>
+            </tr>
+
+            <tr>
+                <td width="300">
+                    Fuel type
+                    @Html.DropDownListFor(m => m.Car.FuelId,new SelectList(Enum.GetValues(typeof(PostCar.Fuel))),"")
+                </td>
+
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.Airbag, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.Airbag", false)
+                </td>
+
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.FourByFour, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.FourByFour", false)
+                </td>
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.ServiceHistory, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.ServiceHistory", false)
+                </td>
+
+            </tr>
+
+
+            <tr>
+                <td width="300">
+                    Transmission
+                    @Html.DropDownListFor(m => m.Car.GearId,new SelectList(Enum.GetValues(typeof(PostCar.Gear))),"")
+                </td>
+
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.ABS, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.ABS", false)
+                </td>
+
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.ESP, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.ESP", false)
+                </td>
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.Tunning, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.Tunning", false)
+                </td>
+            </tr>
+
+            <tr>
+                <td width="300">
+                    Year min
+                    @Html.EditorFor(m => m.Car.YearMin, new { htmlAttributes = new { @class = "form-inline" } })
+                </td>
+
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.HallogenLights, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.HallogenLights", false)
+                </td>
+
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.NavigationSystem, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.NavigationSystem", false)
+                </td>
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.ElMirrors, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.ElMirrors", false)
+                </td>
+            </tr>
+
+
+
+            <tr>
+                <td width="300">
+                    Year max
+                    @Html.EditorFor(m => m.Car.YearMax, new { htmlAttributes = new { @class = "form-inline" } })
+                </td>
+
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.SevenSeats, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.SevenSeats", false)
+                </td>
+
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.ASRTractionControl, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.ASRTractionControl", false)
+                </td>
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.BrandNew, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.BrandNew", false)
+                </td>
+            </tr>
+
+
+            <tr>
+                <td width="300">
+                    Price min
+                    @Html.EditorFor(model => model.Car.Price, new { htmlAttributes = new { @class = "form-inline" } })
+                </td>
+
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.Parktronic, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.Parktronic", false)
+                </td>
+
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.Alarm, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.Alarm", false)
+                </td>
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.SecondHand, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.SecondHand", false)
+                </td>
+            </tr>
+            <tr>
+                <td width="300">
+                    Price max
+                    @Html.EditorFor(model => model.Car.PriceMax, new { htmlAttributes = new { @class = "form-inline" } })
+                </td>
+                
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.Imobilazer, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.Imobilazer", false)
+                </td>
+
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.CentralLocking, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.CentralLocking", false)
+                </td>
+                <td width="250">
+                    @Html.LabelFor(model => model.Car.Damaged, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.CheckBox("Car.Damaged", false)
+                </td>
+
+            </tr>
+
+            <tr>
+                <td width="300">
+                    Horse power Min
+                    @Html.EditorFor(model => model.Car.HorsePower, new { htmlAttributes = new { @class = "form-inline" } })
+                </td>
+            </tr>
+            <tr>
+                <td width="300">
+                    Horse power Max
+                    @Html.EditorFor(model => model.Car.HorsePowerMax, new { htmlAttributes = new { @class = "form-inline" } })
+                </td>
+            </tr>
+            <tr>
+                <td width="300">
+                    Color
+                    @Html.DropDownListFor(m => m.Car.ColorId,new SelectList(Enum.GetValues(typeof(PostCar.Color))),"")                
+                </td>                
+            </tr>                            
+        </tbody>     
+    </table>
+
+    <div style="margin-left:450px" class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Search" class="btn btn-default" style="border-color:blue" />
+        </div>
+    </div>
+
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

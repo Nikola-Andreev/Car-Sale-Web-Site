@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\FileController.cs" />
+    <Compile Include="Controllers\SearchCarsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostCarsController.cs" />
@@ -189,10 +190,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-Car Sale Web Site-20160807023312.mdf" />
-    <Content Include="App_Data\aspnet-Car Sale Web Site-20160807023312_log.ldf">
-      <DependentUpon>aspnet-Car Sale Web Site-20160807023312.mdf</DependentUpon>
-    </Content>
     <Content Include="App_Data\aspnet-Car-Sale-Web-Site-20160812021626.mdf" />
     <Content Include="App_Data\aspnet-Car-Sale-Web-Site-20160812021626_log.ldf">
       <DependentUpon>aspnet-Car-Sale-Web-Site-20160812021626.mdf</DependentUpon>
@@ -262,9 +259,9 @@
     <Content Include="Views\PostCars\Details.cshtml" />
     <Content Include="Views\PostCars\Edit.cshtml" />
     <Content Include="Views\PostCars\Index.cshtml" />
-    <Content Include="Views\PostCars\Search.cshtml" />
+    <Content Include="Views\SearchCars\Search.cshtml" />
     <Content Include="Views\PostCars\MyCars.cshtml" />
-    <Content Include="Views\PostCars\SearchedCars.cshtml" />
+    <Content Include="Views\SearchCars\SearchedCars.cshtml" />
     <Content Include="Views\Home\QuickSearch.cshtml" />
     <Content Include="Views\Shared\_Notifications.cshtml" />
   </ItemGroup>
