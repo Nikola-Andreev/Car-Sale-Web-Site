@@ -217,7 +217,7 @@ namespace Car_Sale_Web_Site.Controllers
                         {
                             avatar1.Content = reader.ReadBytes(upload1.ContentLength);
                         }
-                        carToUpdate.Files.ToList().Add(avatar1);
+                        carToUpdate.Files.Add(avatar1);
                     }
 
                    

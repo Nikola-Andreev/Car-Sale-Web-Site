@@ -4,24 +4,27 @@
 @{
     ViewBag.Title = "Details";
 }
-
+<link href="~/Content/images/css/lightbox.css" rel="stylesheet"/>
+<script src="~/Content/images/js/lightbox-plus-jquery.js"></script>
 <h2>Details</h2>
 
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-       @if (Model.Files.Any(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo))
-       {
-           {
-               <dd style="margin-left: 400px">
-                @for (int i = 0; i < Model.Files.Count(); i++)
-                {
-                <img src="~/File?id=@Model.Files.ElementAt(i).FileId" alt="photo" width="160" height="100" />
-                }
-            </dd>
-           }
+@if (Model.Files.Any(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo))
+{
+    {
+        <div>
+            @for (int i = 0; i < Model.Files.Count(); i++)
+            {
+                <a href="~/File?id=@Model.Files.ElementAt(i).FileId" data-lightbox="cars"><img src="~/File?id=@Model.Files.ElementAt(i).FileId" alt="photo" width="160" height="100" /></a>
+            }
+        </div>
+    }
 
-       }
+}
+<div>
+    <hr/>
+    
+    <dl class="dl-horizontal">
+       
         <dt>
             @Html.DisplayNameFor(model => model.Manufacturer)
         </dt>

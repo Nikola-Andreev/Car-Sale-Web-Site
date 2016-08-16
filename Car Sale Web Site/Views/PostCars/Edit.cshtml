@@ -319,16 +319,20 @@
             }
             @for (int i = 0; i < 4 - Model.Files.Count(); i++)
             {
-                <input type="file" id="Avatar" name="@(String.Format("upload{0}", Model.Files.Count() + i))" />
+                <td>
+                    <input type="file" id="Avatar" name="@(String.Format("upload{0}", Model.Files.Count() + i))" />
+                </td>
             }
-        </table>
+</table>
     }
     else
     {
         <table>
             @for (int i = 0; i < 4; i++)
             {
-            <input type="file" id="Avatar" name="@(String.Format("upload{0}", Model.Files.Count()+ i))" />
+                <td>
+                    <input type="file" id="Avatar" name="@(String.Format("upload{0}", Model.Files.Count()+ i))" />
+                </td>
             }
         </table>
     }
