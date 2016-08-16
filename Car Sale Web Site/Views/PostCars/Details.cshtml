@@ -12,12 +12,15 @@
     <dl class="dl-horizontal">
        @if (Model.Files.Any(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo))
        {
-        <dt>
-            Photo
-        </dt>
-        <dd>
-            <img src="~/File?id=@Model.Files.First(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo).FileId" alt="photo" width="320" height="200"/>
-        </dd>
+           {
+               <dd style="margin-left: 400px">
+                @for (int i = 0; i < Model.Files.Count(); i++)
+                {
+                <img src="~/File?id=@Model.Files.ElementAt(i).FileId" alt="photo" width="160" height="100" />
+                }
+            </dd>
+           }
+
        }
         <dt>
             @Html.DisplayNameFor(model => model.Manufacturer)

@@ -7,6 +7,6 @@ namespace Car_Sale_Web_Site.Models
 {
     public enum FileType
     {
-        Photo = 1, PhotoTwo, Avatar
+        Photo = 1, 
     }
 }
