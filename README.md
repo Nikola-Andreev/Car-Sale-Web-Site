@@ -1,8 +1,9 @@
 # Car-Sale-Web-Site Project Assignment for the Software Technologies Course @ SoftUni
 -This simple Web-based application is designed by: <br>
+
 -Nikola Andreev <a href="https://github.com/Nikola-Andreev/">https://github.com/Nikola-Andreev/</a>  <br>
 -Simeon Radev <a href="https://github.com/simeeon">https://github.com/simeeon</a>
--
+
 -Main technology stack includes 
 -<b>	C# + ASP.NET MVC + Entity Framework + SQL Server + HTML + CSS</b> and other.
 -
