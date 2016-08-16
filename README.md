@@ -3,8 +3,10 @@
 
 -Nikola Andreev <a href="https://github.com/Nikola-Andreev/">https://github.com/Nikola-Andreev/</a>  <br>
 -Simeon Radev <a href="https://github.com/simeeon">https://github.com/simeeon</a>
+
 -Main technology stack includes 
 -<b>	C# + ASP.NET MVC + Entity Framework + SQL Server + HTML + CSS</b> and other.
+
 -The project implements: <br>
 -•	User registration / profiles / login / logout.<br>
 -•	View all ads (with paging), without a login.<br>
