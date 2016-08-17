@@ -13,5 +13,5 @@
 -•	Post a new ad (with a photo), after login.<br>
 -•	Implement towns and categories for the ads. Implement browse by category / town.<br>
 -•	My ads panel: view / edit / delete own ads (posted by the current user).<br>
--•	Admin panel: add / edit / delete users, ads, categories, towns.
+-•	Admin panel: add / edit / delete users, ads, categories, towns.<br>
 -•	Make search by all parameters of the posted car.
