@@ -156,5 +156,6 @@ namespace Car_Sale_Web_Site.Models
         public bool Damaged { get; set; }
 
         public virtual ICollection<File> Files { get; set; }
+
     }
 }

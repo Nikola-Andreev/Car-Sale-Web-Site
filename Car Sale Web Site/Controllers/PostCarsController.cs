@@ -13,24 +13,53 @@ using PagedList;
 
 namespace Car_Sale_Web_Site.Controllers
 {
+    
     [ValidateInput(false)]
     public class PostCarsController : Controller
-    {
-        private ApplicationDbContext db = new ApplicationDbContext();
+    {        
+        private ApplicationDbContext db = new ApplicationDbContext();           
 
-        [Authorize]
+    [Authorize]
         public ActionResult MyCars(int page = 1, int pageSize = 5)
         {
-            List<PostCar> listCars = db.PostCar.Where(a => a.Author_UserName == User.Identity.Name).ToList();
+            List<PostCar> listCars = db.PostCar.Where(a => a.Author_UserName == User.Identity.Name).OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer).ToList();
             PagedList<PostCar> model = new PagedList<PostCar>(listCars, page, pageSize);
             return View(model);
         }
 
-        // GET: PostCars
-        public ActionResult Index(int page = 1,int pageSize=5)
+        // Post: PostCars
+        public ActionResult Index([Bind(Include = "CarsOrdered,CarsPaged,Order")] Ordered income, int page = 1, int pageSize = 5)
         {
             List<PostCar> listCars = db.PostCar.OrderByDescending(a => a.Date).ThenBy(b => b.Manufacturer).ToList();
-            PagedList<PostCar> model = new PagedList<PostCar>(listCars, page, pageSize);
+            income.redirect = "Index";
+            if (income.Order == Ordered.Ordering.Price_High_To_Low)
+            {
+                income.redirect = "HighToLow";
+                listCars = db.PostCar.OrderByDescending(a => a.Price).ToList();
+            }
+            else if (income.Order == Ordered.Ordering.Price_Low_To_High)
+            {
+                income.redirect = "LowToHigh";
+                listCars = db.PostCar.OrderBy(a => a.Price).ToList();
+            }
+            PagedList<PostCar> paged = new PagedList<PostCar>(listCars, page, pageSize);
+            var model = new Ordered { CarsOrdered = listCars, CarsPaged = paged,Order = income.Order, redirect = income.redirect };
+            return View(model);
+        }
+
+        public ActionResult HighToLow([Bind(Include = "CarsOrdered,CarsPaged,Order")] Ordered income, int page = 1, int pageSize = 5)
+        {
+            List<PostCar> listCars = db.PostCar.OrderByDescending(a => a.Price).ToList();
+            PagedList<PostCar> paged = new PagedList<PostCar>(listCars, page, pageSize);
+            var model = new Ordered { CarsOrdered = listCars, CarsPaged = paged };
+            return View(model);
+        }
+
+        public ActionResult LowToHigh([Bind(Include = "CarsOrdered,CarsPaged,Order")] Ordered income, int page = 1, int pageSize = 5)
+        {
+            List<PostCar> listCars = db.PostCar.OrderBy(a => a.Price).ToList();
+            PagedList<PostCar> paged = new PagedList<PostCar>(listCars, page, pageSize);
+            var model = new Ordered { CarsOrdered = listCars, CarsPaged = paged };
             return View(model);
         }
 

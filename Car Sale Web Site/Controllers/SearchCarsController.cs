@@ -845,7 +845,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(result, page, pageSize);
+                model = new PagedList<PostCar>(result.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The second selecting starts here
@@ -1353,7 +1353,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carModel, page, pageSize);
+                model = new PagedList<PostCar>(carModel.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
 
@@ -1852,7 +1852,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carCategory, page, pageSize);
+                model = new PagedList<PostCar>(carCategory.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
 
@@ -2340,7 +2340,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carPrice, page, pageSize);
+                model = new PagedList<PostCar>(carPrice.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The fifth selecting starts here
@@ -2816,7 +2816,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carYear, page, pageSize);
+                model = new PagedList<PostCar>(carYear.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The sixth selecting starts here
@@ -3280,7 +3280,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carTown, page, pageSize);
+                model = new PagedList<PostCar>(carTown.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             else // The seventh selecting starts here
@@ -3732,7 +3732,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carDoorsNumber, page, pageSize);
+                model = new PagedList<PostCar>(carDoorsNumber.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
 
@@ -4173,7 +4173,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carFuelType, page, pageSize);
+                model = new PagedList<PostCar>(carFuelType.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
 
             }
 
@@ -4602,7 +4602,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carTransmission, page, pageSize);
+                model = new PagedList<PostCar>(carTransmission.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The ten selecting starts here
@@ -5018,7 +5018,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carColor, page, pageSize);
+                model = new PagedList<PostCar>(carColor.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The eleven selecting starts here
@@ -5422,7 +5422,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carHorsePower, page, pageSize);
+                model = new PagedList<PostCar>(carHorsePower.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The twelve selecting starts here
@@ -5814,7 +5814,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carClimatronic, page, pageSize);
+                model = new PagedList<PostCar>(carClimatronic.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The thirteen selecting starts here
@@ -6194,7 +6194,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carClimatic, page, pageSize);
+                model = new PagedList<PostCar>(carClimatic.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The fourteen selecting starts here
@@ -6562,7 +6562,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carInshurance, page, pageSize);
+                model = new PagedList<PostCar>(carInshurance.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The fiftheen selecting starts here
@@ -6918,7 +6918,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carLeather, page, pageSize);
+                model = new PagedList<PostCar>(carLeather.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
 
@@ -7263,7 +7263,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carElWindows, page, pageSize);
+                model = new PagedList<PostCar>(carElWindows.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The seventheen selecting starts here
@@ -7595,7 +7595,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carTypetronic, page, pageSize);
+                model = new PagedList<PostCar>(carTypetronic.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
 
@@ -7916,7 +7916,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carElSeats, page, pageSize);
+                model = new PagedList<PostCar>(carElSeats.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The nintheen selecting starts here
@@ -8224,7 +8224,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carSeatHeat, page, pageSize);
+                model = new PagedList<PostCar>(carSeatHeat.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The twenthy selecting starts here
@@ -8520,7 +8520,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carAutopilot, page, pageSize);
+                model = new PagedList<PostCar>(carAutopilot.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
 
@@ -8805,7 +8805,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carAudio, page, pageSize);
+                model = new PagedList<PostCar>(carAudio.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The twenthy-second selecting starts here
@@ -9077,7 +9077,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carRetro, page, pageSize);
+                model = new PagedList<PostCar>(carRetro.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The twenthy-third selecting starts here
@@ -9337,7 +9337,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carTAXI, page, pageSize);
+                model = new PagedList<PostCar>(carTAXI.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The twenthy-fourth selecting starts here
@@ -9585,7 +9585,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carAllowWeels, page, pageSize);
+                model = new PagedList<PostCar>(carAllowWeels.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The twenthy-sixth selecting starts here
@@ -9821,7 +9821,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carDVD, page, pageSize);
+                model = new PagedList<PostCar>(carDVD.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The twenthy-seventh selecting starts here
@@ -10045,7 +10045,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carCompiuter, page, pageSize);
+                model = new PagedList<PostCar>(carCompiuter.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The twenthy-eight selecting starts here
@@ -10257,7 +10257,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carAirBag, page, pageSize);
+                model = new PagedList<PostCar>(carAirBag.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The twenthy-ninth selecting starts here
@@ -10457,7 +10457,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carFourByFour, page, pageSize);
+                model = new PagedList<PostCar>(carFourByFour.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The thirty selecting starts here
@@ -10645,7 +10645,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carServisHistory, page, pageSize);
+                model = new PagedList<PostCar>(carServisHistory.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The thirty-first selecting starts here
@@ -10821,7 +10821,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carABS, page, pageSize);
+                model = new PagedList<PostCar>(carABS.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The thirty-second selecting starts here
@@ -10985,7 +10985,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carESP, page, pageSize);
+                model = new PagedList<PostCar>(carESP.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The thirty-second selecting starts here
@@ -11137,7 +11137,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carTunning, page, pageSize);
+                model = new PagedList<PostCar>(carTunning.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The thirty-third selecting starts here
@@ -11277,7 +11277,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carHallogen, page, pageSize);
+                model = new PagedList<PostCar>(carHallogen.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The thirty-fourth selecting starts here
@@ -11405,7 +11405,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carNavigation, page, pageSize);
+                model = new PagedList<PostCar>(carNavigation.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The thirty-fifth selecting starts here
@@ -11521,7 +11521,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carElMirrors, page, pageSize);
+                model = new PagedList<PostCar>(carElMirrors.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The thirty-sixth selecting starts here
@@ -11625,7 +11625,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carSevenSeats, page, pageSize);
+                model = new PagedList<PostCar>(carSevenSeats.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
 
@@ -11718,7 +11718,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carTructionControll, page, pageSize);
+                model = new PagedList<PostCar>(carTructionControll.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
 
@@ -11799,7 +11799,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carBrandNew, page, pageSize);
+                model = new PagedList<PostCar>(carBrandNew.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
 
@@ -11868,7 +11868,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carParktronic, page, pageSize);
+                model = new PagedList<PostCar>(carParktronic.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
 
@@ -11926,7 +11926,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carAlarm, page, pageSize);
+                model = new PagedList<PostCar>(carAlarm.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The fourthy-first selecting starts here
@@ -11970,7 +11970,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carSecondHand, page, pageSize);
+                model = new PagedList<PostCar>(carSecondHand.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The fourthy-second selecting starts here
@@ -12001,7 +12001,7 @@ namespace Car_Sale_Web_Site.Controllers
                         }
                     }
                 }
-                model = new PagedList<PostCar>(carImobilazer, page, pageSize);
+                model = new PagedList<PostCar>(carImobilazer.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The fourthy-third selecting starts here
@@ -12021,7 +12021,7 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                 }
 
-                model = new PagedList<PostCar>(carCentrallLocking, page, pageSize);
+                model = new PagedList<PostCar>(carCentrallLocking.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             // The fourthy-third selecting starts here
@@ -12029,7 +12029,7 @@ namespace Car_Sale_Web_Site.Controllers
             {
                 flag = true;
 
-                model = new PagedList<PostCar>(carDamaged, page, pageSize);
+                model = new PagedList<PostCar>(carDamaged.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
             
                 return View(model);

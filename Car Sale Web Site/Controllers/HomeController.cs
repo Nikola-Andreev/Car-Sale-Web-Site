@@ -148,7 +148,7 @@ namespace Car_Sale_Web_Site.Controllers
                         }
                     }
                 }
-                model = new PagedList<PostCar>(result, page, pageSize);
+                model = new PagedList<PostCar>(result.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
            else if (carModel.Count > 0 && flag == false)
@@ -199,7 +199,7 @@ namespace Car_Sale_Web_Site.Controllers
                         }
                     }
                 }
-                model = new PagedList<PostCar>(carModel, page, pageSize);
+                model = new PagedList<PostCar>(carModel.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
            else if (carTown.Count > 0 && flag == false)
@@ -240,7 +240,7 @@ namespace Car_Sale_Web_Site.Controllers
                         }
                     }
                 }
-                model = new PagedList<PostCar>(carTown, page, pageSize);
+                model = new PagedList<PostCar>(carTown.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
            else if (carCategory.Count > 0 && flag == false)
@@ -269,7 +269,7 @@ namespace Car_Sale_Web_Site.Controllers
                         }
                     }
                 }
-                model = new PagedList<PostCar>(carCategory, page, pageSize);
+                model = new PagedList<PostCar>(carCategory.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
            else if (carPrice.Count > 0 && flag == false)
@@ -287,13 +287,13 @@ namespace Car_Sale_Web_Site.Controllers
                         }
                     }
                 }
-                model = new PagedList<PostCar>(carPrice, page, pageSize);
+                model = new PagedList<PostCar>(carPrice.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
            else if (carYear.Count > 0 && flag == false)
             {
                 flag = true;                
-                model = new PagedList<PostCar>(carYear, page, pageSize);
+                model = new PagedList<PostCar>(carYear.OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer), page, pageSize);
             }
 
             return View(model);
