@@ -74,6 +74,46 @@
         <dd>
             @Html.DisplayFor(model => model.HorsePower) hp
         </dd>
+        <br>
+        <b><u>Contact Information:</u></b> <br>
+        <dt>
+            Name
+        </dt>
+        <dd>
+            @foreach (var i in ViewBag.userInfo)
+            {
+                @i.Author.FullName
+            }
+        </dd>
+        <dt>
+            Username
+        </dt>
+        <dd>
+            @foreach (var i in ViewBag.userInfo)
+            {
+                @i.Author.UserName
+            }
+        </dd>
+        <dt>
+            Telephone Number
+        </dt>
+        <dd>
+            @foreach (var i in ViewBag.userInfo)
+            {
+                @i.Author.PhoneNumber
+            }
+        </dd>
+
+        <dt>
+            Email
+        </dt>
+        <dd>
+            @foreach (var i in ViewBag.userInfo)
+            {
+                @i.Author.Email
+            }
+        </dd>
+
     </dl>
 </div>
 <p>

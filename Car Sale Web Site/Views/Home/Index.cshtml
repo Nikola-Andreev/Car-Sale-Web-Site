@@ -4,15 +4,16 @@
 
 @model Car_Sale_Web_Site.Models.Home
 
-<div class="jumbotron" style="text-align:center">
-    <h3>Welcome to car sales ofiicial web</h3>
+<div class="media-heading" style="text-align:center">
+    <h3>Welcome to car sales ofiicial web!</h3>
+    <h4>We have <label style="color: red"><b>@ViewBag.Count</b></label> car listings, and the number is growing by the hour!</h4>
 </div>
 
 @{ Html.EnableClientValidation(false); }
 @using (Html.BeginForm("QuickSearch", "Home", FormMethod.Post))
 {
 
-    <table style="background-color:azure" id="headerTable">
+    <table style="background-color:lightgoldenrodyellow" id="headerTable" class="homeTable">
         <tbody>
             <tr style="height:8px"></tr>
             <tr>
@@ -21,8 +22,8 @@
             <tr style="height:8px"></tr>
         </tbody>
     </table>
-
-    <table style="background-color:azure" id="createTable">
+    
+    <table style="background-color:lightblue" id="createTable" class="homeTable">
 
         <tbody>
             <tr>
@@ -72,7 +73,7 @@
         </tbody>
     </table>
     <br>
-    <div class="form-group">
+    <div class="form-group" style="margin-left: 360px">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Search" class="btn btn-default" style="border-color:blue" />
         </div>
@@ -105,17 +106,17 @@
                     }
                     <div class="car-model"><a href='@Url.Action("Details", "PostCars", new {id = carAd.Id})'>@carAd.Manufacturer</a></div>
                     <div class="car-model">@carAd.CarModel</div>
-                    <div class="car-price">Price @carAd.Price</div>
+                    <div class="car-price">Price @carAd.Price €</div> 
                     <div class="car-year">Year @carAd.YearMin</div>
                     <div class="about">
-                        Posted on <i>@carAd.Date</i>
+                        Posted on <i>@carAd.Date</i><br>
                         @if (carAd.Author != null)
                         {
                             @:by <i>@carAd.Author.FullName (@carAd.Author.UserName)</i>
                         }
-
+                        
                     </div>
-
+                    <br>
                 </article>
     }
 </section>

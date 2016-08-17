@@ -66,6 +66,9 @@ namespace Car_Sale_Web_Site.Controllers
         // GET: PostCars/Details/5
         public ActionResult Details(int? id)
         {
+            var info = db.PostCar.Include(c => c.Author).Where(c => c.Id == id).ToList();
+            ViewBag.userInfo = info;
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

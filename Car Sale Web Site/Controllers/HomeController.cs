@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Car_Sale_Web_Site.Models;
 using PagedList;
+using System.Data.Entity;
 
 namespace Car_Sale_Web_Site.Controllers
 {
@@ -13,7 +14,9 @@ namespace Car_Sale_Web_Site.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
-            var cars = db.PostCar.OrderByDescending(p => p.Date).Take(3).ToList();
+            var cars = db.PostCar.Include(c => c.Author).OrderByDescending(p => p.Date).Take(6).ToList();
+            var count = db.PostCar.Count();
+            ViewBag.Count = count;
             var model = new Home { lastThreePosts = cars, };
             return View(model);
         }
