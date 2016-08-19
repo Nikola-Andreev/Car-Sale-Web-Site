@@ -1,11 +1,10 @@
-﻿@*@model IEnumerable<Car_Sale_Web_Site.Models.PostCar>*@
-
+﻿
 @{
     ViewBag.Title = "Searched cars";
 }
 
 
-@model PagedList.IPagedList<Car_Sale_Web_Site.Models.PostCar>
+@model Car_Sale_Web_Site.Models.Ordered
     @using PagedList.Mvc;
 
 <h2>Result of your search</h2>
@@ -49,7 +48,7 @@
     </th>
 </tr>
 
-@foreach (var item in Model)
+@foreach (var item in Model.CarsPaged)
 {
     <tr>
         <td>
@@ -98,5 +97,5 @@
 }  
 </table>
 
-@Html.PagedListPager(Model, page => Url.Action("Index", new {page, pageSize = Model.PageSize }))
-    Showing @Model.FirstItemOnPage to @Model.LastItemOnPage of @Model.TotalItemCount Cars
+@Html.PagedListPager(Model.CarsPaged, page => Url.Action("SearchedCars", new {page, pageSize = Model.CarsPaged.PageSize }))
+    Showing @Model.CarsPaged.FirstItemOnPage to @Model.CarsPaged.LastItemOnPage of @Model.CarsPaged.TotalItemCount Cars

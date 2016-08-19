@@ -16,6 +16,8 @@ namespace Car_Sale_Web_Site.Models
 
         public string redirect { get; set; }
 
+        public PostCar Car { get; set; }
+
         public Ordering Order { get; set; }
         public enum Ordering
         {

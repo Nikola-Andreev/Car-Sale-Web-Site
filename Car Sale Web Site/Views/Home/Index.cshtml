@@ -2,7 +2,7 @@
     ViewBag.Title = "Home Page";
 }
 
-@model Car_Sale_Web_Site.Models.Home
+@model Car_Sale_Web_Site.Models.Ordered
 
 <div class="media-heading" style="text-align:center">
     <h3>Welcome to car sales ofiicial web!</h3>
@@ -10,7 +10,7 @@
 </div>
 
 @{ Html.EnableClientValidation(false); }
-@using (Html.BeginForm("QuickSearch", "Home", FormMethod.Post))
+@using (Html.BeginForm("QuickSearch", "Home", FormMethod.Get))
 {
 
     <table style="background-color:lightgoldenrodyellow" id="headerTable" class="homeTable">
@@ -86,7 +86,7 @@
 }
 
 <section class="row">
-    @foreach (var carAd in Model.lastThreePosts)
+    @foreach (var carAd in Model.CarsOrdered)
             {
                 <article class="post col-md-4">
                     @if (carAd.Files.Any(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo))

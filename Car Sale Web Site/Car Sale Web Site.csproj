@@ -183,7 +183,6 @@
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\Ordered.cs" />
-    <Compile Include="Models\Home.cs" />
     <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\PostCar.cs" />
     <Compile Include="Models\ManageViewModels.cs" />

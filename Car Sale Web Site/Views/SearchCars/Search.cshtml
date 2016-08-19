@@ -1,4 +1,4 @@
-﻿@model Car_Sale_Web_Site.Models.Home
+﻿@model Car_Sale_Web_Site.Models.Ordered
 
 @{
     ViewBag.Title = "Search cars";
@@ -7,7 +7,7 @@
 <h2>Make Search</h2>
 
 @{ Html.EnableClientValidation(false); }
-@using (Html.BeginForm("SearchedCars", "SearchCars", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("SearchedCars", "SearchCars", null, FormMethod.Get, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
