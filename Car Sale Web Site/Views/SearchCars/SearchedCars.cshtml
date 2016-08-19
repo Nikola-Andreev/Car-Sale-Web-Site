@@ -8,8 +8,24 @@
     @using PagedList.Mvc;
 
 <h2>Result of your search</h2>
+<br>
+@using (Html.BeginForm("SearchedCars", "SearchCars", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
 
+    for (int i = 0; i < 1; i++)
+    {
+        <span style="margin-top:0px" width="300">
+            Order By:
+            @Html.DropDownListFor(model => model.Order, new SelectList(Enum.GetValues(typeof(Ordered.Ordering))))
+        </span>
+        <span style="margin-bottom:29px" class="form-group">
+            <input type="submit" value="Order" style="border-color:blue" />
+        </span>
+    }
+}
 
+<br>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -73,7 +89,7 @@
         </td>
 
         <td style="padding-top:40px; text-align:center">
-            @Html.DisplayFor(modelItem => item.Price) €
+            @Html.DisplayFor(modelItem => item.Price) £
         </td>
         <td style="padding-top:40px; text-align:center">
             @Html.DisplayFor(modelItem => item.YearMin)
@@ -97,5 +113,18 @@
 }  
 </table>
 
-@Html.PagedListPager(Model.CarsPaged, page => Url.Action("SearchedCars", new {page, pageSize = Model.CarsPaged.PageSize }))
+@if (Model.CarsPaged.Count == 0)
+{
+    <br>
+    <div>
+        <h3 style="color:red; margin-left:200px">There's no cars matching your search. Please go back and try again.</h3>
+    </div>
+
+    <br>
+    <dd style="padding-left:550px;">
+        <input type="button" value="Go Back" onclick="history.go(-1);return false;" class="btn btn-default" style="border-color:blue">
+    </dd>
+}
+
+@Html.PagedListPager(Model.CarsPaged, page => Url.Action(Model.redirect, new {page, pageSize = Model.CarsPaged.PageSize }))
     Showing @Model.CarsPaged.FirstItemOnPage to @Model.CarsPaged.LastItemOnPage of @Model.CarsPaged.TotalItemCount Cars

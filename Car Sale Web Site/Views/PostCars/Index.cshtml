@@ -9,7 +9,7 @@
 
 <h2>All Cars</h2>
 
-
+<br>
     @using (Html.BeginForm("Index", "PostCars", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
@@ -114,8 +114,6 @@
         </tr>
     }
 </table> 
-
-
 
     @Html.PagedListPager(Model.CarsPaged, page => Url.Action(Model.redirect, new { page , pageSize = Model.CarsPaged.PageSize, income = ViewBag.Model }))
     Showing @Model.CarsPaged.FirstItemOnPage to @Model.CarsPaged.LastItemOnPage of @Model.CarsPaged.TotalItemCount Cars

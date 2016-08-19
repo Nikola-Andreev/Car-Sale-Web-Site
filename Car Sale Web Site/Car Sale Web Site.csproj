@@ -325,6 +325,10 @@
     <Content Include="Views\Shared\_Notifications.cshtml" />
     <Content Include="Views\PostCars\HighToLow.cshtml" />
     <Content Include="Views\PostCars\LowToHigh.cshtml" />
+    <Content Include="Views\Home\LowToHigh.cshtml" />
+    <Content Include="Views\Home\HighToLow.cshtml" />
+    <Content Include="Views\SearchCars\HighToLow.cshtml" />
+    <Content Include="Views\SearchCars\LowToHigh.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

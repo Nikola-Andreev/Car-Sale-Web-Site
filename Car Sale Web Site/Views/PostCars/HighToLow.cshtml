@@ -113,6 +113,7 @@
         </tr>
     }
 </table> 
+
     @Html.PagedListPager(Model.CarsPaged, page => Url.Action("HighToLow", new { page , pageSize = Model.CarsPaged.PageSize, income = ViewBag.Model }))
     Showing @Model.CarsPaged.FirstItemOnPage to @Model.CarsPaged.LastItemOnPage of @Model.CarsPaged.TotalItemCount Cars
       

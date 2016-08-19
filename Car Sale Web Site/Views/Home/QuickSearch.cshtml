@@ -9,6 +9,22 @@
 
 <h2>Searched cars</h2>
 
+@using (Html.BeginForm("QuickSearch", "Home", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    for (int i = 0; i < 1; i++)
+    {
+        <span style="margin-top:0px" width="300">
+            Order By:
+            @Html.DropDownListFor(model => model.Order, new SelectList(Enum.GetValues(typeof(Ordered.Ordering))))
+        </span>
+            <span style="margin-bottom:29px" class="form-group">
+                <input type="submit" value="Order" style="border-color:blue" />
+            </span>
+    }
+}
+
 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -48,6 +64,8 @@
     </th>
 </tr>
 
+
+
 @foreach (var item in Model.CarsPaged)
 {
     <tr>
@@ -73,7 +91,7 @@
         </td>
 
         <td style="padding-top:40px; text-align:center">
-            @Html.DisplayFor(modelItem => item.Price) €
+            @Html.DisplayFor(modelItem => item.Price) £
         </td>
         <td style="padding-top:40px; text-align:center">
             @Html.DisplayFor(modelItem => item.YearMin)
@@ -103,7 +121,11 @@
     <div>
             <h3 style="color:red; margin-left:200px">There's no cars matching your search. Please go back and try again.</h3>        
     </div>
+    <br>
+                        <dd style="padding-left:550px;">
+                            <input type="button" value="Go Back" onclick="history.go(-1);return false;"class="btn btn-default" style="border-color:blue">                            
+                        </dd>
 }
 
-@Html.PagedListPager(Model.CarsPaged, page => Url.Action("QuickSearch", new {  page   }))
+@Html.PagedListPager(Model.CarsPaged, page => Url.Action(Model.redirect, new {  page   }))
     Showing @Model.CarsPaged.FirstItemOnPage to @Model.CarsPaged.LastItemOnPage of @Model.CarsPaged.TotalItemCount Cars

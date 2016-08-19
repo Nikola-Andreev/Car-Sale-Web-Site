@@ -307,18 +307,56 @@ namespace Car_Sale_Web_Site.Controllers
                 }
 
                 PagedList<PostCar> paged = new PagedList<PostCar>(model, page, pageSize);
-                var output = new Ordered { CarsPaged = paged, Car = values.Car, CarsOrdered = model };
+                var output = new Ordered { CarsPaged = paged, Car = values.Car, CarsOrdered = model, Order = values.Order };
                 TempData["ModelName"] = output;
                 return View(output);
             }
             else
             {
+
                 Ordered test = (Ordered)TempData["ModelName"];
-                PagedList<PostCar> paged = new PagedList<PostCar>(test.CarsOrdered, page, pageSize);
-                var output = new Ordered { CarsPaged = paged, CarsOrdered = test.CarsOrdered };
+
+                List<PostCar> result = test.CarsOrdered.OrderByDescending(a => a.Date).ThenBy(b => b.Manufacturer).ToList();
+
+                string redirect = "QuickSearch";
+
+                if (values.Order == Ordered.Ordering.Price_High_To_Low)
+                {
+                    redirect = "HighToLow";
+                    result = test.CarsOrdered.OrderByDescending(a => a.Price).ToList();
+                }
+                else if (values.Order == Ordered.Ordering.Price_Low_To_High)
+                {
+                    redirect = "LowToHigh";                    
+                    result = test.CarsOrdered.OrderBy(a => a.Price).ToList();
+                }
+
+                PagedList<PostCar> paged = new PagedList<PostCar>(result, page, pageSize);
+                var output = new Ordered { CarsPaged = paged, CarsOrdered = result, Order = test.Order,redirect = redirect,Car = test.Car };
                 TempData["ModelName"] = output;
                 return View(output);
+
             }
+        }
+
+        public ActionResult LowToHigh(Ordered income, int page = 1, int pageSize = 5)
+        {
+            Ordered test = (Ordered)TempData["ModelName"];
+            List<PostCar> listCars = test.CarsOrdered.OrderBy(a => a.Price).ToList();
+            PagedList<PostCar> paged = new PagedList<PostCar>(listCars, page, pageSize);
+            var model = new Ordered { CarsOrdered = listCars, CarsPaged = paged };
+            TempData["ModelName"] = model;
+            return View(model);
+        }
+
+        public ActionResult HighToLow(Ordered income, int page = 1, int pageSize = 5)
+        {
+            Ordered test = (Ordered)TempData["ModelName"];
+            List<PostCar> listCars = test.CarsOrdered.OrderByDescending(a => a.Price).ToList();
+            PagedList<PostCar> paged = new PagedList<PostCar>(listCars, page, pageSize);
+            var model = new Ordered { CarsOrdered = listCars, CarsPaged = paged };
+            TempData["ModelName"] = model;
+            return View(model);
         }
     }
 }
