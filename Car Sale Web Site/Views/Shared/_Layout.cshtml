@@ -17,14 +17,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img src="~/fonts/site_logo.jpg" width="100" height="50"/>
+                <img src="~/fonts/site_logo.jpg" width="100" height="50" />
                 @*@Html.ActionLink("Car sales", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("All cars", "Index", "PostCars")</li>
-                    <li>@Html.ActionLink("Search cars", "Search", "SearchCars")</li>                 
+                    <li>@Html.ActionLink("Search cars", "Search", "SearchCars")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Sell car", "Create", "PostCars")</li>
@@ -34,21 +34,27 @@
                         {
                             <li style="color: red">@ViewBag.unreadMessages</li>
                         }
-                    }                    
+                        if (User.IsInRole("Admin"))
+                        {
+                            <li>
+                                @Html.ActionLink("Admin Panel", "Index", "Admin")
+                            </li>
+                        }
+                    }
                     <li>@Html.ActionLink("Contact us", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-<div class="container body-content">
-    @Html.Partial("_Notifications")
-    @RenderBody()
-    <hr/>
-    <footer>
-        <p>&copy; @DateTime.Now.Year &nbsp; - &nbsp; SoftUni &nbsp;- &nbsp; Car Sales</p>
-    </footer>
-</div>
+    <div class="container body-content">
+        @Html.Partial("_Notifications")
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year &nbsp; - &nbsp; SoftUni &nbsp;- &nbsp; Car Sales</p>
+        </footer>
+    </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

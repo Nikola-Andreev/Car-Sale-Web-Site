@@ -8,6 +8,7 @@
     <h3>Welcome to car sales ofiicial web!</h3>
     <h4>We have <label style="color: red"><b>@ViewBag.Count</b></label> car listings, and the number is growing by the hour!</h4>
 </div>
+<br>
 
 @{ Html.EnableClientValidation(false); }
 @using (Html.BeginForm("QuickSearch", "Home", FormMethod.Get))
@@ -27,6 +28,7 @@
 
         <tbody>
             <tr>
+                
                 <td >
                     Manufacturer
                     @Html.EditorFor(model => model.Car.Manufacturer, new { htmlAttributes = new { @class = "form-inline" } })
@@ -85,10 +87,11 @@
     @Scripts.Render("~/bundles/jqueryval")
 }
 
-<section class="row">
+<section class="row" style="background-color:lightgoldenrodyellow">
     @foreach (var carAd in Model.CarsOrdered)
             {
                 <article class="post col-md-4">
+                    <br />
                     @if (carAd.Files.Any(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo))
                     {
 

@@ -159,14 +159,13 @@ namespace Car_Sale_Web_Site.Controllers
                     }
                     model.Files.Add(avatar3);
                 }
-
-                
-
-                var a = model;
+            
                 model.EditedDate = DateTime.Now;
                 model.Author = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
                 model.Date = DateTime.Now;
                 model.Author_UserName = User.Identity.Name;
+                ApplicationUser user = model.Author;
+                user.postsNumber++;
                 db.PostCar.Add(model);
                 db.SaveChanges();
                 this.AddNotification("Success! You just created new listing for your car!", NotificationType.INFO);
@@ -209,7 +208,7 @@ namespace Car_Sale_Web_Site.Controllers
             }
             var carToUpdate = db.PostCar.Find(id);
 
-            carToUpdate.Author_UserName = User.Identity.Name;
+           // carToUpdate.Author_UserName = User.Identity.Name;
             carToUpdate.EditedDate = DateTime.Now;
 
             if (TryUpdateModel(carToUpdate, "",
