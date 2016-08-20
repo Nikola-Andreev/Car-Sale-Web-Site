@@ -20,5 +20,7 @@ namespace Car_Sale_Web_Site.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Car_Sale_Web_Site.Models.Message> Messages { get; set; }
     }
 }
