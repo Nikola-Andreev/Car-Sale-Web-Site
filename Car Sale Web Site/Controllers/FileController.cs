@@ -7,7 +7,7 @@ using Car_Sale_Web_Site.Models;
 
 namespace Car_Sale_Web_Site.Controllers
 {
-    public class FileController : Controller
+    public class FileController : BaseController
     {
         // GET: File
         private ApplicationDbContext db = new ApplicationDbContext();

@@ -14,12 +14,12 @@ using System.IO;
 
 namespace Car_Sale_Web_Site.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         public ActionResult Index()
-        {
+        { 
             var cars = db.PostCar.Include(c => c.Author).OrderByDescending(p => p.Date).Take(6).ToList();
             var count = db.PostCar.Count();
             ViewBag.Count = count;

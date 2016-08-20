@@ -12,6 +12,7 @@ namespace Car_Sale_Web_Site.Models
 
         public string AuthorMsgUserName { get; set; }
 
+        [Required]
         public string ToUser { get; set; }
 
         [Required]
@@ -23,5 +24,7 @@ namespace Car_Sale_Web_Site.Models
         public string MyMessage { get; set; }
 
         public DateTime CreateDate { get; set; }
+
+        public DateTime ReadDate { get; set; }
     }
 }

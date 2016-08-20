@@ -14,6 +14,10 @@
 <table class="table">
     <tr>
         <th>
+            Status
+        </th>
+       
+        <th>
             From
         </th>
 
@@ -24,7 +28,7 @@
             Message
         </th>
         <th>
-            Send date
+            Received
         </th>
 
 
@@ -34,24 +38,38 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AuthorMsgUserName)
-            </td>
+            
+            @if (DateTime.Compare(item.ReadDate, new DateTime(2001, 1, 1)) < 0) 
+            {
+                <td style="color: red">
+                    NEW
+</td>
+            }
+            else
+            {
+                <td>
+                    -
+                </td>
+            }
 
             <td>
-                @Html.DisplayFor(modelItem => item.Subject)
-            </td>
+                <a href="~/Messages/Details/@item.MessageId"> @Html.DisplayFor(modelItem => item.AuthorMsgUserName) </a>
+</td>
+
             <td>
-                @Utils.CutText(item.MyMessage, 40)
-            </td>
+                <a href="~/Messages/Details/@item.MessageId"> @Html.DisplayFor(modelItem => item.Subject) </a>
+</td>
+            <td>
+                <a href="~/Messages/Details/@item.MessageId"> @Utils.CutText(item.MyMessage, 70) </a>
+</td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreateDate)
             </td>
 
             <td>
 
-                @Html.ActionLink("Details", "Details", new { id = item.MessageId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.MessageId })
+                @*@Html.ActionLink("Details", "Details", new {id = item.MessageId}) | *@
+                @Html.ActionLink("Delete", "Delete", new {id = item.MessageId})
             </td>
         </tr>
     }

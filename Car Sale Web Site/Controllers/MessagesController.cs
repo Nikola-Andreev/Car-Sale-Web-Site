@@ -11,7 +11,7 @@ using Car_Sale_Web_Site.Models;
 
 namespace Car_Sale_Web_Site.Controllers
 {
-    public class MessagesController : Controller
+    public class MessagesController : BaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
@@ -19,6 +19,7 @@ namespace Car_Sale_Web_Site.Controllers
         public ActionResult Index()
         {
             List<Message> myMessages = db.Messages.Where(a => a.ToUser == User.Identity.Name).OrderByDescending(a => a.CreateDate).ToList();
+
             return View(myMessages);
         }
 
@@ -30,6 +31,13 @@ namespace Car_Sale_Web_Site.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Message message = db.Messages.Find(id);
+
+            if (db.Messages.Find(id).ReadDate != DateTime.Today)
+            {
+                db.Messages.Find(id).ReadDate = DateTime.Now;
+                db.SaveChanges();
+            }
+
             if (message == null)
             {
                 return HttpNotFound();
@@ -53,6 +61,7 @@ namespace Car_Sale_Web_Site.Controllers
             if (ModelState.IsValid)
             {
                 message.CreateDate = DateTime.Now;
+                message.ReadDate = new DateTime(2000, 1, 1);
                 message.AuthorMsgUserName = User.Identity.Name;
                 db.Messages.Add(message);
                 db.SaveChanges();

@@ -8,7 +8,7 @@ using PagedList;
 
 namespace Car_Sale_Web_Site.Controllers
 {
-    public class SearchCarsController : Controller
+    public class SearchCarsController : BaseController
     {
 
         private ApplicationDbContext db = new ApplicationDbContext();

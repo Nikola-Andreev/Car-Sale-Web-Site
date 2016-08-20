@@ -15,7 +15,7 @@ namespace Car_Sale_Web_Site.Controllers
 {
     
     [ValidateInput(false)]
-    public class PostCarsController : Controller
+    public class PostCarsController : BaseController
     {        
         private ApplicationDbContext db = new ApplicationDbContext();           
 
@@ -44,6 +44,7 @@ namespace Car_Sale_Web_Site.Controllers
             }
             PagedList<PostCar> paged = new PagedList<PostCar>(listCars, page, pageSize);
             var model = new Ordered { CarsOrdered = listCars, CarsPaged = paged,Order = income.Order, redirect = income.redirect };
+
             return View(model);
         }
 
@@ -94,6 +95,8 @@ namespace Car_Sale_Web_Site.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,CarModel,CarDescription,Town,Author_UserName,Price,Date,CategoryId,DoorId,Manufacturer,FuelId,GearId,YearMin,HorsePower,ColorId,Climatronic,Climatic,Leather,ElWindows,ElMirrors,ElSeats,SeatsHeat,Audio,Retro,AllowWeels,DVDTV,Airbag,FourByFour,ABS,ESP,HallogenLights,NavigationSystem,SevenSeats,ASRTractionControl,Parktronic,Alarm,Imobilazer,CentralLocking,Insurance,Typetronic,Autopilot,TAXI,Computer,ServiceHistory,Tunning,BrandNew,SecondHand,Damaged")] PostCar model, HttpPostedFileBase upload0, HttpPostedFileBase upload1, HttpPostedFileBase upload2, HttpPostedFileBase upload3)
         {
+           
+
             model.Files = new List<File>();
             if (ModelState.IsValid)
             {
@@ -157,6 +160,7 @@ namespace Car_Sale_Web_Site.Controllers
                     model.Files.Add(avatar3);
                 }
 
+                
 
                 var a = model;
                 model.EditedDate = DateTime.Now;
@@ -168,7 +172,7 @@ namespace Car_Sale_Web_Site.Controllers
                 this.AddNotification("Success! You just created new listing for your car!", NotificationType.INFO);
                 return RedirectToAction("Index");
             }
-
+            
             return View(model);
         }
 

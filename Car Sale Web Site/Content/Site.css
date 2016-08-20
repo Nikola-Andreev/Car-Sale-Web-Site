@@ -54,4 +54,13 @@ textarea {
     margin-left: 300px;    
 }
 
+pre {
+    display: block;
+    font-family: monospace;
+    white-space: pre;
+    margin: 1em 0;
+    height: 300px;
+    white-space: pre-wrap;
+}
+
 

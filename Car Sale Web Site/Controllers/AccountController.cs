@@ -13,7 +13,7 @@ using Car_Sale_Web_Site.Models;
 namespace Car_Sale_Web_Site.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
