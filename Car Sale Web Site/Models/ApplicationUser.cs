@@ -12,10 +12,6 @@ namespace Car_Sale_Web_Site.Models
         [Required]
         public string FullName { get; set; }
 
-        public int postsNumber { get; set; }
-
-        public string role { get; set; }
-
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

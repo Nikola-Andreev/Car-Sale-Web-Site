@@ -4,7 +4,6 @@
 @{
     ViewBag.Title = "Details";
 }
-
 <link href="~/Content/images/css/lightbox.css" rel="stylesheet"/>
 <script src="~/Content/images/js/lightbox-plus-jquery.js"></script>
 <h2>Details</h2>
@@ -118,10 +117,10 @@
     </dl>
 </div>
 <p>
-    @if (User.IsInRole("Admin") || User.Identity.GetUserId() == Model.AuthorId)
+    @if (User.IsInRole("Administrators") || User.Identity.GetUserId() == Model.AuthorId)
     { 
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) @:|
     @Html.ActionLink("Delete", "Delete", new { id = Model.Id }) @:|
     }
-    <input type="button" value="Go Back" onclick="history.go(-1);return false;" class="btn btn-default" style="border-color:blue">
+    @Html.ActionLink("Back to My Cars", "MyCars")
 </p>

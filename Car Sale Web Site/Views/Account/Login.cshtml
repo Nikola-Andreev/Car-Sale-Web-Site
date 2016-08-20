@@ -38,27 +38,24 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Log in" class="btn btn-default" style="background-color:blue" />
+                        <input type="submit" value="Log in" class="btn btn-default" />
                     </div>
                 </div>
-                <br>
-
-                <p style="background-color:lightgoldenrodyellow; max-width:150px">
+                <p>
                     @Html.ActionLink("Register as a new user", "Register")
                 </p>
-                <br>
-                // Enable this once you have account confirmation enabled for password reset functionality
-                    <p style="background-color:lightgoldenrodyellow; max-width:150px"> 
+                @* Enable this once you have account confirmation enabled for password reset functionality
+                    <p>
                         @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                    </p>
+                    </p>*@
             }
         </section>
     </div>
-    @*<div class="col-md-4">
+    <div class="col-md-4">
         <section id="socialLoginForm">
             @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
         </section>
-    </div>*@
+    </div>
 </div>
 
 @section Scripts {

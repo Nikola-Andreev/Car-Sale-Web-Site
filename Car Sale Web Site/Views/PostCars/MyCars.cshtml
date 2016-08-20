@@ -1,4 +1,4 @@
-﻿
+﻿@*@model IEnumerable<Car_Sale_Web_Site.Models.PostCar>*@
 @using Microsoft.AspNet.Identity;
 @{
     ViewBag.Title = "MyCars";
@@ -96,15 +96,6 @@
         </td>
     </tr>
 }
-
-    @if (Model.Count == 0)
-    {
-        <br>
-        <div>
-            <h3 style="color:red; margin-left:400px">You don't have any published cars yet.</h3>
-        </div>
-        <br>
-    }
 
 </table>
    @Html.PagedListPager(Model, page => Url.Action("MyCars", new { page, pageSize = Model.PageSize }))
