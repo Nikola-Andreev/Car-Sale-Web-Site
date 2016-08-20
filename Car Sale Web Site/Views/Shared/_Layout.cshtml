@@ -31,6 +31,12 @@
                         <li>@Html.ActionLink("My cars", "MyCars", "PostCars")</li>
                     }                    
                     <li>@Html.ActionLink("Contact us", "Contact", "Home")</li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li >                        
+                            @Html.ActionLink("Adminn Panel", "Index", "Admin")                       
+                        </li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

@@ -337,11 +337,11 @@
         </table>
     }
 
-
+        <br>
             <div style="margin-left: 400px" class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Save" class="btn btn-default" style="border-color: blue" />
-                    @Html.ActionLink("Cancel", "MyCars", null, htmlAttributes: new { @class = "btn" })
+                    <input type="button" value="Go Back" onclick="history.go(-1);return false;" class="btn btn-default" style="border-color:blue">
                 </div>
             </div>
 

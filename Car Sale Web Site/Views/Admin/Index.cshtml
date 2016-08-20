@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Admin Pannel";
+}
+
+@model Car_Sale_Web_Site.Models.Ordered
+@using PagedList.Mvc;
+
+<h2>Admin Panel</h2>
+
+<br>
+<section class="row">
+    <article style="text-align:center" class="post col-md-4">
+        <div>
+            <a href='@Url.Action("EditImages", "Admin")'>
+                <img src="~/fonts/Edit files.jpg" style="height:175px; width:175px" />
+            </a>
+        </div>
+        <div> <h3>Edit Images</h3></div>
+    </article>
+    <article style="text-align:center" class="post col-md-4">
+        <div>
+            <a href='@Url.Action("Index", "PostCars")'>
+                <img src="~/fonts/EditPublications.jpg" style="height:175px; width:175px" />
+            </a>
+        </div>
+        <div><h3>Edit Car Ads</h3></div>
+    </article>
+    <article style="text-align:center" class="post col-md-4">
+        <div>
+            <a href='@Url.Action("EditUsers", "Admin")'>
+                <img src="~/fonts/editusers.jpg" style="height:175px; width:175px" />
+            </a>
+        </div>
+        <div>
+            <h3>Edit Users</h3>
+        </div>
+    </article>
+</section>

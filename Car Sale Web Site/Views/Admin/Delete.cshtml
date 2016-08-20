@@ -1,0 +1,25 @@
+﻿@model Car_Sale_Web_Site.Models.File
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3> <font color="red"> Are you sure you want to delete this image? </font></h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <img src="~/File?id=@Model.FileId" alt="photo" width="160" height="100" />
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input style="color:red; background-color:black" type="submit" value="Delete" class="btn btn-default" /> |
+            <input type="button" value="Go Back" onclick="history.go(-1);return false;" class="btn btn-default" style="border-color:blue">
+        </div>
+    }
+</div>

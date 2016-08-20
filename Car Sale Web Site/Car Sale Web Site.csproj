@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\SearchCarsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -257,6 +258,9 @@
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\contactUs.png" />
+    <Content Include="fonts\Edit files.jpg" />
+    <Content Include="fonts\EditPublications.jpg" />
+    <Content Include="fonts\EditUsers.jpg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\noImage.png" />
     <Content Include="fonts\opel-corsa.jpg" />
@@ -329,6 +333,11 @@
     <Content Include="Views\Home\HighToLow.cshtml" />
     <Content Include="Views\SearchCars\HighToLow.cshtml" />
     <Content Include="Views\SearchCars\LowToHigh.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\EditImages.cshtml" />
+    <Content Include="Views\Admin\Delete.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <None Include="Views\Admin\EditUsers.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
