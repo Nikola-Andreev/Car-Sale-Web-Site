@@ -113,6 +113,15 @@
                 @i.Author.Email
             }
         </dd>
+        <dd style="font-weight: 700">
+            @Html.ActionLink("Send message to seller", "Create", "Messages",
+         new
+         {
+             ToUser = Model.Author_UserName,
+
+         }, null
+         )
+        </dd>
 
     </dl>
 </div>

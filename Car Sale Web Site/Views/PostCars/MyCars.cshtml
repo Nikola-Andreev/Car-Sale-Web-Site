@@ -14,7 +14,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-<table class="table" style="text-align:center">
+<table class="table" style="text-align:center" id="hoverEffects">
     <tr>
         <th style="text-align:center">
             Image
@@ -51,19 +51,16 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+        <tr onclick="location.href='@Url.Action("Details", "PostCars", new { id = item.Id })'">
+
             <td>
                 @if (item.Files.Any(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo))
                 {
-                    <a href='@Url.Action("Details", "PostCars", new { id = item.Id })'>
                         <img src="~/File?id=@item.Files.First(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo).FileId" alt="photo" width="160" height="100" />
-                    </a>
                 }
                 else
                 {
-                    <a href='@Url.Action("Details", "PostCars", new { id = item.Id })'>
                         <img src="~/fonts/noImage.png" alt="photo" width="160" height="100" />
-                    </a>
                 }
             </td>
             <td style="padding-top:40px; text-align:center">

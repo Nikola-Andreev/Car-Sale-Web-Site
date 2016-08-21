@@ -68,4 +68,3 @@ C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\bin\Car Sal
 C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\obj\Debug\Car Sale Web Site.csprojResolveAssemblyReference.cache
 C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\obj\Debug\Car Sale Web Site.dll
 C:\Users\_NERO_\Documents\GitHub\Car-Sale-Web-Site\Car Sale Web Site\obj\Debug\Car Sale Web Site.pdb
-E:\Car-Sale-Web-Site\Car Sale Web Site\obj\Debug\Car Sale Web Site.csprojResolveAssemblyReference.cache

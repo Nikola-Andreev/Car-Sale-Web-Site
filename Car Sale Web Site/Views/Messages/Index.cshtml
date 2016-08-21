@@ -11,12 +11,12 @@
 <p>
     @Html.ActionLink("Send Message", "Create")
 </p>
-<table class="table">
+<table class="table" id="hoverEffects">
     <tr>
         <th>
             Status
         </th>
-       
+
         <th>
             From
         </th>
@@ -31,47 +31,63 @@
             Received
         </th>
 
-
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            
-            @if (DateTime.Compare(item.ReadDate, new DateTime(2001, 1, 1)) < 0) 
-            {
+
+        if (DateTime.Compare(item.ReadDate, new DateTime(2001, 1, 1)) < 0)
+        {
+            <tr style="font-weight: 700; background-color: lightcyan" onclick="location.href='@Url.Action("Details", "Messages", new {id = item.MessageId})'">
                 <td style="color: red">
                     NEW
-</td>
-            }
-            else
-            {
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthorMsgUserName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                <td>
+                    @Utils.CutText(item.MyMessage, 70)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MessageId })
+                </td>
+            </tr>
+        }
+        else
+        {
+            <tr onclick="location.href='@Url.Action("Details", "Messages", new {id = item.MessageId})'">
                 <td>
                     -
                 </td>
-            }
 
-            <td>
-                <a href="~/Messages/Details/@item.MessageId"> @Html.DisplayFor(modelItem => item.AuthorMsgUserName) </a>
-</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthorMsgUserName)
+                </td>
 
-            <td>
-                <a href="~/Messages/Details/@item.MessageId"> @Html.DisplayFor(modelItem => item.Subject) </a>
-</td>
-            <td>
-                <a href="~/Messages/Details/@item.MessageId"> @Utils.CutText(item.MyMessage, 70) </a>
-</td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreateDate)
-            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                <td>
+                    @Utils.CutText(item.MyMessage, 70)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
 
-            <td>
-
-                @*@Html.ActionLink("Details", "Details", new {id = item.MessageId}) | *@
-                @Html.ActionLink("Delete", "Delete", new {id = item.MessageId})
-            </td>
-        </tr>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MessageId })
+                </td>
+            </tr>
+        }
     }
-
 </table>

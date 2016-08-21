@@ -12,7 +12,7 @@ using Car_Sale_Web_Site.Extensions;
 
 namespace Car_Sale_Web_Site.Controllers
 {
-    public class AdminController : Controller
+    public class AdminController : BaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 

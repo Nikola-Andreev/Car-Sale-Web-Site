@@ -9,9 +9,9 @@
 
 <div>
     <h4>Message</h4>
-    <hr />
+    <hr/>
     <dl class="dl-horizontal">
-        
+
 
         <dt>
             From
@@ -50,6 +50,15 @@
         </dd>
 
     </dl>
+</div>
+<div style="text-align: center; font-weight: 700">
+    @Html.ActionLink("Reply", "Create", "Messages",
+         new
+         {
+             ToUser = Model.AuthorMsgUserName,
+
+         }, null
+         )
 </div>
 <p>
     @Html.ActionLink("Back to Messages", "Index")
