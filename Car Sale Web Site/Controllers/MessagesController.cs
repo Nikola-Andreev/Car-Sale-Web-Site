@@ -65,7 +65,7 @@ namespace Car_Sale_Web_Site.Controllers
                 message.AuthorMsgUserName = User.Identity.Name;
                 db.Messages.Add(message);
                 db.SaveChanges();
-                this.AddNotification("Message sent!", NotificationType.INFO);
+                this.AddNotification("Message send!", NotificationType.SUCCESS);
                 return RedirectToAction("Index");
             }
 

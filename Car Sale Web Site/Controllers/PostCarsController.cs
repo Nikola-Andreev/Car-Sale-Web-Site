@@ -168,7 +168,7 @@ namespace Car_Sale_Web_Site.Controllers
                 user.postsNumber++;
                 db.PostCar.Add(model);
                 db.SaveChanges();
-                this.AddNotification("Success! You just created new listing for your car!", NotificationType.INFO);
+                this.AddNotification("You just created new listing for your car!", NotificationType.SUCCESS);
                 return RedirectToAction("Index");
             }
             
