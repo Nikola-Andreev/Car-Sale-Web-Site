@@ -9,13 +9,14 @@
 @using PagedList.Mvc;
 
 <h2>My Cars</h2>
+<br>
 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <table class="table" style="text-align:center" id="hoverEffects">
-    <tr>
+    <tr style="text-align:center">
         <th style="text-align:center">
             Image
         </th>
@@ -92,18 +93,20 @@
                 @Html.DisplayFor(modelItem => item.Author_UserName)
             </td>
         </tr>
-    }
-
-    @if (Model.Count == 0)
-    {
-        <br>
-        <div>
-            <h3 style="color:red; margin-left:400px"> You don't have any published cars yet.</h3>
-        </div>
-        <br>
-    }
+    } 
 
 </table>
+
+@if (Model.Count == 0)
+{
+    <br>
+    <div>
+        <h3 style="color:red; margin-left:400px"> You don't have any published cars yet.</h3>
+    </div>
+        <br>
+}
+
+
 @Html.PagedListPager(Model, page => Url.Action("MyCars", new { page, pageSize = Model.PageSize }))
     Showing @Model.FirstItemOnPage to @Model.LastItemOnPage of @Model.TotalItemCount PostCars
 

@@ -9,6 +9,8 @@ using PagedList;
 using Microsoft.AspNet.Identity;
 using System.Data.Entity;
 using Car_Sale_Web_Site.Extensions;
+using System.Web.Security;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Car_Sale_Web_Site.Controllers
 {
@@ -17,33 +19,57 @@ namespace Car_Sale_Web_Site.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: /File/
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult EditImages()
+        [Authorize(Roles = "Admin")]
+        public ActionResult EditImages(int page = 1, int pageSize = 30)
         {
             var model = db.Files.ToList();
-            return View(model);
+            PagedList<File> paged = new PagedList<File>(model, page, pageSize);
+            return View(paged);
         }
 
-        [Authorize]
-        public ActionResult Delete(int? id)
+        [Authorize(Roles = "Admin")]
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            File file = db.Files.Find(id);
-            if (file == null)
+
+            ApplicationUser user = db.Users.FirstOrDefault(x => x.Id == id);
+
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(file);
+            return View(user);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
+        public ActionResult Delete2(string id)
+        {
+            List<PostCar> userCars = db.PostCar.Where(car => car.AuthorId == id).ToList();
+            foreach (var item in userCars)
+            {
+                if (item.Files.Any(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo))
+                {
+                    db.Files.RemoveRange(item.Files);
+                }
+                db.PostCar.Remove(item);
+            }
+
+            ApplicationUser user = db.Users.FirstOrDefault(x => x.Id == id);
+            db.Users.Remove(user);
+            db.SaveChanges();
+            return RedirectToAction("EditUsers");
+        }
+
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -54,7 +80,7 @@ namespace Car_Sale_Web_Site.Controllers
             return RedirectToAction("EditImages");
         }
 
-        public ActionResult EditUsers(int page = 1, int pageSize = 5)
+        public ActionResult EditUsers(int page = 1, int pageSize = 10)
         {
             List<ApplicationUser> list = db.Users.OrderBy(a => a.FullName).ThenBy(b => b.UserName).ToList();
             PagedList<ApplicationUser> paged = new PagedList<ApplicationUser>(list, page, pageSize);
@@ -62,6 +88,7 @@ namespace Car_Sale_Web_Site.Controllers
         }
 
         [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -78,7 +105,7 @@ namespace Car_Sale_Web_Site.Controllers
         }
 
         [HttpPost, ActionName("Edit")]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(ApplicationUser user)
         {
             if (user.Id == null)
@@ -92,11 +119,10 @@ namespace Car_Sale_Web_Site.Controllers
             userToUpdate.Email = user.Email;
             userToUpdate.PhoneNumber = user.PhoneNumber;
             userToUpdate.role = user.role;
-            // to do 
-            //if (userToUpdate.role=="Admin")
-            //{
-            //    userToUpdate.Roles = "Admin";
-            //}
+
+            var userStore = new UserStore<ApplicationUser>(db);
+            var userManager = new UserManager<ApplicationUser>(userStore);
+            userManager.AddToRole(user.Id, user.role);
 
             db.Entry(userToUpdate).State = EntityState.Modified;
             db.SaveChanges();

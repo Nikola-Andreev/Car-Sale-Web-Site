@@ -27,19 +27,19 @@ textarea {
 }
 
 #createTable {
-   border-collapse:separate; 
-    border-spacing:0.3em;
+    border-collapse: separate;
+    border-spacing: 0.3em;
 }
 
 #headerTable {
     color: royalblue;
-    
 }
 
 #createTable select {
     float: right;
     width: 150px;
 }
+
 #createTable input {
     float: right;
     width: 150px;
@@ -49,9 +49,8 @@ textarea {
     margin-top: 10px;
 }
 
-.homeTable 
-{
-    margin-left: 300px;    
+.homeTable {
+    margin-left: 300px;
 }
 
 pre {
@@ -64,4 +63,20 @@ pre {
 #hoverEffects tr:not(:first-child):hover {
     background-color: #f5f5f5;
     cursor: pointer;
+}
+th {
+    text-align: center;
+}
+
+td {
+    background-color: lightgoldenrodyellow;
+    text-align: center;
+}
+
+tr {
+    background-color: lightblue;
+}
+
+th {
+    text-align: center;
 }

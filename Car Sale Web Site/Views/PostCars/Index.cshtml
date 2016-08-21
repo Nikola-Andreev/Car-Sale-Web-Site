@@ -31,8 +31,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <br />
-<table class="table" style="text-align:center" id="hoverEffects">
-    <tr>
+<table class="table"  id="hoverEffects" >
+    <tr style="text-align:center">
         <th style="text-align:center">
             Image
         </th>
@@ -68,7 +68,7 @@
 
     @foreach (var item in Model.CarsPaged)
     {
-        <tr onclick="location.href='@Url.Action("Details", "PostCars", new { id = item.Id })'">
+        <tr  onclick="location.href='@Url.Action("Details", "PostCars", new { id = item.Id })'">
             <td>
                 @if (item.Files.Any(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo))
                 {
@@ -79,36 +79,37 @@
                         <img src="~/fonts/noImage.png" alt="photo" width="160" height="100" />
                 }
             </td>
-            <td style="padding-top:40px; text-align:center">
+            <td style="padding-top:40px;">
                 @Html.DisplayFor(modelItem => item.Manufacturer)
             </td>
-            <td style="padding-top:40px; text-align:center">
+            <td style="padding-top:40px; ">
                 @Html.DisplayFor(modelItem => item.CarModel)
             </td>
 
-            <td style="padding-top:40px; text-align:center">
+            <td style="padding-top:40px;">
                 @Html.DisplayFor(modelItem => item.Price) £
             </td>
-            <td style="padding-top:40px; text-align:center">
+            <td style="padding-top:40px;">
                 @Html.DisplayFor(modelItem => item.YearMin)
             </td>
-            <td style="padding-top:40px; text-align:center">
+            <td style="padding-top:40px;">
                 @Html.DisplayFor(modelItem => item.FuelId)
             </td>
-            <td style="padding-top:40px; text-align:center">
+            <td style="padding-top:40px;">
                 @Html.DisplayFor(modelItem => item.HorsePower) hp
             </td>
-            <td style="padding-top:40px; text-align:center">
+            <td style="padding-top:40px;">
                 @Html.DisplayFor(modelItem => item.Town)
             </td>
-            <td style="padding-top:40px; text-align:center">
+            <td style="padding-top:40px;">
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
-            <td style="padding-top:40px; text-align:center;">
+            <td style="padding-top:40px;">
                 @Html.DisplayFor(modelItem => item.Author_UserName)
             </td>
         </tr>
     }
+    
 </table> 
 
     @Html.PagedListPager(Model.CarsPaged, page => Url.Action(Model.redirect, new { page , pageSize = Model.CarsPaged.PageSize, income = ViewBag.Model }))

@@ -1,4 +1,4 @@
-﻿@{
+﻿ @{
     ViewBag.Title = "All Cars";
 }
 
@@ -14,25 +14,28 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <br />
-<table class="table" style="text-align:center">
+<table class="table">
     <tr>
-        <th style="text-align:center">
+        <th>
             Full name
         </th>
-        <th style="text-align:center">
+        <th >
             User name
         </th>
-        <th style="text-align:center">
+        <th>
             Phone number
         </th>
-        <th style="text-align:center">
+        <th>
             Email adress
         </th>
-        <th style="text-align:center">
+        <th>
             Role
         </th>
-        <th style="text-align:center">
+        <th >
             Number of posts
+        </th>
+        <th>
+            Functions
         </th>
     </tr>
 
@@ -40,22 +43,22 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td style="padding-top:40px; text-align:center">
+            <td style="padding-top:40px">
                 @Html.DisplayFor(modelItem => item.FullName)
             </td>
-            <td style="padding-top:40px; text-align:center">
+            <td style="padding-top:40px;">
                 @Html.DisplayFor(modelItem => item.UserName)
             </td>
-            <td style="padding-top:40px; text-align:center">
+            <td style="padding-top:40px;">
                 @Html.DisplayFor(modelItem => item.PhoneNumber)
             </td>
-            <td style="padding-top:40px; text-align:center;">
+            <td style="padding-top:40px;">
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
-            <td style="padding-top:40px; text-align:center">
+            <td style="padding-top:40px;">
                 @Html.DisplayFor(modelItem => item.role)
             </td>
-            <td style="padding-top:40px; text-align:center">
+            <td style="padding-top:40px;">
                 @Html.DisplayFor(modelItem => item.postsNumber)
             </td>
             <td>
@@ -66,6 +69,7 @@
         </tr>
     }
 </table>
+<hr>
 
 @Html.PagedListPager(Model, page => Url.Action("EditUsers", new { page, pageSize = Model.PageSize }))
     Showing @Model.FirstItemOnPage to @Model.LastItemOnPage of @Model.TotalItemCount Users

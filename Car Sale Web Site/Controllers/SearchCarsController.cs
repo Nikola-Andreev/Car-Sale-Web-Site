@@ -18,7 +18,7 @@ namespace Car_Sale_Web_Site.Controllers
             return View();
         }
 
-        public ActionResult SearchedCars(Ordered values, int page = 1, int pageSize = 5)
+        public ActionResult SearchedCars(Ordered values, int page = 1, int pageSize = 10)
         {
             if (values.Car != null)
             {
@@ -12063,7 +12063,7 @@ namespace Car_Sale_Web_Site.Controllers
 
             }
         }
-        public ActionResult LowToHigh(Ordered income, int page = 1, int pageSize = 5)
+        public ActionResult LowToHigh(Ordered income, int page = 1, int pageSize = 10)
         {
             Ordered test = (Ordered)TempData["ModelName"];
             List<PostCar> listCars = test.CarsOrdered.OrderBy(a => a.Price).ToList();
@@ -12073,7 +12073,7 @@ namespace Car_Sale_Web_Site.Controllers
             return View(model);
         }
 
-        public ActionResult HighToLow(Ordered income, int page = 1, int pageSize = 5)
+        public ActionResult HighToLow(Ordered income, int page = 1, int pageSize = 10)
         {
             Ordered test = (Ordered)TempData["ModelName"];
             List<PostCar> listCars = test.CarsOrdered.OrderByDescending(a => a.Price).ToList();

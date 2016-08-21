@@ -20,7 +20,7 @@ namespace Car_Sale_Web_Site.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();           
 
     [Authorize]
-        public ActionResult MyCars(int page = 1, int pageSize = 5)
+        public ActionResult MyCars(int page = 1, int pageSize = 10)
         {
             List<PostCar> listCars = db.PostCar.Where(a => a.Author_UserName == User.Identity.Name).OrderByDescending(a => a.Date).ThenBy(m => m.Manufacturer).ToList();
             PagedList<PostCar> model = new PagedList<PostCar>(listCars, page, pageSize);
@@ -28,7 +28,7 @@ namespace Car_Sale_Web_Site.Controllers
         }
 
         // Post: PostCars
-        public ActionResult Index([Bind(Include = "CarsOrdered,CarsPaged,Order")] Ordered income, int page = 1, int pageSize = 5)
+        public ActionResult Index([Bind(Include = "CarsOrdered,CarsPaged,Order")] Ordered income, int page = 1, int pageSize = 10)
         {
             List<PostCar> listCars = db.PostCar.OrderByDescending(a => a.Date).ThenBy(b => b.Manufacturer).ToList();
             income.redirect = "Index";
@@ -48,7 +48,7 @@ namespace Car_Sale_Web_Site.Controllers
             return View(model);
         }
 
-        public ActionResult HighToLow([Bind(Include = "CarsOrdered,CarsPaged,Order")] Ordered income, int page = 1, int pageSize = 5)
+        public ActionResult HighToLow([Bind(Include = "CarsOrdered,CarsPaged,Order")] Ordered income, int page = 1, int pageSize = 10)
         {
             List<PostCar> listCars = db.PostCar.OrderByDescending(a => a.Price).ToList();
             PagedList<PostCar> paged = new PagedList<PostCar>(listCars, page, pageSize);
@@ -56,7 +56,7 @@ namespace Car_Sale_Web_Site.Controllers
             return View(model);
         }
 
-        public ActionResult LowToHigh([Bind(Include = "CarsOrdered,CarsPaged,Order")] Ordered income, int page = 1, int pageSize = 5)
+        public ActionResult LowToHigh([Bind(Include = "CarsOrdered,CarsPaged,Order")] Ordered income, int page = 1, int pageSize = 10)
         {
             List<PostCar> listCars = db.PostCar.OrderBy(a => a.Price).ToList();
             PagedList<PostCar> paged = new PagedList<PostCar>(listCars, page, pageSize);
