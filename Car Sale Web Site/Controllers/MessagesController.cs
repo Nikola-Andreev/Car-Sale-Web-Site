@@ -48,6 +48,8 @@ namespace Car_Sale_Web_Site.Controllers
         // GET: Messages/Create
         public ActionResult Create()
         {
+            string a = Request.UrlReferrer.ToString();
+            TempData["miki"] = a;
             return View();
         }
 
@@ -56,7 +58,7 @@ namespace Car_Sale_Web_Site.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MessageId,AuthorMsgUserName,ToUser,Subject,MyMessage,CreateDate")] Message message)
+        public ActionResult Create([Bind(Include = "MessageId,AuthorMsgUserName,ToUser,Subject,MyMessage,CreateDate")] Message message, string a)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +68,8 @@ namespace Car_Sale_Web_Site.Controllers
                 db.Messages.Add(message);
                 db.SaveChanges();
                 this.AddNotification("Message send!", NotificationType.SUCCESS);
-                return RedirectToAction("Index");
+               // return RedirectToAction("Index");
+                return Redirect(TempData["miki"].ToString());
             }
 
             return View(message);

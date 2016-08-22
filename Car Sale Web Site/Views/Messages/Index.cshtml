@@ -91,3 +91,12 @@
         }
     }
 </table>
+
+@if (Model.LongCount() == 0)
+{
+    <br>
+    <div>
+        <h3 style="color:red; margin-left:350px"> You don't have any messages at the moment.</h3>
+    </div>
+    <br>
+}

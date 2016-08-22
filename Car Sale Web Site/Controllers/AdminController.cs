@@ -29,7 +29,7 @@ namespace Car_Sale_Web_Site.Controllers
         public ActionResult EditImages(int page = 1, int pageSize = 30)
         {
             var model = db.Files.ToList();
-            PagedList<File> paged = new PagedList<File>(model, page, pageSize);
+            PagedList<File> paged = new PagedList<File>(model.OrderByDescending(a => a.FileId), page, pageSize);
             return View(paged);
         }
 

@@ -32,5 +32,5 @@
     }
 </section>
 
-@Html.PagedListPager(Model, page => Url.Action("EditUsers", new { page, pageSize = Model.PageSize }))
-    Showing @Model.FirstItemOnPage to @Model.LastItemOnPage of @Model.TotalItemCount Users
+@Html.PagedListPager(Model, page => Url.Action("EditImages", new { page, pageSize = Model.PageSize }))
+    Showing @Model.FirstItemOnPage to @Model.LastItemOnPage of @Model.TotalItemCount Images
