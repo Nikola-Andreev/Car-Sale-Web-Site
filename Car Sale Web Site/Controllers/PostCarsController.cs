@@ -75,6 +75,7 @@ namespace Car_Sale_Web_Site.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             PostCar postCar = db.PostCar.Find(id);
+
             if (postCar == null)
             {
                 return HttpNotFound();
@@ -200,7 +201,7 @@ namespace Car_Sale_Web_Site.Controllers
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult Post(int? id, HttpPostedFileBase upload0, HttpPostedFileBase upload1, HttpPostedFileBase upload2, HttpPostedFileBase upload3)
+        public ActionResult Edit(int? id, HttpPostedFileBase upload0, HttpPostedFileBase upload1, HttpPostedFileBase upload2, HttpPostedFileBase upload3)
         {
             if (id == null)
             {
@@ -298,7 +299,7 @@ namespace Car_Sale_Web_Site.Controllers
                     db.Entry(carToUpdate).State = EntityState.Modified;
                     db.SaveChanges();
                     this.AddNotification("Success! Your Ad is edited.", NotificationType.INFO);
-                    return RedirectToAction("MyCars");
+                    return RedirectToAction("Details", new { id = carToUpdate.Id });
                 }
                 catch (RetryLimitExceededException /* dex */)
                 {

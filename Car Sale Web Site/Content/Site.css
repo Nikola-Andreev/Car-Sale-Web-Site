@@ -80,3 +80,10 @@ tr {
 th {
     text-align: center;
 }
+dt {
+     background-color: lightblue;
+}
+
+dd {
+    background-color: lightgoldenrodyellow;
+}

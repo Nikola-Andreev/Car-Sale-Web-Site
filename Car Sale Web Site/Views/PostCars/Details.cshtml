@@ -4,78 +4,315 @@
 @{
     ViewBag.Title = "Details";
 }
-<link href="~/Content/images/css/lightbox.css" rel="stylesheet"/>
+<link href="~/Content/images/css/lightbox.css" rel="stylesheet" />
 <script src="~/Content/images/js/lightbox-plus-jquery.js"></script>
 <h2>Details</h2>
 
 @if (Model.Files.Any(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo))
 {
     {
-        <div>
+        <span style="float:left">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Manufacturer)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Manufacturer)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CarModel)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CarModel)
+                </dd>
+
+                <dt>
+                    Year
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.YearMin)
+                </dd>
+
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+                <dd style="width:150px">
+                    @Html.DisplayFor(model => model.Price) £
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Town)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Town)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.HorsePower)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.HorsePower) hp
+                </dd>
+            </dl>
+        </span>
+        @:&nbsp;
+        @:&nbsp;
+        @:&nbsp;
+        @:&nbsp;
+        @:&nbsp;
+        @:&nbsp;
+        @:&nbsp;
+        @:&nbsp;
+        @:&nbsp;
+        <span>
+
             @for (int i = 0; i < Model.Files.Count(); i++)
             {
                 <a href="~/File?id=@Model.Files.ElementAt(i).FileId" data-lightbox="cars"><img src="~/File?id=@Model.Files.ElementAt(i).FileId" alt="photo" width="160" height="100" /></a>
             }
-        </div>
+        </span>
     }
 
 }
+else
+{
+    {
+        <span style="float:left">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Manufacturer)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Manufacturer)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CarModel)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CarModel)
+                </dd>
+
+                <dt>
+                    Year
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.YearMin)
+                </dd>
+
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+                <dd style="width:150px">
+                    @Html.DisplayFor(model => model.Price) £
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Town)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Town)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.HorsePower)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.HorsePower) hp
+                </dd>
+            </dl>
+        </span>
+                @:&nbsp;
+                @:&nbsp;
+                @:&nbsp;
+                @:&nbsp;
+                @:&nbsp;
+                @:&nbsp;
+                @:&nbsp;
+                @:&nbsp;
+                @:&nbsp;
+                <span>
+                    <img src="~/fonts/noImage.png" alt="photo" width="160" height="100" />
+                </span>
+    }
+}
 <div>
-    <hr/>
-    
+    <hr />
+
     <dl class="dl-horizontal">
-       
+        <br />
         <dt>
-            @Html.DisplayNameFor(model => model.Manufacturer)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Manufacturer)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CarModel)
+            Features and characteristics
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CarModel)
+            @if (Model.ABS == true)
+            {
+                @:ABS,
+            }
+            @if (Model.Airbag == true)
+            {
+                @:Airbag,
+            }
+            @if (Model.Climatronic == true)
+            {
+                @:Climatronic,
+            }
+            @if (Model.Climatic == true)
+            {
+                @:Climatic,
+            }
+            @if (Model.Insurance == true)
+            {
+                @:Insurance,
+            }
+            @if (Model.Leather == true)
+            {
+                @:Leather,
+            }
+            @if (Model.ElWindows == true)
+            {
+                @:El.Windows,
+            }
+            @if (Model.Typetronic == true)
+            {
+                @:Typetronic,
+            }
+            @if (Model.ElSeats == true)
+            {
+                @:El.Seats,
+            }
+            @if (Model.SeatsHeat == true)
+            {
+                @:Seats Heat,
+            }
+            @if (Model.Autopilot == true)
+            {
+                @:Autopilot,
+            }
+            @if (Model.Audio == true)
+            {
+                @:Audio,
+            }
+            @if (Model.Retro == true)
+            {
+                @:Retro,
+            }
+            @if (Model.TAXI == true)
+            {
+                @:TAXI,
+            }
+            @if (Model.AllowWeels == true)
+            {
+                @:AllowWeels,
+            }
+            @if (Model.DVDTV == true)
+            {
+                @:DVD TV,
+            }
+            @if (Model.Computer == true)
+            {
+                @:Computer,
+            }
+            @if (Model.FourByFour == true)
+            {
+                @:FourByFour,
+            }
+            @if (Model.ServiceHistory == true)
+            {
+                @:ServiceHistory,
+            }
+            @if (Model.ESP == true)
+            {
+                @:ESP,
+            }
+            @if (Model.Tunning == true)
+            {
+                @:Tunning,
+            }
+            @if (Model.HallogenLights == true)
+            {
+                @:HallogenLights,
+            }
+            @if (Model.NavigationSystem == true)
+            {
+                @:Navigation System,
+            }
+            @if (Model.ElMirrors == true)
+            {
+                @:El Mirrors,
+            }
+            @if (Model.SevenSeats == true)
+            {
+                @:Seven Seats,
+            }
+            @if (Model.ASRTractionControl == true)
+            {
+                @:ASR Traction Control,
+            }
+            @if (Model.BrandNew == true)
+            {
+                @:Brand New,
+            }
+            @if (Model.Parktronic == true)
+            {
+                @:Parktronic,
+            }
+            @if (Model.Alarm == true)
+            {
+                @:Alarm,
+            }
+            @if (Model.SecondHand == true)
+            {
+                if (Model.CentralLocking == false && Model.Damaged == false && Model.Imobilazer == false)
+                {
+                    @:Second Hand
+                }
+                else
+                {
+                    @:Second Hand,
+                }
+            }
+            @if (Model.Imobilazer == true)
+            {
+                if (Model.CentralLocking == false && Model.Damaged == false)
+                {
+                    @:Imobilazer
+                }
+                else
+                {
+                    @:Imobilazer,
+                }
+            }
+            @if (Model.CentralLocking == true)
+            {
+                if (Model.Damaged == false)
+                {
+                    @:Central Locking
+                }
+                else
+                {
+                    @:Central Locking,
+                }
+            }
+            @if (Model.Damaged == true)
+            {
+                @:Dameged
+            }
         </dd>
-
+        <br />
         <dt>
-            @Html.DisplayNameFor(model => model.CarDescription)
+            Aditional information
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.CarDescription)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.YearMin)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.YearMin)
-        </dd>
-
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Price) £
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Town)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Town)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.HorsePower) 
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.HorsePower) hp
-        </dd>
         <br>
-        <b><u>Contact Information:</u></b> <br>
+        <b><u>Contact Information:</u></b>
+        <br>
         <dt>
             Name
         </dt>
@@ -127,9 +364,14 @@
 </div>
 <p>
     @if (User.IsInRole("Admin") || User.Identity.GetUserId() == Model.AuthorId)
-    { 
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) @:|
-    @Html.ActionLink("Delete", "Delete", new { id = Model.Id }) @:|
+    {
+        @*using (Html.BeginForm("Edit", "PostCars", new { id = Model.Id }))
+        {
+            @Html.AntiForgeryToken()
+            <button type="submit">Edit</button>
+        }*@
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) @:|
+        @Html.ActionLink("Delete", "Delete", new { id = Model.Id }) @:|
     }
     <input type="button" value="Go Back" onclick="history.go(-1);return false;" class="btn btn-default" style="border-color:blue">
 </p>
