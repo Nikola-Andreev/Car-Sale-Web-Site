@@ -3,12 +3,29 @@
 }
 
 @using PagedList;
-@model IPagedList<Car_Sale_Web_Site.Models.ApplicationUser>
+@model Car_Sale_Web_Site.Models.Ordered
 @using PagedList.Mvc;
 
 <h2>All Users</h2>
 
 <br>
+
+
+@using (Html.BeginForm("EditUsers", "Admin", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    for (int i = 0; i < 1; i++)
+    {
+        <span style="margin-top:0px" width="300">
+            Order By:
+            @Html.DropDownListFor(model => model.OrderUsers, new SelectList(Enum.GetValues(typeof(Ordered.OrderingUsers))))
+        </span>
+            <span style="margin-bottom:29px" class="form-group">
+                <input type="submit" value="Order" style="border-color:blue" />
+            </span>
+    }
+}
 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -35,33 +52,39 @@
             Number of posts
         </th>
         <th style="text-align:center">
+            Date of registration
+        </th>
+        <th style="text-align:center">
             Functions
         </th>
     </tr>
 
 
-    @foreach (var item in Model)
+    @foreach (var item in Model.UsersPaged)
     {
         <tr>
-            <td style="padding-top:40px">
+            <td style="padding-top:25px">
                 @Html.DisplayFor(modelItem => item.FullName)
             </td>
-            <td style="padding-top:40px;">
+            <td style="padding-top:25px;">
                 @Html.DisplayFor(modelItem => item.UserName)
             </td>
-            <td style="padding-top:40px;">
+            <td style="padding-top:25px;">
                 @Html.DisplayFor(modelItem => item.PhoneNumber)
             </td>
-            <td style="padding-top:40px;">
+            <td style="padding-top:25px;">
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
-            <td style="padding-top:40px;">
+            <td style="padding-top:25px;">
                 @Html.DisplayFor(modelItem => item.role)
             </td>
-            <td style="padding-top:40px;">
+            <td style="padding-top:25px;">
                 @Html.DisplayFor(modelItem => item.postsNumber)
             </td>
-            <td>
+            <td style="padding-top:25px;">
+                @Html.DisplayFor(modelItem => item.dateOfRegistration)
+            </td>
+            <td style="padding-top:25px">
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id })
             </td>
@@ -69,5 +92,5 @@
     }    
 </table>
 <hr>
-    @Html.PagedListPager(Model, page => Url.Action("EditUsers", new { page, pageSize = Model.PageSize }))
-    Showing @Model.FirstItemOnPage to @Model.LastItemOnPage of @Model.TotalItemCount Users
+    @Html.PagedListPager(Model.UsersPaged, page => Url.Action(Model.redirect, new { page, pageSize = Model.UsersPaged.PageSize }))
+    Showing @Model.UsersPaged.FirstItemOnPage to @Model.UsersPaged.LastItemOnPage of @Model.UsersPaged.TotalItemCount Users

@@ -266,6 +266,8 @@
     <Content Include="fonts\EditPublications.jpg" />
     <Content Include="fonts\EditUsers.jpg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\home1.jpg" />
+    <Content Include="fonts\home2.jpg" />
     <Content Include="fonts\noImage.png" />
     <Content Include="fonts\opel-corsa.jpg" />
     <Content Include="fonts\site_logo.jpg" />
@@ -346,6 +348,8 @@
     <Content Include="Views\Admin\EditImages.cshtml" />
     <Content Include="Views\Admin\EditUsers.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Publications.cshtml" />
+    <Content Include="Views\Admin\Date.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />

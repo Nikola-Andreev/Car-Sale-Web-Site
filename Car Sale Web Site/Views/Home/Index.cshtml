@@ -13,115 +13,122 @@
 @{ Html.EnableClientValidation(false); }
 @using (Html.BeginForm("QuickSearch", "Home", FormMethod.Get))
 {
-    <table style="background-color: lightgoldenrodyellow;"  id="headerTable" class="homeTable">
-        <tbody>
-            <tr style="height:8px"></tr>
-            <tr>
-                <td width="470" style="padding-left:195px; text-align:unset"><b>Quick Search</b></td>
-            </tr>
-            <tr style="height:8px"></tr>
-        </tbody>
-    </table>
-    
-    <table style="background-color:lightblue" id="createTable" class="homeTable">
+    <div>
+        <table style="background-color: lightgoldenrodyellow; width:470px" id="headerTable" class="homeTable">
+            <tbody>
+                <tr style="height:8px"></tr>
+                <tr>
+                    <td width="470" style="padding-left:195px; text-align:unset"><b>Quick Search</b></td>
+                </tr>
+                <tr style="height:8px"></tr>
+            </tbody>
+        </table>
 
-        <tbody>
-            <tr >
-                
-                <td >
-                    Manufacturer
-                    @Html.EditorFor(model => model.Car.Manufacturer, new { htmlAttributes = new { @class = "form-inline" } })
-                </td>               
-                <td width="225">
-                    Model
-                    @Html.EditorFor(model => model.Car.CarModel, new { htmlAttributes = new { @class = "form-inline" } })
-                </td>
-            </tr>
-            <tr> </tr>
-            <tr>
-                <td>
-                    Town
-                    @Html.EditorFor(model => model.Car.Town, new { htmlAttributes = new { @class = "form-inline" } })
-                </td>
-                <td>
-                    Car Type
-                    @Html.DropDownListFor(model => model.Car.CategoryId, new SelectList(Enum.GetValues(typeof(PostCar.Category))), "")
-                </td>
-            </tr>
-            <tr> </tr>
-            <tr>
-                <td >
-                    Min price £
-                    @Html.EditorFor(model => model.Car.Price, new { htmlAttributes = new { @class = "form-inline" } })
-                </td>
-                <td>
-                    Max price £
-                    @Html.EditorFor(model => model.Car.PriceMax, new { htmlAttributes = new { @class = "form-inline" } })
-                </td>
-            </tr>
-            <tr> </tr>
-            <tr>
-                <td>
-                    Year min
-                    @Html.EditorFor(model => model.Car.YearMin, new { htmlAttributes = new { @class = "form-inline" } })
-                </td>
-                <td>
-                    Year max
-                    @Html.EditorFor(model => model.Car.YearMax, new { htmlAttributes = new { @class = "form-inline" } })
-                </td>
-            </tr>
-            <tr style="height:8px"></tr>
-        </tbody>
-    </table>
-    <br>
-    <div class="form-group" style="margin-left: 360px">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Search" class="btn btn-default" style="border-color:blue" />
-        </div>
+        <table style="background-color:lightblue" id="createTable" class="homeTable">
+            <tbody>
+                <span>
+                    <img src="~/fonts/home1.jpg" style="width:275px; height:225px; float:left" />
+                </span>
+                <span>
+                    <tr>
+                        <td>
+                            Manufacturer
+                            @Html.EditorFor(model => model.Car.Manufacturer, new { htmlAttributes = new { @class = "form-inline" } })
+                        </td>
+                        <td width="225">
+                            Model
+                            @Html.EditorFor(model => model.Car.CarModel, new { htmlAttributes = new { @class = "form-inline" } })
+                        </td>
+                    </tr>
+                    <tr> </tr>
+                    <tr>
+                        <td>
+                            Town
+                            @Html.EditorFor(model => model.Car.Town, new { htmlAttributes = new { @class = "form-inline" } })
+                        </td>
+                        <td>
+                            Car Type
+                            @Html.DropDownListFor(model => model.Car.CategoryId, new SelectList(Enum.GetValues(typeof(PostCar.Category))), "")
+                        </td>
+                    </tr>
+                    <tr> </tr>
+                    <tr>
+                        <td>
+                            Min price £
+                            @Html.EditorFor(model => model.Car.Price, new { htmlAttributes = new { @class = "form-inline" } })
+                        </td>
+                        <td>
+                            Max price £
+                            @Html.EditorFor(model => model.Car.PriceMax, new { htmlAttributes = new { @class = "form-inline" } })
+                        </td>
+                    </tr>
+                    <tr> </tr>
+                    <tr>
+                        <td>
+                            Year min
+                            @Html.EditorFor(model => model.Car.YearMin, new { htmlAttributes = new { @class = "form-inline" } })
+                        </td>
+                        <td>
+                            Year max
+                            @Html.EditorFor(model => model.Car.YearMax, new { htmlAttributes = new { @class = "form-inline" } })
+                        </td>
+                    </tr>
+                </span>
+                <span style="width:275x; float:right">
+                    <img src="~/fonts/home2.jpg" style="width:275px;  height:225px" />
+                </span>
+                <tr style="height:8px"></tr>
+            </tbody>
+        </table>
     </div>
-    <br><br>
 }
+        <br>
+        <div class="form-group" style="margin-left: 540px">
+                <input type="submit" value="Search" class="btn btn-default" style="border-color:blue" />
+        </div>  
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
 
-<div><h4 style="padding-left:490px">Latest posts</h4></div>
+<br />
+<div><h4 style="padding-left:525px">Latest posts</h4></div>
 
 <section class="row" style="background-color:lightgoldenrodyellow">
     @foreach (var carAd in Model.CarsOrdered)
             {
-                <article class="post col-md-4">
-                    <br />
-                    @if (carAd.Files.Any(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo))
-                    {
+        <article class="post col-md-4" style="text-align:center">
+            <br />
+            @if (carAd.Files.Any(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo))
+            {
 
-                        <dd>
-                            <a href='@Url.Action("Details", "PostCars", new { id = carAd.Id })'>
-                                <img src="~/File?id=@carAd.Files.First(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo).FileId" alt="photo" width="160" height="100" />
-                            </a>
-                        </dd>
-                    }
-                    else
-                    {
-                        <a href='@Url.Action("Details", "PostCars", new { id = carAd.Id })'>
-                            <img src="~/fonts/noImage.png" alt="photo" width="160" height="100" />
-                        </a>
-                    }
-                    <div class="car-model"><a href='@Url.Action("Details", "PostCars", new {id = carAd.Id})'>@carAd.Manufacturer</a></div>
-                    <div class="car-model">@carAd.CarModel</div>
-                    <div class="car-price">Price @carAd.Price £</div> 
-                    <div class="car-year">Year @carAd.YearMin</div>
-                    <div class="about">
-                        Posted on <i>@carAd.Date</i><br>
-                        @if (carAd.Author != null)
-                        {
-                            @:by <i>@carAd.Author.FullName (@carAd.Author.UserName)</i>
+                <dd>
+                    <a href='@Url.Action("Details", "PostCars", new { id = carAd.Id })'>
+                        <img src="~/File?id=@carAd.Files.First(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo).FileId" alt="photo" width="160" height="100" />
+                    </a>
+                </dd>
+            }
+            else
+            {
+                <a href='@Url.Action("Details", "PostCars", new { id = carAd.Id })'>
+                    <img src="~/fonts/noImage.png" alt="photo" width="160" height="100" />
+                </a>
+            }
+            <div class="car-model"><a href='@Url.Action("Details", "PostCars", new {id = carAd.Id})'>@carAd.Manufacturer</a></div>
+            <div class="car-model">@carAd.CarModel</div>
+            <div class="car-price">Price @carAd.Price £</div>
+            <div class="car-year">Year @carAd.YearMin</div>
+            <div class="about">
+                Posted on <i>@carAd.Date</i><br>
+                @if (carAd.Author != null)
+                {
+                    @:by <i>@carAd.Author.FullName (@carAd.Author.UserName)</i>
                         }
-                        
-                    </div>
-                    <br>
-                </article>
+
+            </div>
+            <br>
+        </article>
     }
 </section>
 

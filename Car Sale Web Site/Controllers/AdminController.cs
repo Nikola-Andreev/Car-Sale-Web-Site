@@ -80,11 +80,42 @@ namespace Car_Sale_Web_Site.Controllers
             return RedirectToAction("EditImages");
         }
 
-        public ActionResult EditUsers(int page = 1, int pageSize = 10)
+        public ActionResult EditUsers(Ordered income, int page = 1, int pageSize = 10)
         {
             List<ApplicationUser> list = db.Users.OrderBy(a => a.FullName).ThenBy(b => b.UserName).ToList();
+            
+            income.redirect = "EditUsers";
+            if (income.OrderUsers == Ordered.OrderingUsers.Publications)
+            {
+                income.redirect = "Publications";
+                list = db.Users.OrderByDescending(a => a.postsNumber).ToList();
+            }
+            else if (income.OrderUsers == Ordered.OrderingUsers.Date_Register)
+            {
+                income.redirect = "Date";
+                list = db.Users.OrderByDescending(a => a.dateOfRegistration).ToList();
+            }
+
             PagedList<ApplicationUser> paged = new PagedList<ApplicationUser>(list, page, pageSize);
-            return View(paged);
+
+            Ordered model = new Ordered { UsersPaged = paged, OrderUsers = income.OrderUsers, redirect = income.redirect };
+            return View(model);
+        }
+
+        public ActionResult Publications(Ordered income, int page = 1, int pageSize = 10)
+        {
+            List<ApplicationUser> list = db.Users.OrderByDescending(a => a.postsNumber).ToList();
+            PagedList<ApplicationUser> paged = new PagedList<ApplicationUser>(list, page, pageSize);
+            var model = new Ordered { UsersPaged = paged };
+            return View(model);
+        }
+
+        public ActionResult Date(Ordered income, int page = 1, int pageSize = 10)
+        {
+            List<ApplicationUser> list = db.Users.OrderByDescending(a => a.dateOfRegistration).ToList();
+            PagedList<ApplicationUser> paged = new PagedList<ApplicationUser>(list, page, pageSize);
+            var model = new Ordered { UsersPaged = paged };
+            return View(model);
         }
 
         [Authorize]

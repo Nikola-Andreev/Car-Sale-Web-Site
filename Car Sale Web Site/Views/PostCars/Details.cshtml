@@ -141,7 +141,7 @@ else
     <hr />
 
     <dl class="dl-horizontal">
-        <br />
+        
         <dt>
             Features and characteristics
         </dt>
@@ -308,6 +308,20 @@ else
 
         <dd>
             @Html.DisplayFor(model => model.CarDescription)
+        </dd>
+        <br />
+        <dt>
+            Published on:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <br />
+        <dt>
+            Last edit:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EditedDate)
         </dd>
 
         <br>

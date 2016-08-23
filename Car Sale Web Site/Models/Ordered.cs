@@ -18,12 +18,22 @@ namespace Car_Sale_Web_Site.Models
 
         public PostCar Car { get; set; }
 
+        public IPagedList<ApplicationUser> UsersPaged { get; set;}
+
         public Ordering Order { get; set; }
         public enum Ordering
         {
             Date_Lastest_First = 0,
             Price_Low_To_High = 1,
             Price_High_To_Low = 2,
+        }
+
+        public OrderingUsers OrderUsers { get; set; }
+        public enum OrderingUsers
+        {
+            Alphabetical = 0,
+            Publications = 1,
+            Date_Register = 2,
         }
     }
 }
