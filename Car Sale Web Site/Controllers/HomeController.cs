@@ -21,9 +21,11 @@ namespace Car_Sale_Web_Site.Controllers
         public ActionResult Index()
         { 
             var cars = db.PostCar.Include(c => c.Author).OrderByDescending(p => p.Date).Take(6).ToList();
+            var carsViews = db.PostCar.Include(c => c.Author).OrderByDescending(p => p.CarViews).Take(3).ToList();
+
             var count = db.PostCar.Count();
             ViewBag.Count = count;
-            var model = new Ordered { CarsOrdered = cars, };
+            var model = new Ordered { CarsOrdered = cars, CarsMostViewed = carsViews };
             return View(model);
         }
 

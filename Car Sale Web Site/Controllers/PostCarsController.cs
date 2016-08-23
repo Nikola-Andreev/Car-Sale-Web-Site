@@ -75,7 +75,8 @@ namespace Car_Sale_Web_Site.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             PostCar postCar = db.PostCar.Find(id);
-
+            postCar.CarViews++;
+            db.SaveChanges();
             if (postCar == null)
             {
                 return HttpNotFound();

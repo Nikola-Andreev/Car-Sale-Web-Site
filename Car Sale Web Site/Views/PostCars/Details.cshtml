@@ -54,6 +54,7 @@
                 <dd>
                     @Html.DisplayFor(model => model.HorsePower) hp
                 </dd>
+                
             </dl>
         </span>
         @:&nbsp;
@@ -121,6 +122,7 @@ else
                 <dd>
                     @Html.DisplayFor(model => model.HorsePower) hp
                 </dd>
+                
             </dl>
         </span>
                 @:&nbsp;
@@ -320,10 +322,16 @@ else
         <dt>
             Last edit:
         </dt>
+    <dd>
+        @Html.DisplayFor(model => model.EditedDate)
+    </dd>
+        <br />
+        <dt>
+            Total views:
+        </dt>
         <dd>
-            @Html.DisplayFor(model => model.EditedDate)
+            @Html.DisplayFor(model => model.CarViews)
         </dd>
-
         <br>
         <b><u>Contact Information:</u></b>
         <br>

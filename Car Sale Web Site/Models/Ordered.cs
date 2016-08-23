@@ -12,6 +12,8 @@ namespace Car_Sale_Web_Site.Models
 
         public List<PostCar> CarsOrdered { get; set; }
 
+        public List<PostCar> CarsMostViewed { get; set; }
+
         public IPagedList<PostCar> CarsPaged { get; set; }
 
         public string redirect { get; set; }

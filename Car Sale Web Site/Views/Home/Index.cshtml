@@ -95,8 +95,48 @@
 <br />
 <div><h4 style="padding-left:525px">Latest posts</h4></div>
 
-<section class="row" style="background-color:lightgoldenrodyellow">
+<section class="row" style="background-color: lightgoldenrodyellow">
     @foreach (var carAd in Model.CarsOrdered)
+    {
+        <article class="post col-md-4" style="text-align: center">
+            <br/>
+            @if (carAd.Files.Any(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo))
+            {
+
+                <dd>
+                    <a href='@Url.Action("Details", "PostCars", new {id = carAd.Id})'>
+                        <img src="~/File?id=@carAd.Files.First(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo).FileId" alt="photo" width="160" height="100"/>
+                    </a>
+                </dd>
+            }
+            else
+            {
+                <a href='@Url.Action("Details", "PostCars", new {id = carAd.Id})'>
+                    <img src="~/fonts/noImage.png" alt="photo" width="160" height="100"/>
+                </a>
+            }
+            <div class="car-model"><a href='@Url.Action("Details", "PostCars", new {id = carAd.Id})'>@carAd.Manufacturer</a>
+            </div>
+            <div class="car-model">@carAd.CarModel</div>
+            <div class="car-price">Price @carAd.Price £</div>
+            <div class="car-year">Year @carAd.YearMin</div>
+            <div class="about">
+                Posted on <i>@carAd.Date</i><br>
+                @if (carAd.Author != null)
+                {
+                    @:by <i>@carAd.Author.FullName (@carAd.Author.UserName)</i>
+                }
+
+            </div>
+
+            <br>
+        </article>
+    }
+</section>
+<div><h4 style="padding-left:525px">Most Viewed</h4></div>
+
+<section class="row" style="background-color:lightgoldenrodyellow">
+    @foreach (var carAd in Model.CarsMostViewed)
             {
         <article class="post col-md-4" style="text-align:center">
             <br />
@@ -124,9 +164,10 @@
                 @if (carAd.Author != null)
                 {
                     @:by <i>@carAd.Author.FullName (@carAd.Author.UserName)</i>
-                        }
+                }
 
             </div>
+
             <br>
         </article>
     }

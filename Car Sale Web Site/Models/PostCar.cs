@@ -18,6 +18,8 @@ namespace Car_Sale_Web_Site.Models
         [Key]
         public int Id { get; set; }
 
+        public int CarViews { get; set; }
+
         [Required]
         [StringLength(50)]
         public string CarModel { get; set; }
