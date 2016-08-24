@@ -9,9 +9,12 @@
 
 -The project implements: <br>
 -•	User registration / profiles / login / logout.<br>
--•	View all ads (with paging), without a login.<br>
--•	Post a new ad (with a photo), after login.<br>
+-•	View all ads (with paging), without a login. Each ad has view counter.<br>
+-•	Post a new ad (with a photos), after login.<br>
 -•	Implement towns and categories for the ads. Implement browse by category / town.<br>
 -•	My ads panel: view / edit / delete own ads (posted by the current user).<br>
--•	Admin panel: add / edit / delete users, ads, categories, towns.<br>
--•	Make search by all parameters of the posted car.
+-•	Admin panel: add / edit / delete users, ads, photos.<br>
+-•	Detailed search by all parameters of the posted cars.<br>
+-•	Quick search by some parameters of the posted cars.<br>
+-•	User notifications on success/fail for login, creating listing, editing listing, etc.<br>
+-•	Send private messages to users.<br>
