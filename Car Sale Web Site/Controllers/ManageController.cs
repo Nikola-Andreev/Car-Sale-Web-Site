@@ -7,12 +7,17 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Car_Sale_Web_Site.Models;
+using System.Net;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
+using Car_Sale_Web_Site.Extensions;
 
 namespace Car_Sale_Web_Site.Controllers
 {
     [Authorize]
     public class ManageController : BaseController
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
@@ -52,31 +57,72 @@ namespace Car_Sale_Web_Site.Controllers
             }
         }
 
-        //
-        // GET: /Manage/Index
+
+
+        [Authorize]
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
 
-            ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set."
-                : message == ManageMessageId.Error ? "An error has occurred."
-                : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
-                : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
-                : "";
-
             var userId = User.Identity.GetUserId();
-            var model = new IndexViewModel
+
+            ApplicationUser user = db.Users.FirstOrDefault(x => x.Id == userId);
+
+            var a = TempData["GoBackTo"];
+            if (user == null)
             {
-                HasPassword = HasPassword(),
-                PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
-                TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
-                Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
-            };
-            return View(model);
+                return HttpNotFound();
+            }
+            
+            return View(user);
         }
+
+        [Authorize]
+        public ActionResult Edit(ApplicationUser user)
+        {
+            if (user.Id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var userToUpdate = db.Users.FirstOrDefault(x => x.PhoneNumber == user.PhoneNumber);
+
+            userToUpdate.FullName = user.FullName;
+            userToUpdate.UserName = user.UserName;
+            userToUpdate.Email = user.Email;
+            userToUpdate.PhoneNumber = user.PhoneNumber;
+
+            db.Entry(userToUpdate).State = EntityState.Modified;
+            db.SaveChanges();
+            this.AddNotification("Success! The user is edited.", NotificationType.INFO);
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        //
+        // GET: /Manage/Index
+        //public async Task<ActionResult> Index(ManageMessageId? message)
+        //{
+
+        //    ViewBag.StatusMessage =
+        //        message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
+        //        : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
+        //        : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set."
+        //        : message == ManageMessageId.Error ? "An error has occurred."
+        //        : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
+        //        : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
+        //        : "";
+
+        //    var userId = User.Identity.GetUserId();
+        //    var model = new IndexViewModel
+        //    {
+        //        HasPassword = HasPassword(),
+        //        PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
+        //        TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
+        //        Logins = await UserManager.GetLoginsAsync(userId),
+        //        BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
+        //    };
+        //    return View(model);
+        //}
 
         //
         // POST: /Manage/RemoveLogin
