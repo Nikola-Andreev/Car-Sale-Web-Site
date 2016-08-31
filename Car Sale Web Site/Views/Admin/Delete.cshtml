@@ -62,7 +62,7 @@
     <hr />
 
     <div class="form-actions no-color">
-        @Html.ActionLink("Delete", "Delete2", new { id = Model.Id })  |
+        @Html.ActionLink("Delete", "Delete2", new { id = Model.Id }, new { @class = "btn btn-primary btn-large" })  |
         <input type="button" value="Go Back" onclick="history.go(-1);return false;" class="btn btn-default" style="border-color:blue">
     </div>
 </div>

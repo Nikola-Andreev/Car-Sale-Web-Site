@@ -1,0 +1,73 @@
+﻿@model  Car_Sale_Web_Site.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Delete account";
+}
+
+<h2>Delete</h2>
+
+<h3>
+    <font color="red">
+        Are you sure want to delete your account?
+        Deleting will also delete all your posts!
+    </font>
+</h3>
+
+<br />
+
+@using (Html.BeginForm("Delete2", "Manage", new { id = Model.Id }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div>
+    <table class="table" style="text-align:center">
+        <tr>
+            <th style="text-align:center">
+                Full name
+            </th>
+            <th style="text-align:center">
+                User name
+            </th>
+            <th style="text-align:center">
+                Phone number
+            </th>
+            <th style="text-align:center">
+                Email adress
+            </th>
+            <th style="text-align:center">
+                Role
+            </th>
+            <th style="text-align:center">
+                Number of posts
+            </th>
+        </tr>
+
+        <tr>
+            <td style="padding-top:40px; text-align:center">
+                @Html.DisplayFor(modelItem => Model.FullName)
+            </td>
+            <td style="padding-top:40px; text-align:center">
+                @Html.DisplayFor(modelItem => Model.UserName)
+            </td>
+            <td style="padding-top:40px; text-align:center">
+                @Html.DisplayFor(modelItem => Model.PhoneNumber)
+            </td>
+            <td style="padding-top:40px; text-align:center;">
+                @Html.DisplayFor(modelItem => Model.Email)
+            </td>
+            <td style="padding-top:40px; text-align:center">
+                @Html.DisplayFor(modelItem => Model.role)
+            </td>
+            <td style="padding-top:40px; text-align:center">
+                @Html.DisplayFor(modelItem => Model.postsNumber)
+            </td>
+        </tr>
+    </table>
+    <hr />
+
+    <div class="form-actions no-color">
+        @*@Html.ActionLink("Delete", "Delete2", new { id = Model.Id })  |*@
+        <input type="submit" value="Delete" class="btn btn-default" style="border-color: blue" />
+        <input type="button" value="Go Back" onclick="history.go(-1);return false;" class="btn btn-default" style="border-color:blue">
+    </div>
+</div>
+}
+

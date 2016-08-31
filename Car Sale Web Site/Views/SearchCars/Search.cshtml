@@ -11,16 +11,15 @@
 {
     @Html.AntiForgeryToken()
 
-<br>
+    <br>
     <table id="headerTable">
         <tbody>
             <tr>
-                <td width="550" style="padding-left:100px"><b>Basic Details</b></td>
-                <td width="500"><b>Features and Characteristics</b></td>
+                <td width="500"><b style="margin-right:170px">Basic Details</b></td>
+                <td width="568"><b style="margin-right:170px">Features and Characteristics</b></td>
             </tr>
         </tbody>
     </table>
-    <br>
 
     <table id="createTable">
 
@@ -29,7 +28,7 @@
             <tr>
                 <td width="300">
                     Car Type
-                    @Html.DropDownListFor(model => model.Car.CategoryId, new SelectList(Enum.GetValues(typeof(PostCar.Category))),"")
+                    @Html.DropDownListFor(model => model.Car.CategoryId, new SelectList(Enum.GetValues(typeof(PostCar.Category))), "")
                 </td>
 
                 <td width="250">
@@ -53,7 +52,7 @@
             <tr>
                 <td width="300">
                     Doors number
-                    @Html.DropDownListFor(model => model.Car.DoorId,new SelectList(Enum.GetValues(typeof(PostCar.Door))),"")
+                    @Html.DropDownListFor(model => model.Car.DoorId, new SelectList(Enum.GetValues(typeof(PostCar.Door))), "")
                 </td>
 
                 <td width="250">
@@ -140,7 +139,7 @@
             <tr>
                 <td width="300">
                     Fuel type
-                    @Html.DropDownListFor(m => m.Car.FuelId,new SelectList(Enum.GetValues(typeof(PostCar.Fuel))),"")
+                    @Html.DropDownListFor(m => m.Car.FuelId, new SelectList(Enum.GetValues(typeof(PostCar.Fuel))), "")
                 </td>
 
                 <td width="250">
@@ -163,7 +162,7 @@
             <tr>
                 <td width="300">
                     Transmission
-                    @Html.DropDownListFor(m => m.Car.GearId,new SelectList(Enum.GetValues(typeof(PostCar.Gear))),"")
+                    @Html.DropDownListFor(m => m.Car.GearId, new SelectList(Enum.GetValues(typeof(PostCar.Gear))), "")
                 </td>
 
                 <td width="250">
@@ -251,7 +250,7 @@
                     Price max £
                     @Html.EditorFor(model => model.Car.PriceMax, new { htmlAttributes = new { @class = "form-inline" } })
                 </td>
-                
+
                 <td width="250">
                     @Html.LabelFor(model => model.Car.Imobilazer, htmlAttributes: new { @class = "control-label col-md-2" })
                     @Html.CheckBox("Car.Imobilazer", false)
@@ -283,22 +282,20 @@
             <tr>
                 <td width="300">
                     Color
-                    @Html.DropDownListFor(m => m.Car.ColorId,new SelectList(Enum.GetValues(typeof(PostCar.Color))),"")                
-                </td>                
-            </tr>                            
-        </tbody>     
+                    @Html.DropDownListFor(m => m.Car.ColorId, new SelectList(Enum.GetValues(typeof(PostCar.Color))), "")
+                </td>
+            </tr>
+        </tbody>
     </table>
 
     <div style="margin-left:450px" class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Search" class="btn btn-default" style="border-color:blue" />
+            <input type="button" value="Go Back" onclick="history.go(-1);return false;" class="btn btn-default" style="border-color:blue">
         </div>
     </div>
 
 }
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

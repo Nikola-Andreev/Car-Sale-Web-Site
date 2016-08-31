@@ -67,6 +67,11 @@ namespace Car_Sale_Web_Site.Controllers
         // GET: PostCars/Details/5
         public ActionResult Details(int? id)
         {
+            if (id == null)
+            {
+                id = (int) TempData["carID"];
+            }
+
             var info = db.PostCar.Include(c => c.Author).Where(c => c.Id == id).ToList();
             ViewBag.userInfo = info;
 
@@ -81,6 +86,7 @@ namespace Car_Sale_Web_Site.Controllers
             {
                 return HttpNotFound();
             }
+            TempData["carID"] = postCar.Id;
             return View(postCar);
         }
 
@@ -194,6 +200,33 @@ namespace Car_Sale_Web_Site.Controllers
             var authors = db.Users.ToList();
             ViewBag.Authors = authors;
             return View(postCar);
+        }
+
+        public ActionResult DeleteImage(int id)
+        {
+            if (id == 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            File file = db.Files.Find(id);
+
+            if (file == null)
+            {
+                return HttpNotFound();
+            }
+            return View(file);
+        }
+
+        public ActionResult DeleteImageConfirmed(int id)
+        {
+            int carID = (int) TempData["carID"];
+            File file = db.Files.Find(id);
+            db.Files.Remove(file);
+            db.SaveChanges();
+            var car = db.PostCar.Where(c => c.Files.Contains(file));
+            TempData["carID"] = carID;
+            return RedirectToAction("Details");
         }
 
         // POST: PostCars/Edit/5
@@ -335,10 +368,13 @@ namespace Car_Sale_Web_Site.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             PostCar postCar = db.PostCar.Find(id);
+            var carUser = db.Users.Where(u => u.Id == postCar.AuthorId).ToList();
+
             if (postCar.Files.Any(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo))
             {
                 db.Files.RemoveRange(postCar.Files);
             }
+            carUser[0].postsNumber--;
             db.PostCar.Remove(postCar);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -11,6 +11,8 @@ using System.Net;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 using Car_Sale_Web_Site.Extensions;
+using System.Collections.Generic;
+using System.Web.Security;
 
 namespace Car_Sale_Web_Site.Controllers
 {
@@ -77,27 +79,86 @@ namespace Car_Sale_Web_Site.Controllers
         }
 
         [Authorize]
-        public ActionResult Edit(ApplicationUser user)
+        public async Task<ActionResult> Edit(string id)
+        {
+
+            var userId = User.Identity.GetUserId();
+
+            ApplicationUser user = db.Users.FirstOrDefault(x => x.Id == userId);
+
+            var a = TempData["GoBackTo"];
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(user);
+        }
+
+
+        [Authorize]
+        [HttpPost, ActionName("EditConfirmed")]
+        public ActionResult EditConfirmed(ApplicationUser user)
         {
             if (user.Id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var userToUpdate = db.Users.FirstOrDefault(x => x.PhoneNumber == user.PhoneNumber);
+            var userToUpdateId = User.Identity.GetUserId();
+            user.Id = userToUpdateId;
+            var userToUpdate = db.Users.Where(u => u.Id == user.Id).ToList();
 
-            userToUpdate.FullName = user.FullName;
-            userToUpdate.UserName = user.UserName;
-            userToUpdate.Email = user.Email;
-            userToUpdate.PhoneNumber = user.PhoneNumber;
+            userToUpdate[0].FullName = user.FullName;
+            userToUpdate[0].UserName = user.UserName;
+            userToUpdate[0].Email = user.Email;
+            userToUpdate[0].PhoneNumber = user.PhoneNumber;
 
-            db.Entry(userToUpdate).State = EntityState.Modified;
+            db.Entry(userToUpdate[0]).State = EntityState.Modified;
             db.SaveChanges();
             this.AddNotification("Success! The user is edited.", NotificationType.INFO);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Manage");
         }
 
+        [Authorize]
+        public ActionResult Delete(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            ApplicationUser user = db.Users.FirstOrDefault(x => x.Id == id);
+
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
+
+        [Authorize]
+        public ActionResult Delete2(string id)
+        {
+            List<PostCar> userCars = db.PostCar.Where(car => car.AuthorId == id).ToList();
+            foreach (var item in userCars)
+            {
+                if (item.Files.Any(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo))
+                {
+                    db.Files.RemoveRange(item.Files);
+                }
+                db.PostCar.Remove(item);
+            }
+
+            ApplicationUser user = db.Users.FirstOrDefault(x => x.Id == id);
+            Session.Abandon();
+            db.Users.Remove(user);
+            db.SaveChanges();
+
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Index", "Home");
+        }
         //
         // GET: /Manage/Index
         //public async Task<ActionResult> Index(ManageMessageId? message)

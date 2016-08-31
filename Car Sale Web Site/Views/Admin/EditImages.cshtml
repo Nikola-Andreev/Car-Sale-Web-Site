@@ -25,7 +25,7 @@
             </div>
             <div>
                 @*@Html.ActionLink("Delete", "Delete", "Admin", new { id = Model[i].FileId })*@
-                @Html.ActionLink("Delete", "Delete", new { id = Model[i].FileId })
+                @Html.ActionLink("Delete", "DeleteImage", new { id = Model[i].FileId })
             </div>
             <br />
         </article>

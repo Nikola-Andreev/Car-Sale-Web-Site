@@ -5,7 +5,7 @@
 
 
 @model Car_Sale_Web_Site.Models.Ordered
-    @using PagedList.Mvc;
+@using PagedList.Mvc;
 
 <h2>Result of your search</h2>
 <br>
@@ -21,6 +21,9 @@
         </span>
         <span style="margin-bottom:29px" class="form-group">
             <input type="submit" value="Order" style="border-color:blue" />
+            <span style="margin-left:772px; background-color:yellow" >
+                 @Html.ActionLink("Fix your search", "ChangeSearch", "SearchCars")
+            </span>
         </span>
     }
 }
@@ -31,86 +34,86 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <table class="table">
-<tr>
-    <th style="text-align:center">
-        Image
-    </th>
-    <th style="text-align:center">
-        Make
-    </th>
-    <th style="text-align:center">
-        Model
-    </th>
-    <th style="text-align:center">
-        Price
-    </th>
-    <th style="text-align:center">
-        Year
-    </th>
-    <th style="text-align:center">
-        Fuel Type
-    </th>
-    <th style="text-align:center">
-        Power
-    </th>
-    <th style="text-align:center">
-        Location
-    </th>
-    <th style="text-align:center">
-        Published Date
-    </th>
-    <th style="text-align:center">
-        Author
-    </th>
-</tr>
-
-@foreach (var item in Model.CarsPaged)
-{
     <tr>
-        <td>
-            @if (item.Files.Any(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo))
-            {
-                <a href='@Url.Action("Details", "PostCars", new { id = item.Id })'>
-                    <img src="~/File?id=@item.Files.First(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo).FileId" alt="photo" width="160" height="100" />
-                </a>
-            }
-            else
-            {
-                <a href='@Url.Action("Details", "PostCars", new { id = item.Id })'>
-                    <img src="~/fonts/noImage.png" alt="photo" width="160" height="100" />
-                </a>
-            }
-        </td>
-        <td style="padding-top:40px; ">
-            @Html.DisplayFor(modelItem => item.Manufacturer)
-        </td>
-        <td style="padding-top:40px; ">
-            @Html.DisplayFor(modelItem => item.CarModel)
-        </td>
-
-        <td style="padding-top:40px">
-            @Html.DisplayFor(modelItem => item.Price) £
-        </td>
-        <td style="padding-top:40px; ">
-            @Html.DisplayFor(modelItem => item.YearMin)
-        </td>
-        <td style="padding-top:40px; ">
-            @Html.DisplayFor(modelItem => item.FuelId)
-        </td>
-        <td style="padding-top:40px; ">
-            @Html.DisplayFor(modelItem => item.HorsePower) hp
-        </td>
-        <td style="padding-top:40px">
-            @Html.DisplayFor(modelItem => item.Town)
-        </td>
-        <td style="padding-top:40px; ">
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td style="padding-top:40px; ">
-            @Html.DisplayFor(modelItem => item.Author_UserName)
-        </td>
+        <th style="text-align:center">
+            Image
+        </th>
+        <th style="text-align:center">
+            Make
+        </th>
+        <th style="text-align:center">
+            Model
+        </th>
+        <th style="text-align:center">
+            Price
+        </th>
+        <th style="text-align:center">
+            Year
+        </th>
+        <th style="text-align:center">
+            Fuel Type
+        </th>
+        <th style="text-align:center">
+            Power
+        </th>
+        <th style="text-align:center">
+            Location
+        </th>
+        <th style="text-align:center">
+            Published Date
+        </th>
+        <th style="text-align:center">
+            Author
+        </th>
     </tr>
-}  
+
+    @foreach (var item in Model.CarsPaged)
+    {
+        <tr>
+            <td>
+                @if (item.Files.Any(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo))
+                {
+                    <a href='@Url.Action("Details", "PostCars", new { id = item.Id })'>
+                        <img src="~/File?id=@item.Files.First(f => f.FileType == Car_Sale_Web_Site.Models.FileType.Photo).FileId" alt="photo" width="160" height="100" />
+                    </a>
+                }
+                else
+                {
+                    <a href='@Url.Action("Details", "PostCars", new { id = item.Id })'>
+                        <img src="~/fonts/noImage.png" alt="photo" width="160" height="100" />
+                    </a>
+                }
+            </td>
+            <td style="padding-top:40px; ">
+                @Html.DisplayFor(modelItem => item.Manufacturer)
+            </td>
+            <td style="padding-top:40px; ">
+                @Html.DisplayFor(modelItem => item.CarModel)
+            </td>
+
+            <td style="padding-top:40px">
+                @Html.DisplayFor(modelItem => item.Price) £
+            </td>
+            <td style="padding-top:40px; ">
+                @Html.DisplayFor(modelItem => item.YearMin)
+            </td>
+            <td style="padding-top:40px; ">
+                @Html.DisplayFor(modelItem => item.FuelId)
+            </td>
+            <td style="padding-top:40px; ">
+                @Html.DisplayFor(modelItem => item.HorsePower) hp
+            </td>
+            <td style="padding-top:40px">
+                @Html.DisplayFor(modelItem => item.Town)
+            </td>
+            <td style="padding-top:40px; ">
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td style="padding-top:40px; ">
+                @Html.DisplayFor(modelItem => item.Author_UserName)
+            </td>
+        </tr>
+    }
 </table>
 
 @if (Model.CarsPaged.Count == 0)
@@ -126,5 +129,5 @@
     </dd>
 }
 
-@Html.PagedListPager(Model.CarsPaged, page => Url.Action(Model.redirect, new {page, pageSize = Model.CarsPaged.PageSize }))
+@Html.PagedListPager(Model.CarsPaged, page => Url.Action(Model.redirect, new { page, pageSize = Model.CarsPaged.PageSize }))
     Showing @Model.CarsPaged.FirstItemOnPage to @Model.CarsPaged.LastItemOnPage of @Model.CarsPaged.TotalItemCount Cars

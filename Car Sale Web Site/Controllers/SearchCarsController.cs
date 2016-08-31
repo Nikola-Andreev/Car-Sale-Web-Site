@@ -12068,7 +12068,7 @@ namespace Car_Sale_Web_Site.Controllers
             Ordered test = (Ordered)TempData["ModelName"];
             List<PostCar> listCars = test.CarsOrdered.OrderBy(a => a.Price).ToList();
             PagedList<PostCar> paged = new PagedList<PostCar>(listCars, page, pageSize);
-            var model = new Ordered { CarsOrdered = listCars, CarsPaged = paged };
+            var model = new Ordered { CarsOrdered = listCars, CarsPaged = paged, Car = test.Car };
             TempData["ModelName"] = model;
             return View(model);
         }
@@ -12078,9 +12078,16 @@ namespace Car_Sale_Web_Site.Controllers
             Ordered test = (Ordered)TempData["ModelName"];
             List<PostCar> listCars = test.CarsOrdered.OrderByDescending(a => a.Price).ToList();
             PagedList<PostCar> paged = new PagedList<PostCar>(listCars, page, pageSize);
-            var model = new Ordered { CarsOrdered = listCars, CarsPaged = paged };
+            var model = new Ordered { CarsOrdered = listCars, CarsPaged = paged, Car= test.Car };
             TempData["ModelName"] = model;
             return View(model);
+        }
+
+        public ActionResult ChangeSearch()
+        {
+            Ordered test = (Ordered)TempData["ModelName"];
+            TempData["ModelName"] = test;
+            return View(test);
         }
     }
 }

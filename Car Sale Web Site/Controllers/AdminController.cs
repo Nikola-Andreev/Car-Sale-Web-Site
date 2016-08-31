@@ -69,9 +69,25 @@ namespace Car_Sale_Web_Site.Controllers
             return RedirectToAction("EditUsers");
         }
 
+
         [Authorize(Roles = "Admin")]
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        public ActionResult DeleteImage(int id)
+        {
+            if (id == 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            File file = db.Files.Find(id);
+
+            if (file == null)
+            {
+                return HttpNotFound();
+            }
+            return View(file);
+        }
+
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             File file = db.Files.Find(id);
@@ -118,7 +134,6 @@ namespace Car_Sale_Web_Site.Controllers
             return View(model);
         }
 
-        [Authorize]
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(string id)
         {

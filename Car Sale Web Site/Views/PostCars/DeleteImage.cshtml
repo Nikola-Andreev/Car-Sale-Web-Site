@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Delete Image";
+}
+
+@model Car_Sale_Web_Site.Models.File
+
+<link href="~/Content/images/css/lightbox.css" rel="stylesheet" />
+<script src="~/Content/images/js/lightbox-plus-jquery.js"></script>
+<br />
+<h2><font color="red">Are you shure want to delete this image?</font></h2>
+
+<br>
+<section class="row">
+        <article style="text-align:center" class="post col-md-2">
+            <div>
+                <a href="~/File?id=@Model.FileId" data-lightbox="cars"><img src="~/File?id=@Model.FileId" alt="photo" width="460" height="300" /></a>
+            </div>
+            <div class="form-actions no-color">
+                @Html.ActionLink("Delete", "DeleteImageConfirmed", new { id = Model.FileId })  |
+                <input type="button" value="Go Back" onclick="history.go(-1);return false;" class="btn btn-default" style="border-color:blue">
+            </div>
+            <br />
+        </article>
+</section>

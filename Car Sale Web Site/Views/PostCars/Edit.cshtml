@@ -312,7 +312,8 @@
             {
                 <td>
                     <img src="~/File?id=@Model.Files.ElementAt(i).FileId" alt="photo" width="160" height="100" />
-
+                    <br />
+                     @Html.ActionLink("Delete", "DeleteImage", new { id = Model.Files.ElementAt(i).FileId }) 
                     <input type="file" id="Avatar" name="@(String.Format("upload{0}", i))" />
                 </td>
 

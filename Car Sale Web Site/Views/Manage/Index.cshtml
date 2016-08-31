@@ -2,63 +2,68 @@
 @model  Car_Sale_Web_Site.Models.ApplicationUser
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Account info";
 }
 
-<h2>Edit your account</h2>
+<h2>Account details</h2>
 
-
-@using (Html.BeginForm("Edit", "Manage", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <table id="createTable">
+    <br />
+    <table class="table">
+        <tr>
+            <th style="text-align:center">
+                Full name
+            </th>
+            <th style="text-align:center">
+                User name
+            </th>
+            <th style="text-align:center">
+                Phone number
+            </th>
+            <th style="text-align:center">
+                Email adress
+            </th>
+            <th style="text-align:center">
+                Role
+            </th>
+            <th style="text-align:center">
+                Number of posts
+            </th>
+            <th style="text-align:center">
+                Date of registration
+            </th>
+            <th style="text-align:center">
+                Functions
+            </th>
+        </tr>
 
-            <tbody>
 
-                <div class="form-group">
-                    @Html.LabelFor(m => m.FullName, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
-                    </div>
-                </div>
-                <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  @Html.ActionLink("Change your password", "ChangePassword")
-            </tbody>
-        </table>
-
-        <br>
-        <div style="margin-left: 400px" class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" style="border-color: blue" />
-                <input type="button" value="Go Back" onclick="history.go(-1);return false;" class="btn btn-default" style="border-color:blue">
-            </div>
-        </div>
-
-        @*<div>
-                @Html.ActionLink("Back to List", "MyCars")
-            </div>*@@section Scripts {
-            @Scripts.Render("~/bundles/jqueryval")
-            }
-        </div>
-}
+        <tr>
+            <td style="padding-top:25px">
+                @Html.DisplayFor(modelItem => Model.FullName)
+            </td>
+            <td style="padding-top:25px;">
+                @Html.DisplayFor(modelItem => Model.UserName)
+            </td>
+            <td style="padding-top:25px;">
+                @Html.DisplayFor(modelItem => Model.PhoneNumber)
+            </td>
+            <td style="padding-top:25px;">
+                @Html.DisplayFor(modelItem => Model.Email)
+            </td>
+            <td style="padding-top:25px;">
+                @Html.DisplayFor(modelItem => Model.role)
+            </td>
+            <td style="padding-top:25px;">
+                @Html.DisplayFor(modelItem => Model.postsNumber)
+            </td>
+            <td style="padding-top:25px;">
+                @Html.DisplayFor(modelItem => Model.dateOfRegistration)
+            </td>
+            <td style="padding-top:25px">
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = Model.Id })
+            </td>
+        </tr>
+    </table>

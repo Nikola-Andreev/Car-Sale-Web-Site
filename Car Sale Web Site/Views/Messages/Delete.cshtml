@@ -57,8 +57,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" style="background-color:blue" /> |
-            @Html.ActionLink("Back to Messages", "Index")
+            <input type="submit" value="Delete" class="btn btn-primary btn-large" style="background-color:blue" /> |
+            <input type="button" value="Cancel" onclick="history.go(-1);return false;" class="btn btn-primary btn-large" style="border-color:blue">  
         </div>
     }
 </div>
